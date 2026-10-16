@@ -1,0 +1,50 @@
+/* Aerospace chapter: radar scope with mission blips, readout, mission log. */
+.aero-deck { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 1.4rem; align-items: start; }
+@media (max-width: 860px) { .aero-deck { grid-template-columns: minmax(0, 1fr); } }
+
+.aero-scope-wrap { margin: 0; padding: 0; display: grid; min-width: 0; }
+/* Light theme: pale panel, thin teal ink rings, soft sweep, no glow. Dark theme: the glowing scope. */
+.aero-scope { position: relative; width: min(100%, 32rem); aspect-ratio: 1; margin: .6rem auto; color: var(--acc); border-radius: 50%; background: color-mix(in srgb, var(--acc) 5%, var(--bg-2)); --aero-glow: 0 0 0 transparent; --aero-glow-hot: 0 0 0 transparent; --aero-sweep: .24; --aero-ring: .7; }
+:root[data-theme="dark"] .aero-scope { background: transparent; --aero-glow: 0 0 12px var(--acc); --aero-glow-hot: 0 0 18px var(--acc); --aero-sweep: .55; --aero-ring: 1; }
+.aero-scope-svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.aero-scope-svg .aero-rings { opacity: var(--aero-ring); }
+.aero-scope-svg .aero-sweep path:first-child { opacity: var(--aero-sweep); }
+
+.aero-blips { position: absolute; inset: 0; }
+.aero-blip { position: absolute; left: 50%; top: 50%; translate: -50% -50%; width: 2.6rem; height: 2.6rem; border: 0; padding: 0; background: transparent; color: var(--acc); cursor: pointer; display: grid; place-items: center; border-radius: 50%; }
+.aero-blip i { position: absolute; width: 11px; height: 11px; border-radius: 50%; background: var(--acc); box-shadow: 0 0 0 3px color-mix(in srgb, var(--acc) 25%, transparent), var(--aero-glow); transition: scale .15s ease, box-shadow .2s ease; }
+.aero-blip span { position: absolute; left: calc(50% + .5rem); top: calc(50% - 1.05rem); font-family: var(--f-mono); font-size: .62rem; letter-spacing: .1em; color: var(--fg-2); background: color-mix(in srgb, var(--bg) 70%, transparent); padding: 0 .2rem; border-radius: 2px; pointer-events: none; }
+.aero-blip::after { content: ""; position: absolute; inset: .3rem; border-radius: 50%; border: 1px solid transparent; transition: border-color .15s ease; }
+.aero-blip:hover i, .aero-blip:focus-visible i, .aero-blip.is-hot i { scale: 1.35; box-shadow: 0 0 0 5px color-mix(in srgb, var(--acc) 30%, transparent), var(--aero-glow-hot); }
+.aero-blip:hover::after, .aero-blip:focus-visible::after, .aero-blip.is-hot::after { border-color: var(--acc-line); }
+.aero-blip:hover span, .aero-blip:focus-visible span, .aero-blip.is-hot span { color: var(--fg); }
+.aero-blip.is-ping i { box-shadow: 0 0 0 7px color-mix(in srgb, var(--acc) 35%, transparent), var(--aero-glow-hot); }
+.aero-blip:focus-visible { outline-offset: -2px; }
+
+.aero-readout { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: .25rem .9rem; padding: .7rem 1rem .9rem; border-top: 1px solid var(--line); color: var(--fg-2); font-size: .72rem; min-height: 4.6rem; }
+.aero-ro-k { color: var(--mute); letter-spacing: .14em; }
+.aero-ro-cs { color: var(--acc); font-weight: 600; }
+.aero-readout > span:not(.aero-ro-k) { overflow-wrap: anywhere; }
+
+.aero-side { display: grid; gap: 1.2rem; min-width: 0; }
+.aero-log-list { list-style: none; margin: 0; padding: .3rem 0; }
+.aero-log-list button { width: 100%; display: grid; grid-template-columns: 1.6rem minmax(0, 1fr) auto; gap: .7rem; align-items: baseline; padding: .55rem 1rem; border: 0; background: transparent; color: var(--fg); font: inherit; text-align: left; cursor: pointer; border-left: 2px solid transparent; }
+.aero-log-list button:hover, .aero-log-list button:focus-visible, .aero-log-list button.is-hot { background: var(--acc-soft); border-left-color: var(--acc); }
+.aero-log-list button:focus-visible { outline-offset: -2px; }
+.aero-log-n { color: var(--acc); font-size: .7rem; }
+.aero-log-cs { font-weight: 500; min-width: 0; }
+.aero-log-cs small { display: block; font-size: .78rem; color: var(--mute); font-weight: 400; }
+.aero-log-when { color: var(--mute); font-size: .68rem; white-space: nowrap; }
+@media (max-width: 420px) { .aero-log-when { display: none; } }
+
+.aero-note { margin-top: .9rem; color: var(--fg-2); font-size: .9rem; }
+
+/* dive-in extras */
+.aero-videos { display: grid; gap: .6rem; min-width: 0; }
+.aero-videos-2x2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.aero-videos-2x2 .video .vt { font-size: .62rem; }
+.aero-videos-2x2 .video .play { width: 44px; height: 44px; }
+@media (max-width: 480px) { .aero-videos-2x2 { gap: .4rem; } .aero-videos-2x2 .video .vt { font-size: .56rem; left: .5rem; right: .5rem; bottom: .45rem; } .aero-videos-2x2 .video .play { width: 36px; height: 36px; } }
+.aero-vnote { color: var(--mute); font-size: .7rem; }
+.aero-facts { min-width: 0; }
+.aero-facts .kv { grid-template-columns: 6rem minmax(0, 1fr); }

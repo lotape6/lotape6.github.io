@@ -1,0 +1,35 @@
+# Fidel González Leiva
+
+> Robotics and software engineer (C++/Python), seven years across aerospace, automotive and semiconductors. Remote, based in Andalusia, Spain. Open to senior software or robotics roles, remote or hybrid in Málaga/Seville.
+
+This file is a plain-text summary of https://lotape6.github.io/ for assistants and crawlers. Every statement is backed by the public sources linked below; no confidential information from any employer or client is included.
+
+## Profile at a glance
+- Senior software engineer with a strong record in safety-critical and research-grade systems: autonomous UAVs (FADA-CATEC), automotive AUTOSAR software for BMW (Bertrandt), and build infrastructure for ASML's machine software (Alten).
+- Owner of the extendable door-handle software for BMW's Neue Klasse vehicles (iX3 and i3, 2025–2026): architecture, state machine, requirement traceability, CAN/LIN/SOME/IP integration, GoogleTest.
+- Three peer-reviewed papers on drone detection and interception (IEEE SSRR 2021 first author, MDPI Electronics 2020, IEEE ICUAS 2020). Member of the Iberian Robotics team, 1st place in MBZIRC 2020 Challenge 3.
+- Project manager of the CATEC work package in the H2020 ASSISTANCE project from November 2021.
+- AI Champion at ASML (via Alten): introduces coding-agent harnesses (Claude Code, OpenCode) with instructions, memory, permissions, reviewers, hooks, skills and evals; teaches the team.
+- Daily toolkit: Linux, kitty, tmux, zsh/Oh My Zsh/Starship, fzf, fd, ripgrep, bat, delta, VS Code with custom config, git worktrees, Docker, Bazel, CMake, GitHub Actions.
+- Languages: Spanish (native), English (Cambridge First Certificate, works in English daily).
+
+## Experience
+- 2025–now · Alten Delivery Center Spain for ASML · Software developer (remote) · build-infrastructure upgrade of ASML's machine software (Bazel migration), AI Champion.
+- 2022–2024 · Bertrandt Group for BMW · Software developer · extendable door-handle software, AUTOSAR C++, CAN, LIN, SOME/IP, DLT, GoogleTest.
+- 2024–2025 · Career break for family reasons; self-study in cybersecurity (red/blue team, HTB) and local LLM/RAG systems (llama.cpp, LlamaIndex, pgvector).
+- 2019–2022 · FADA-CATEC · Robotics engineer / software developer · real-time C++/Python for autonomous UAVs: computer vision, AI perception, navigation, mission execution; MBZIRC 2020, GAVIOTA, METRICS/RAMI, DELOREAN, ASSISTANCE, Piloto 5G Andalucía.
+
+## Education
+- M.Sc. Electronic, Robotics and Automation Engineering · University of Seville · 2018–2019.
+- B.Sc. Electronic, Robotic and Mechatronic Engineering · University of Málaga 2014–2017, final year at the University of Seville 2017–2018.
+
+## Publications
+- F. González, R. Caballero, F. J. Pérez-Grau, A. Viguria. "Vision-based UAV Detection for Air-to-Air Neutralization." IEEE SSRR 2021. https://doi.org/10.1109/SSRR53300.2021.9597861
+- J. Mariscal-Harana, V. Alarcón, F. González et al. "Audio-Based Aircraft Detection System for Safe RPAS BVLOS Operations." Electronics 9(12), 2020. https://doi.org/10.3390/electronics9122076
+- M. A. Ruiz García, R. Caballero, F. González, A. Viguria, A. Ollero. "Autonomous drone with ability to track and capture an aerial target." ICUAS 2020. https://doi.org/10.1109/ICUAS48674.2020.9213883
+
+## Links
+- GitHub: https://github.com/lotape6
+- LinkedIn: https://www.linkedin.com/in/fidel-gonzalez-leiva/
+- CV (PDF): https://github.com/lotape6/cv/raw/master/assets/cv.pdf
+- Dotfiles: https://github.com/laiadlotape/dotfiles

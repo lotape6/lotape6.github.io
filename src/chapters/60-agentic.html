@@ -1,0 +1,384 @@
+<!-- css: chapters/agents.css  js: chapters/agents.js -->
+<section class="chapter" id="agents" data-atmo="agents" data-acc="gn" data-hud="CH 07 · AGENTS">
+  <div class="wrap">
+    <div class="chapter-head">
+      <p class="eyebrow"><span class="idx">07</span> Agentic engineering · AIgen · ASML · Finding Memo · 2024–2026</p>
+      <h2>Giving the agent a harness</h2>
+      <p class="lede">AI coding agents treated like any other engineering tool: give them a harness (instructions, memory, permissions, reviewers, hooks, skills, evals), measure the result, and teach the team. The harnesses I run at work are company property and cannot be shown; this explorer mirrors their structure with snippets from my public repos.</p>
+      <div class="meta"><span><b>Role</b> AI Champion at ASML (via Alten)</span><span><b>Stack</b> Claude Code · OpenCode · tmux · git worktrees · Docker · llama.cpp · MARP</span></div>
+      <p class="chapter-note">The public snippets are from my own repositories. The harnesses I run at work stay private; only their general shape is mirrored.</p>
+    </div>
+
+    <div class="agents-layout">
+      <aside class="panel corner agents-timeline-panel" aria-label="Timeline">
+        <div class="panel-head"><b>Log</b><span>2024 → 2026</span></div>
+        <ol class="agents-timeline">
+          <li>
+            <span class="mono agents-when">Sep–Nov 2024</span>
+            <b>AIgen</b>
+            <p>Local LLM agent with RAG on llama.cpp (CUDA), LlamaIndex and PostgreSQL pgvector. First contact with agent loops.</p>
+            <button class="btn ghost agents-mini" type="button" data-dive="dive-aigen">Dive in</button>
+          </li>
+          <li>
+            <span class="mono agents-when">Feb 2025 – now</span>
+            <b>AI Champion at ASML</b>
+            <p>Evaluated AI tools for a large C/C++ codebase and set up practical workflows so developers could adopt AI-assisted engineering. The Bazel migration work was itself done with agent assistance. The harnesses built there stay at ASML/Alten.</p>
+          </li>
+          <li>
+            <span class="mono agents-when">Mar–May 2026</span>
+            <b>Finding Memo</b>
+            <p>An interactive guide and 5-minute talk that explains agents through Finding Nemo. Built by an agent, with a reconstruction of its own build you can step through.</p>
+            <button class="btn ghost agents-mini" type="button" data-dive="dive-findingmemo">Dive in</button>
+          </li>
+          <li>
+            <span class="mono agents-when">2026</span>
+            <b>Harnesses in every repo</b>
+            <p><code>.opencode/</code> in alikindoi (OpenCode), agents and skills in Finding Memo (Claude Code), an HR-reviewer agent in the CV repo.</p>
+            <button class="btn ghost agents-mini" type="button" data-dive="dive-harness">Full tour</button>
+          </li>
+        </ol>
+      </aside>
+
+      <div class="panel corner agents-explorer" id="agents-explorer">
+        <div class="panel-head agents-explorer-head">
+          <b>Harness explorer</b>
+          <div class="agents-tabs" role="tablist" aria-label="Explorer views">
+            <button class="agents-tab" role="tab" type="button" id="agents-tab-files" aria-selected="true" aria-controls="agents-pane-files">Files</button>
+            <button class="agents-tab" role="tab" type="button" id="agents-tab-topo" aria-selected="false" aria-controls="agents-pane-topo" tabindex="-1">Topology</button>
+            <button class="agents-tab" role="tab" type="button" id="agents-tab-loop" aria-selected="false" aria-controls="agents-pane-loop" tabindex="-1">The loop</button>
+          </div>
+        </div>
+        <p class="agents-disclaimer mono"><span class="agents-vis agents-vis-public">public</span> verbatim from my repos · <span class="agents-vis agents-vis-private">private</span> exists in the work harnesses (ASML/Alten), company property, not shown · structure mirrored, contents redacted</p>
+
+        <div class="agents-pane" id="agents-pane-files" role="tabpanel" aria-labelledby="agents-tab-files">
+          <div class="agents-files">
+            <div class="agents-tree" id="agents-tree" role="tree" aria-label="Harness layers and files">
+              <p class="mono agents-tree-root">harness/ <span id="agents-tree-count"></span></p>
+              <noscript><p class="agents-small">The tree needs JavaScript; the full tour below lists the same public files.</p></noscript>
+            </div>
+            <div class="agents-code" aria-live="polite">
+              <div class="agents-code-head mono"><span id="agents-code-path">AGENTS.md</span><span id="agents-code-kind">instructions</span><span class="agents-vis" id="agents-code-vis">public</span></div>
+              <pre class="agents-pre" tabindex="0" id="agents-pre"><code id="agents-code">loading…</code></pre>
+              <div class="agents-redacted" id="agents-redacted" hidden aria-label="Redacted: company property">
+                <span class="agents-redacted-tag mono">redacted · company property</span>
+                <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                <p class="agents-small" id="agents-redacted-text"></p>
+              </div>
+              <p class="agents-note"><b>What this buys you</b> <span id="agents-code-note"></span></p>
+              <div class="agents-where mono"><span>Runs in</span><span class="agents-where-chip" data-where="cc">Claude Code</span><span class="agents-where-chip" data-where="oc">OpenCode</span><span class="agents-where-chip" data-where="ci">CI</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="agents-pane" id="agents-pane-topo" role="tabpanel" aria-labelledby="agents-tab-topo" hidden>
+          <div class="agents-topo">
+            <div class="agents-topo-scroll">
+              <svg class="agents-topo-svg" viewBox="0 0 820 350" role="img" aria-labelledby="agents-topo-title agents-topo-desc" preserveAspectRatio="xMidYMid meet">
+                <title id="agents-topo-title">Harness topology at runtime</title>
+                <desc id="agents-topo-desc">The human writes a task; instructions and memory are loaded; the agent loop calls tools and MCP servers through hooks; a read-only reviewer and the tests gate the commit; CI gates the merge.</desc>
+                <defs>
+                  <marker id="agents-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5 0 10z" fill="currentColor"/></marker>
+                  <path id="agents-topo-path" d="M70 92 H346 L441 92 L536 78 H664 L668 92 L668 106 H540 L475 110 V192 L475 228 H636 L695 228 V298 L695 322"/>
+                </defs>
+                <g class="agents-topo-edges" fill="none" stroke="currentColor" stroke-width="1.2" marker-end="url(#agents-arrow)">
+                  <path d="M112 92 H136"/>
+                  <path d="M318 92 H342"/>
+                  <path d="M536 78 H664"/>
+                  <path d="M668 106 H540"/>
+                  <path d="M475 126 V192"/>
+                  <path d="M580 228 H636"/>
+                  <path d="M695 250 V298"/>
+                </g>
+                <g class="agents-topo-hooks">
+                  <rect x="548" y="40" width="108" height="104" rx="10" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="4 3"/>
+                  <text x="602" y="33" class="agents-topo-tag" text-anchor="middle">hooks wrap every tool call</text>
+                  <text x="602" y="156" class="agents-topo-tag" text-anchor="middle">pre-tool-use guard · post-edit lint</text>
+                </g>
+                <g class="agents-topo-node" transform="translate(16 70)">
+                  <rect width="96" height="44" rx="6"/><text x="48" y="19" text-anchor="middle" class="agents-topo-h">Human</text><text x="48" y="34" text-anchor="middle" class="agents-topo-s">task · review · merge</text>
+                </g>
+                <g class="agents-topo-node" transform="translate(140 58)">
+                  <rect width="178" height="68" rx="6"/><text x="89" y="19" text-anchor="middle" class="agents-topo-h">Instructions + memory</text><text x="89" y="35" text-anchor="middle" class="agents-topo-s">AGENTS.md · CLAUDE.md · rules</text><text x="89" y="48" text-anchor="middle" class="agents-topo-s">memory · decisions · skills</text><text x="89" y="61" text-anchor="middle" class="agents-topo-s">permissions allow / ask / deny</text>
+                </g>
+                <g class="agents-topo-node agents-topo-loop" transform="translate(346 58)">
+                  <rect width="190" height="68" rx="6"/><text x="95" y="19" text-anchor="middle" class="agents-topo-h">Agent loop</text><text x="95" y="35" text-anchor="middle" class="agents-topo-s">prompt → model → tool → result</text><text x="95" y="48" text-anchor="middle" class="agents-topo-s">subagents: planner · implementer</text><text x="95" y="61" text-anchor="middle" class="agents-topo-s">context grows · compaction</text>
+                </g>
+                <g class="agents-topo-node" transform="translate(668 58)">
+                  <rect width="134" height="68" rx="6"/><text x="67" y="19" text-anchor="middle" class="agents-topo-h">Tools / MCP</text><text x="67" y="35" text-anchor="middle" class="agents-topo-s">git · GitHub · browser</text><text x="67" y="48" text-anchor="middle" class="agents-topo-s">DB · CI · issue tracker</text><text x="67" y="61" text-anchor="middle" class="agents-topo-s">shell in a sandbox</text>
+                </g>
+                <g class="agents-topo-node agents-topo-gate" transform="translate(370 196)">
+                  <rect width="210" height="64" rx="6"/><text x="105" y="19" text-anchor="middle" class="agents-topo-h">Gate · reviewer + tests</text><text x="105" y="35" text-anchor="middle" class="agents-topo-s">read-only reviewer · security</text><text x="105" y="48" text-anchor="middle" class="agents-topo-s">/test green · evals · budgets</text><text x="105" y="60" text-anchor="middle" class="agents-topo-s">APPROVE / REQUEST CHANGES</text>
+                </g>
+                <g class="agents-topo-node" transform="translate(640 206)">
+                  <rect width="110" height="44" rx="6"/><text x="55" y="19" text-anchor="middle" class="agents-topo-h">Commit</text><text x="55" y="34" text-anchor="middle" class="agents-topo-s">/ship · worktree</text>
+                </g>
+                <g class="agents-topo-node agents-topo-gate" transform="translate(580 302)">
+                  <rect width="230" height="40" rx="6"/><text x="115" y="18" text-anchor="middle" class="agents-topo-h">CI gate → merge</text><text x="115" y="32" text-anchor="middle" class="agents-topo-s">PR template · review bot · deploy gate</text>
+                </g>
+                <g class="agents-topo-side">
+                  <text x="16" y="200" class="agents-topo-tag">1 · human writes the task</text>
+                  <text x="16" y="216" class="agents-topo-tag">2 · harness files load first</text>
+                  <text x="16" y="232" class="agents-topo-tag">3 · loop: model ⇄ tools, hooks in between</text>
+                  <text x="16" y="248" class="agents-topo-tag">4 · reviewer + tests gate the commit</text>
+                  <text x="16" y="264" class="agents-topo-tag">5 · CI gates the merge, human merges</text>
+                </g>
+                <circle class="agents-topo-packet" r="4" fill="currentColor">
+                  <animateMotion dur="11s" repeatCount="indefinite" rotate="auto"><mpath href="#agents-topo-path"/></animateMotion>
+                </circle>
+              </svg>
+            </div>
+            <ol class="agents-topo-legend">
+              <li><b>Human → harness.</b> The task lands on top of instructions, memory and permissions that were written beforehand, so what the model reads first is yours.</li>
+              <li><b>Agent loop ⇄ tools.</b> Every tool and MCP call passes through hooks: a pre-tool-use guard can block it, a post-edit hook formats and lints the result.</li>
+              <li><b>Gate before commit.</b> A read-only reviewer and the test command must both say yes; the reviewer cannot edit, it can only report.</li>
+              <li><b>Gate before merge.</b> CI re-runs the checks, the review bot comments, the deploy gate waits for a human.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="agents-pane" id="agents-pane-loop" role="tabpanel" aria-labelledby="agents-tab-loop" hidden>
+          <div class="agents-loop">
+            <ol class="agents-steps" aria-label="Agent loop steps">
+              <li><button class="agents-step" type="button" data-step="0" aria-current="step">Prompt</button></li>
+              <li><button class="agents-step" type="button" data-step="1">Model</button></li>
+              <li><button class="agents-step" type="button" data-step="2">Tool call</button></li>
+              <li><button class="agents-step" type="button" data-step="3">Result</button></li>
+              <li><button class="agents-step" type="button" data-step="4">Context grows</button></li>
+              <li><button class="agents-step" type="button" data-step="5">Compaction</button></li>
+            </ol>
+            <div class="agents-ctx" aria-hidden="true">
+              <div class="agents-ctx-bar"><i id="agents-ctx-fill"></i></div>
+              <div class="agents-ctx-labels mono"><span>context window</span><span id="agents-ctx-pct">12%</span></div>
+            </div>
+            <p class="agents-step-text" id="agents-step-text" aria-live="polite">You describe the task. The prompt, the loaded instructions (AGENTS.md, CLAUDE.md) and any skills go into the context window first.</p>
+            <div class="agents-loop-ctl">
+              <button class="btn ghost" type="button" id="agents-prev" aria-label="Previous step">← Prev</button>
+              <span class="mono agents-step-count" id="agents-step-count">Step 1 / 6</span>
+              <button class="btn" type="button" id="agents-next" aria-label="Next step">Next →</button>
+            </div>
+            <p class="agents-loop-foot">Adapted from the "How it works" section of Finding Memo: currents are the harness, Marlin is the agent, Dory is a subagent with the same brain and a smaller context.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-3 agents-cards">
+      <div class="panel agents-card">
+        <div class="panel-head"><b>What a harness is</b><span>10 layers</span></div>
+        <div class="panel-body">
+          <ul class="agents-list">
+            <li><b>Instructions</b> global rules, user profile, AGENTS.md / CLAUDE.md, per-directory rules.</li>
+            <li><b>Context &amp; memory</b> memory files, decision log, inputs notes.</li>
+            <li><b>Permissions</b> allow / ask / deny, protected paths, secrets policy.</li>
+            <li><b>Agents</b> planner, implementer, read-only reviewer, security, tests, docs, visual QA.</li>
+            <li><b>Commands &amp; skills</b> <code>/test</code>, <code>/ship</code>, <code>/review</code>; rules that auto-load by file.</li>
+            <li><b>Hooks, tools, evals, CI</b> guards around tool calls, MCP servers, golden outputs, merge gates.</li>
+          </ul>
+          <p class="agents-small">Public pieces are shown verbatim in the explorer; the work harnesses are company property and only their shape is mirrored.</p>
+          <button class="btn" type="button" data-dive="dive-harness">Tour the public files</button>
+        </div>
+      </div>
+      <div class="panel agents-card">
+        <div class="panel-head"><b>Tools</b><span>daily desk</span></div>
+        <div class="panel-body">
+          <dl class="agents-desk">
+            <dt>Agents</dt><dd><span class="chip">Claude Code CLI</span><span class="chip">OpenCode</span></dd>
+            <dt>Terminal</dt><dd><span class="chip">tmux · agents in panes</span><span class="chip">kitty</span></dd>
+            <dt>Editor</dt><dd><span class="chip">VS Code · tuned settings, tasks, keybindings</span></dd>
+            <dt>Isolation</dt><dd><span class="chip">git worktree per task</span><span class="chip">Docker sandboxes</span></dd>
+            <dt>Writing</dt><dd><span class="chip">MARP for talks</span><span class="chip">Obsidian for notes</span></dd>
+            <dt>Local models</dt><dd><span class="chip">llama.cpp</span><span class="chip">LlamaIndex</span><span class="chip">pgvector</span></dd>
+          </dl>
+          <p class="agents-small">Copilot and Cursor are covered in the Finding Memo knowledge base, alongside Claude Code and OpenCode. The editor config carries no secrets.</p>
+        </div>
+      </div>
+      <div class="panel agents-card">
+        <div class="panel-head"><b>Finding Memo</b><span>guide + talk</span></div>
+        <div class="panel-body">
+          <p class="agents-small">"AI agents are simpler than you think." An interactive guide built by an agent, making it a live example of what it teaches, plus a 14-slide MARP deck for a 5-minute talk.</p>
+          <div class="agents-card-ctl">
+            <button class="btn" type="button" data-dive="dive-findingmemo">Open</button>
+            <a class="btn ghost" href="https://lotape6.github.io/FindingMemo" target="_blank" rel="noopener">Visit the guide</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<dialog class="dive" id="dive-harness" aria-labelledby="dive-harness-t">
+  <div class="dive-frame">
+    <div class="dive-head"><b>Harness 01</b><span>The public tour · alikindoi · Finding Memo · CV</span><button class="dive-close" type="button" aria-label="Close">✕</button></div>
+    <div class="dive-body">
+      <h3 id="dive-harness-t">The public pieces of a working harness</h3>
+      <div class="prose">
+        <p>A harness is everything around the model that makes its output predictable: what it reads first, what it may run, who checks its work, and which rules kick in automatically. These are the real files from three public repositories. The harnesses I run at work (hooks, evals, CI gates, per-directory rules, security reviewers) are company property and are only mirrored as structure in the explorer.</p>
+      </div>
+      <div class="agents-tour">
+        <div class="agents-tour-item">
+          <div class="agents-tour-head"><span class="mono">1 · Instructions</span><span class="mono agents-tour-path">AGENTS.md · opencode.json</span></div>
+          <p><code>AGENTS.md</code> describes stack, layout, commands and the hard rules (anti-ban, audit trail). <code>opencode.json</code> loads it plus <code>TODOs.md</code> into every session.</p>
+          <pre class="agents-pre"><code>"instructions": ["AGENTS.md", "TODOs.md"],</code></pre>
+          <pre class="agents-pre"><code>- Never hard-delete jobs; tombstone via `is_active=False` + `job_events` entry.
+- Anti-ban is a hard requirement: per-source rate limits, jitter, backoff on
+  429/403, configurable cadence with enforced safe minimums. Do not bypass.</code></pre>
+        </div>
+        <div class="agents-tour-item">
+          <div class="agents-tour-head"><span class="mono">2 · Permissions</span><span class="mono agents-tour-path">opencode.json</span></div>
+          <p>Bash is allowed, so the agent can run tests and commit, but destructive git and <code>rm -rf</code> ask first.</p>
+          <pre class="agents-pre"><code>"permission": {
+  "bash": {
+    "*": "allow",
+    "git push*": "allow",
+    "git commit*": "allow",
+    "git reset*": "ask",
+    "rm -rf*": "ask"
+  }
+}</code></pre>
+        </div>
+        <div class="agents-tour-item">
+          <div class="agents-tour-head"><span class="mono">3 · Reviewer subagent</span><span class="mono agents-tour-path">.opencode/agents/reviewer.md</span></div>
+          <p>Read-only (<code>edit: deny</code>). Checks anti-ban floors, the audit-trail rule, config safety, tests and docs. Verdict APPROVE / REQUEST CHANGES with <code>file:line</code> findings.</p>
+          <pre class="agents-pre"><code>mode: subagent
+permission:
+  edit: deny
+  bash: allow
+---
+You are the code reviewer for alikindoi, a job-scraping tracker. You NEVER
+modify files — you inspect and report.
+
+1. **Anti-ban (hard requirement)** — reject any change that:
+   - lowers a value in `HARD_MIN_INTERVALS` or bypasses `source_allowed()`
+   - adds retries/loops against a job board (fail fast, skip, move on)</code></pre>
+        </div>
+        <div class="agents-tour-item">
+          <div class="agents-tour-head"><span class="mono">4 · Commands</span><span class="mono agents-tour-path">.opencode/commands/test.md · ship.md</span></div>
+          <p><code>/test</code> runs pytest and the frontend build and fixes until green. <code>/ship</code> verifies, calls the reviewer, then commits and pushes.</p>
+          <pre class="agents-pre"><code>1. Run the verification suite: `backend/.venv/bin/pytest` and
+   `npm run build` in `frontend/`. Stop and fix if not green.
+2. Use the `reviewer` subagent (Task tool) to review `git diff HEAD` against
+   the project rules. Address any REQUEST CHANGES findings first.
+3. Inspect `git status` and `git log --oneline -5` for message style.
+4. Stage only intended files (never `.env`, `data/`, or `node_modules/`),</code></pre>
+        </div>
+        <div class="agents-tour-item">
+          <div class="agents-tour-head"><span class="mono">5 · Skills</span><span class="mono agents-tour-path">.opencode/skills/scraping-safety/SKILL.md</span></div>
+          <p>Auto-triggers when adapters, runner, scheduler or rate limits are edited. Its rules override feature requests.</p>
+          <pre class="agents-pre"><code>description: Anti-ban and rate-limiting rules for alikindoi's scraping engine. Use when modifying adapters/, runner.py, scheduler.py, salary/description enrichment, config rate_limits, or adding a new job-board source.
+---
+This project's survival depends on NOT getting banned by job boards. When
+touching scraping code, these rules override any feature request.</code></pre>
+        </div>
+        <div class="agents-tour-item">
+          <div class="agents-tour-head"><span class="mono">6 · Specialised agents</span><span class="mono agents-tour-path">FindingMemo/agents · skills</span></div>
+          <p><code>content-architect</code> (multi-level content, cross-tool knowledge of Claude Code, Copilot, Cursor, OpenCode), <code>frontend-builder</code> (vanilla HTML/CSS/JS + GSAP ScrollTrigger, accessibility rules) and <code>visual-qa</code> (screenshots at 1280/768/480, structured QA report). Skills <code>analyze-section</code>, <code>build-section</code>, <code>build-fauna</code>.</p>
+          <pre class="agents-pre"><code>name: visual-qa
+description: Takes screenshots of the built page and validates visual quality
+model: opus
+tools: Read, Bash, Glob
+---
+5. **Responsiveness**: check at 1280px, 768px, 480px widths
+4. Report issues as a structured list with section, issue, severity
+   (critical/major/minor), and suggested fix</code></pre>
+        </div>
+        <div class="agents-tour-item">
+          <div class="agents-tour-head"><span class="mono">7 · CV reviewer agent</span><span class="mono agents-tour-path">cv/agents/hhrr-reviewer</span></div>
+          <p>Prompt, checklist and output template for HR-style CV reviews: headline, strengths, prioritised improvements, before → after rewrites, ATS keywords, score.</p>
+          <pre class="agents-pre"><code>You are an expert Human Resources (HHRR) reviewer specializing in software developer CVs.
+...
+7) Final score (1-10) and concise next steps (apply, tailor, add projects, refine metrics).</code></pre>
+        </div>
+        <div class="agents-tour-item">
+          <div class="agents-tour-head"><span class="mono">8 · CI deploy gate</span><span class="mono agents-tour-path">FindingMemo/.github/workflows/deploy.yml</span></div>
+          <p>The build runs in CI with read-only contents permission; the deploy job only starts after the build job succeeds.</p>
+          <pre class="agents-pre"><code>permissions:
+  contents: read
+  pages: write
+  id-token: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+  deploy:
+    needs: build</code></pre>
+        </div>
+        <div class="agents-tour-item agents-tour-private">
+          <div class="agents-tour-head"><span class="mono">9 · What stays private</span><span class="mono agents-tour-path">ASML / Alten harnesses</span></div>
+          <p>Hooks (pre-tool-use guards, post-edit formatters, session bootstrap, stop-time summaries), eval suites with golden outputs and cost budgets, security reviewers, per-directory rules and CI review bots exist in the work harnesses. They are company property: the explorer shows where they sit, not what they contain.</p>
+        </div>
+      </div>
+      <div class="links">
+        <a href="https://github.com/lotape6/alikindoi" target="_blank" rel="noopener">alikindoi (.opencode/)</a>
+        <a href="https://github.com/lotape6/FindingMemo" target="_blank" rel="noopener">FindingMemo (agents, skills)</a>
+        <a href="https://github.com/lotape6/cv" target="_blank" rel="noopener">cv (agents/hhrr-reviewer)</a>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="dive" id="dive-findingmemo" aria-labelledby="dive-findingmemo-t">
+  <div class="dive-frame">
+    <div class="dive-head"><b>Guide 02</b><span>Finding Memo · Mar–May 2026</span><button class="dive-close" type="button" aria-label="Close">✕</button></div>
+    <div class="dive-body">
+      <h3 id="dive-findingmemo-t">AI agents are simpler than you think</h3>
+      <div class="dive-grid">
+        <div>
+          <table class="agents-table">
+            <caption class="mono">The metaphor</caption>
+            <thead><tr><th>Finding Nemo</th><th>AI</th><th></th></tr></thead>
+            <tbody>
+              <tr><td>Marlin</td><td>The Agent</td><td>The intelligence that drives action</td></tr>
+              <tr><td>Water Currents</td><td>The Harness</td><td>Infrastructure that carries the agent</td></tr>
+              <tr><td>Crush</td><td>The Human</td><td>Knows the currents, builds the currents</td></tr>
+              <tr><td>Dory</td><td>Subagent</td><td>Same brain, smaller context</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <dl class="kv">
+            <dt>What</dt><dd>Interactive single-page guide + 14-slide MARP presentation for a 5-minute talk with deep-dive speaker notes</dd>
+            <dt>Built with</dt><dd>MARP for slides, Claude Code for everything else, GSAP for scroll animations</dd>
+            <dt>Harness</dt><dd>Agents <code>content-architect</code>, <code>frontend-builder</code>, <code>visual-qa</code>; skills <code>analyze-section</code>, <code>build-section</code>, <code>build-fauna</code></dd>
+            <dt>Licence</dt><dd>MIT</dd>
+          </dl>
+          <div class="links">
+            <a href="https://lotape6.github.io/FindingMemo" target="_blank" rel="noopener">lotape6.github.io/FindingMemo</a>
+            <a href="https://lotape6.github.io/FindingMemo/lessons/00-introduction/index.html" target="_blank" rel="noopener">The slides</a>
+            <a href="https://github.com/lotape6/FindingMemo" target="_blank" rel="noopener">Source</a>
+          </div>
+        </div>
+      </div>
+      <div class="prose">
+        <p><b>The Cast.</b> What a model, an agent and context actually are. No jargon. A clownfish swims alongside you as your companion through the guide.</p>
+        <p><b>How It Works.</b> The agent loop visualised as a hand-drawn diagram. The harness file structure (root, user, project layers). The context window filling up and compacting.</p>
+        <p><b>The Mindset.</b> Four rules for working with AI agents: prompt deliberately, build reusable context, keep it congruent, think first.</p>
+        <p><b>Watch It Happen.</b> A live reconstruction of how an agent built the Finding Memo presentation. Step by step, tool call by tool call, subagent by subagent. Play, pause, step through.</p>
+        <p>The guide itself was built by an AI agent, making it a live example of the concepts it teaches. Its knowledge base covers Claude Code, GitHub Copilot, Cursor and OpenCode.</p>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="dive" id="dive-aigen" aria-labelledby="dive-aigen-t">
+  <div class="dive-frame">
+    <div class="dive-head"><b>Lab 03</b><span>AIgen · Sep–Nov 2024</span><button class="dive-close" type="button" aria-label="Close">✕</button></div>
+    <div class="dive-body">
+      <h3 id="dive-aigen-t">A local RAG agent, before the harnesses</h3>
+      <div class="dive-grid">
+        <div class="prose">
+          <p>AIgen was the first contact with agent loops: a local LLM agent with retrieval-augmented generation, running entirely on own hardware. Documents are embedded into PostgreSQL with pgvector, LlamaIndex handles indexing and retrieval, and llama.cpp runs the model on CUDA.</p>
+          <p>Everything that came later (the ASML workflows, Finding Memo, the harnesses) builds on the same loop seen here: prompt, model, tool call, result, context.</p>
+        </div>
+        <div>
+          <dl class="kv">
+            <dt>When</dt><dd>Sep–Nov 2024</dd>
+            <dt>Inference</dt><dd>llama.cpp (CUDA)</dd>
+            <dt>Retrieval</dt><dd>LlamaIndex</dd>
+            <dt>Vector store</dt><dd>PostgreSQL pgvector</dd>
+          </dl>
+          <div class="chips agents-gap"><span class="chip">local LLM</span><span class="chip">RAG</span><span class="chip">llama.cpp</span><span class="chip">LlamaIndex</span><span class="chip">pgvector</span></div>
+          <div class="links agents-gap"><a href="https://github.com/lotape6/AIgen" target="_blank" rel="noopener">github.com/lotape6/AIgen</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</dialog>

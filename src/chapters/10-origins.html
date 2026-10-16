@@ -1,0 +1,77 @@
+<!-- css: chapters/origins.css  js: chapters/origins.js -->
+<section class="chapter" id="origins" data-atmo="origins" data-acc="cy" data-hud="CH 01 · ORIGINS">
+  <div class="wrap">
+    <div class="chapter-head">
+      <p class="eyebrow"><span class="idx">01</span> Origins · Málaga and Seville · 2014–2019</p>
+      <h2>From a servo on a Raspberry Pi to a drone that catches drones</h2>
+      <p class="lede">One degree in robotics, started in Málaga and finished in Seville, a master's on top, and the first projects that put a camera, a controller and a motor in the same loop.</p>
+      <div class="meta"><span><b>B.Sc.</b> Electronic, Robotic &amp; Mechatronic Engineering · University of Málaga 2014–2017, final year at the University of Seville 2017–2018</span><span><b>M.Sc.</b> Electronic, Robotics &amp; Automation Engineering · University of Seville · 2018–2019</span></div>
+    </div>
+
+    <div class="origins-grid">
+      <div class="origins-route panel corner" aria-label="Route from Málaga to Seville">
+        <div class="panel-head"><b>Route</b><span>Iberian Peninsula · symbolic</span></div>
+        <svg class="origins-map" viewBox="0 0 600 440" role="img" aria-labelledby="origins-map-t">
+          <title id="origins-map-t">Symbolic map of the Iberian Peninsula with Andalusia highlighted and Málaga, Seville and Jerez de la Frontera marked</title>
+          <defs>
+            <pattern id="og-hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0V6" stroke="var(--acc)" stroke-opacity=".28" stroke-width="1"/></pattern>
+            <radialGradient id="og-sea" cx="30%" cy="80%" r="90%"><stop offset="0" stop-color="var(--acc)" stop-opacity=".16"/><stop offset="1" stop-color="var(--acc)" stop-opacity=".03"/></radialGradient>
+            <filter id="og-soft" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="2.5"/></filter>
+            <clipPath id="og-clip"><rect width="600" height="440"/></clipPath>
+          </defs>
+          <g clip-path="url(#og-clip)">
+            <rect class="og-sea" width="600" height="440" fill="url(#og-sea)"/>
+            <path class="og-grat" d="M7.8 0V440 M85.9 0V440 M163.9 0V440 M242.0 0V440 M320.0 0V440 M398.1 0V440 M476.1 0V440 M554.2 0V440 M0 404.6H600 M0 303.4H600 M0 202.3H600 M0 101.1H600"/>
+            <g class="og-grat-lbl"><text x="12" y="98">42°N</text><text x="12" y="199">40°N</text><text x="12" y="300">38°N</text><text x="12" y="401">36°N</text><text x="238" y="432">4°W</text><text x="394" y="432">0°</text></g>
+            <!-- neighbouring land, dimmed -->
+            <path class="og-land og-land-far" d="M329.8 32.9 L339.5 20.2 L351.2 0.0 L569.8 0.0 L600 0 L600 30.3 L526.8 37.9 L524.9 86.0 L495.6 80.9 L456.6 73.3 L417.6 65.7 L366.8 55.6 Z"/>
+            <path class="og-land og-land-far" d="M0.0 440.0 L156.1 440.0 L167.8 417.2 L189.3 409.7 L214.6 442.5 L261.5 445.1 L284.9 440.0 L320.0 450.1 L359.0 440.0 L600 440.0 L600 460 L0 460 Z"/>
+            <!-- coastal glow -->
+            <path class="og-glow" filter="url(#og-soft)" d="M70.2 30.3 L89.8 12.6 L124.9 22.8 L175.6 22.8 L222.4 30.3 L249.8 27.8 L284.9 32.9 L320.0 35.4 L329.8 32.9 L366.8 55.6 L417.6 65.7 L456.6 73.3 L495.6 80.9 L524.9 86.0 L519.0 106.2 L483.9 131.5 L444.9 146.7 L431.2 166.9 L409.8 187.1 L398.1 204.8 L386.3 227.6 L398.1 252.9 L405.9 265.5 L378.5 285.7 L370.7 321.1 L359.0 326.2 L335.6 336.3 L312.2 368.2 L296.6 364.1 L261.5 368.2 L225.6 369.2 L204.9 379.3 L189.3 398.5 L179.5 404.6 L162.0 389.4 L150.2 376.8 L126.8 346.4 L109.3 343.9 L87.8 354.0 L62.4 349.0 L48.8 354.0 L54.6 318.6 L48.8 283.2 L39.0 268.0 L27.3 263.0 L33.2 232.6 L50.7 192.2 L58.5 146.7 L52.7 116.3 L52.7 91.0 L35.1 55.6 L50.7 35.4 Z"/>
+            <!-- Iberian Peninsula -->
+            <path class="og-land og-iberia" d="M70.2 30.3 L89.8 12.6 L124.9 22.8 L175.6 22.8 L222.4 30.3 L249.8 27.8 L284.9 32.9 L320.0 35.4 L329.8 32.9 L366.8 55.6 L417.6 65.7 L456.6 73.3 L495.6 80.9 L524.9 86.0 L519.0 106.2 L483.9 131.5 L444.9 146.7 L431.2 166.9 L409.8 187.1 L398.1 204.8 L386.3 227.6 L398.1 252.9 L405.9 265.5 L378.5 285.7 L370.7 321.1 L359.0 326.2 L335.6 336.3 L312.2 368.2 L296.6 364.1 L261.5 368.2 L225.6 369.2 L204.9 379.3 L189.3 398.5 L179.5 404.6 L162.0 389.4 L150.2 376.8 L126.8 346.4 L109.3 343.9 L87.8 354.0 L62.4 349.0 L48.8 354.0 L54.6 318.6 L48.8 283.2 L39.0 268.0 L27.3 263.0 L33.2 232.6 L50.7 192.2 L58.5 146.7 L52.7 116.3 L52.7 91.0 L35.1 55.6 L50.7 35.4 Z"/>
+            <!-- Balearic Islands -->
+            <g class="og-land og-isles"><ellipse cx="513" cy="222" rx="13" ry="8"/><ellipse cx="455" cy="256" rx="6" ry="4"/><ellipse cx="556" cy="205" rx="7" ry="3.5"/></g>
+            <!-- Portugal border hint -->
+            <path class="og-border" d="M55 318 C 70 300 80 280 78 255 C 76 230 90 210 86 185 C 82 160 72 140 66 118"/>
+            <!-- Andalusia -->
+            <path class="og-andalusia" d="M109.3 343.9 L113.2 318.6 L124.9 293.3 L144.4 298.4 L183.4 280.7 L226.3 283.2 L281.0 278.2 L302.4 288.3 L323.9 311.0 L333.7 331.3 L323.9 351.5 L312.2 368.2 L296.6 364.1 L261.5 368.2 L225.6 369.2 L204.9 379.3 L189.3 398.5 L179.5 404.6 L162.0 389.4 L150.2 376.8 L126.8 346.4 Z"/>
+            <path class="og-andalusia-hatch" fill="url(#og-hatch)" d="M109.3 343.9 L113.2 318.6 L124.9 293.3 L144.4 298.4 L183.4 280.7 L226.3 283.2 L281.0 278.2 L302.4 288.3 L323.9 311.0 L333.7 331.3 L323.9 351.5 L312.2 368.2 L296.6 364.1 L261.5 368.2 L225.6 369.2 L204.9 379.3 L189.3 398.5 L179.5 404.6 L162.0 389.4 L150.2 376.8 L126.8 346.4 Z"/>
+            <!-- Guadalquivir -->
+            <path class="og-river" d="M300 300 C 270 310 240 318 215 322 C 195 326 178 332 164.7 334.3 C 152 342 140 352 131 362"/>
+            <!-- sea labels -->
+            <text class="og-sea-lbl" x="30" y="178" transform="rotate(-72 30 178)">ATLANTIC OCEAN</text>
+            <text class="og-sea-lbl" x="400" y="372" transform="rotate(-28 400 372)">MEDITERRANEAN SEA</text>
+            <text class="og-sea-lbl og-sea-lbl-s" x="176" y="420">STRAIT OF GIBRALTAR</text>
+            <!-- reference cities -->
+            <g class="og-ref"><circle cx="253.7" cy="181.1" r="2.2"/><text x="259" y="178">Madrid</text></g>
+            <g class="og-ref"><circle cx="41.4" cy="267" r="2.2"/><text x="47" y="263">Lisbon</text></g>
+            <g class="og-ref"><circle cx="482.7" cy="132" r="2.2"/><text x="488" y="129">Barcelona</text></g>
+            <g class="og-ref og-ref-work"><circle cx="256.4" cy="298.4" r="2.6"/><text x="262" y="296">Linares <tspan class="dim">ASSISTANCE pilot · 2022</tspan></text></g>
+            <!-- route -->
+            <path class="origins-path" d="M225.6 368.2 C 215 352 190 340 164.7 334.3" fill="none" stroke="var(--acc)" stroke-width="2" stroke-dasharray="6 6"/>
+            <path class="origins-path origins-path-2" d="M164.7 334.3 C 150 344 152 358 158.4 369.7" fill="none" stroke="var(--acc)" stroke-width="2" stroke-dasharray="6 6" stroke-opacity=".6"/>
+            <!-- cities -->
+            <g class="origins-city" transform="translate(225.6 368.2)"><circle class="og-pulse" r="11"/><circle r="4.5" fill="var(--acc)"/><text x="12" y="4">Málaga</text><text x="12" y="18" class="dim">UMA · B.Sc. 2014–17</text></g>
+            <g class="origins-city" transform="translate(164.7 334.3)"><circle class="og-pulse" r="11"/><circle r="4.5" fill="var(--acc)"/><text x="13" y="-7">Seville</text><text x="13" y="7" class="dim">B.Sc. final year · M.Sc. 2019</text><text x="13" y="21" class="dim">FADA-CATEC · Bertrandt</text></g>
+            <g class="origins-city" transform="translate(158.4 369.7)"><circle r="4" fill="none" stroke="var(--acc)" stroke-width="1.6"/><text x="-10" y="4" text-anchor="end">Jerez</text><text x="-10" y="17" text-anchor="end" class="dim">home base</text></g>
+            <!-- compass + scale -->
+            <g class="og-compass" transform="translate(556 60)"><circle r="16"/><path d="M0 -14 L4 0 L0 14 L-4 0 Z"/><path class="og-compass-n" d="M0 -14 L4 0 L-4 0 Z"/><text x="0" y="-22" text-anchor="middle">N</text></g>
+            <g class="og-scale" transform="translate(452 418)"><path d="M0 0H84"/><path d="M0 -4V4 M42 -3V3 M84 -4V4"/><text x="42" y="-7" text-anchor="middle">~ 200 km · symbolic</text></g>
+          </g>
+        </svg>
+      </div>
+
+      <div class="origins-projects">
+        <p class="eyebrow">First projects · all on GitHub</p>
+        <ul class="origins-list">
+          <li><a class="origins-item" href="https://github.com/lotape6/WillyFogMobile" target="_blank" rel="noopener"><span class="mono">2016</span><b>Willy Fog Mobile</b><span>An Android travel app with login, lists and async image loading. The first code I put online.</span><span class="chips"><span class="chip">Java</span><span class="chip">Android</span></span></a></li>
+          <li><a class="origins-item" href="https://github.com/lotape6/Pan-And-Track-Pi" target="_blank" rel="noopener"><span class="mono">2019</span><b>Pan-And-Track-Pi</b><span>OpenCV object tracker on a Raspberry Pi camera, driving a 9 g servo pan-tilt head with a PID loop.</span><span class="chips"><span class="chip">Python</span><span class="chip">OpenCV</span><span class="chip">RPi.GPIO</span></span></a></li>
+          <li><a class="origins-item" href="https://github.com/lotape6/kinect_aux_odom" target="_blank" rel="noopener"><span class="mono">2019</span><b>kinect_aux_odom</b><span>The old kinect_aux driver ported to ROS Kinetic, plus IMU-based odometry from the Kinect's accelerometer.</span><span class="chips"><span class="chip">C++</span><span class="chip">ROS</span></span></a></li>
+          <li><a class="origins-item" href="https://github.com/lotape6/DeTCT" target="_blank" rel="noopener"><span class="mono">2019</span><b>DeTCT</b><span>A ROS package that detects and tracks coloured balloons with HSV segmentation, with Gazebo worlds and RViz markers. The same problem, a year later, on real drones in Abu Dhabi.</span><span class="chips"><span class="chip">C++</span><span class="chip">ROS</span><span class="chip">OpenCV</span><span class="chip">Gazebo</span></span></a></li>
+        </ul>
+        <p class="origins-note">Also from these years: a Cambridge First Certificate in English (2016) and an introductory course on modelling mechatronic systems at UMA.</p>
+      </div>
+    </div>
+  </div>
+</section>

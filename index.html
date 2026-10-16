@@ -1,0 +1,1663 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fidel González Leiva</title>
+<meta name="description" content="Fidel González Leiva, robotics and automation engineer and C++/Python software developer: autonomous drones at FADA-CATEC, door-handle software for BMW, build infrastructure for ASML.">
+<meta property="og:title" content="Fidel González Leiva · Robotics & Software Engineer">
+<meta property="og:description" content="From autonomous interceptor drones to automotive and lithography software. A career in nine chapters, with videos, papers and code.">
+<meta name="theme-color" content="#f1f4f7">
+<meta name="robots" content="index,follow">
+<link rel="author" href="https://github.com/lotape6">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Fidel González Leiva",
+  "jobTitle": "Robotics and Software Engineer (C++/Python)",
+  "description": "Senior software engineer with seven years across aerospace (autonomous UAV perception and autonomy at FADA-CATEC, three peer-reviewed papers, one first-authored), automotive (owner of the extendable door-handle software for BMW's Neue Klasse at Bertrandt, AUTOSAR C++, safety-critical) and semiconductors (build-infrastructure upgrade for ASML's machine software, Bazel, via Alten; AI Champion introducing coding-agent harnesses). Strong in C++, Python, ROS, computer vision, CI and developer tooling. Works remotely from Andalusia, Spain; open to remote senior software or robotics roles, or hybrid in Málaga or Seville.",
+  "url": "https://lotape6.github.io/",
+  "sameAs": ["https://github.com/lotape6", "https://www.linkedin.com/in/fidel-gonzalez-leiva/"],
+  "nationality": "ES",
+  "homeLocation": {"@type": "Place", "name": "Andalusia, Spain"},
+  "alumniOf": [
+    {"@type": "CollegeOrUniversity", "name": "University of Málaga"},
+    {"@type": "CollegeOrUniversity", "name": "University of Seville"}
+  ],
+  "knowsAbout": ["C++", "Python", "ROS", "Computer vision", "Autonomous UAVs", "AUTOSAR", "CAN", "LIN", "Bazel", "CMake", "Docker", "CI/CD", "Linux", "tmux", "AI coding agents", "Claude Code", "OpenCode", "LLM harness design", "RAG"],
+  "knowsLanguage": ["es", "en"],
+  "hasOccupation": {"@type": "Occupation", "name": "Software Engineer", "occupationalCategory": "Robotics and embedded software", "skills": "C++, Python, ROS, computer vision, AUTOSAR, Bazel, Docker, CI, AI agent harnesses"},
+  "hasCredential": [
+    {"@type": "EducationalOccupationalCredential", "credentialCategory": "degree", "name": "B.Sc. Electronic, Robotic and Mechatronic Engineering"},
+    {"@type": "EducationalOccupationalCredential", "credentialCategory": "degree", "name": "M.Sc. Electronic, Robotics and Automation Engineering"}
+  ],
+  "seeks": {"@type": "Demand", "name": "Senior software or robotics engineering role, remote or hybrid in Málaga/Seville"}
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/css/core.css">
+<link rel="stylesheet" href="assets/css/chapters/hero.css">
+<link rel="stylesheet" href="assets/css/chapters/origins.css">
+<link rel="stylesheet" href="assets/css/chapters/aero.css">
+<link rel="stylesheet" href="assets/css/chapters/auto.css">
+<link rel="stylesheet" href="assets/css/chapters/break.css">
+<link rel="stylesheet" href="assets/css/chapters/semi.css">
+<link rel="stylesheet" href="assets/css/chapters/term.css">
+<link rel="stylesheet" href="assets/css/chapters/agents.css">
+<link rel="stylesheet" href="assets/css/chapters/papers.css">
+<link rel="stylesheet" href="assets/css/chapters/contact.css">
+</head>
+<body>
+<script>try{var t=localStorage.getItem("fgl-theme");if(t==="dark")document.documentElement.dataset.theme="dark";}catch(e){}</script>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- Fixed atmosphere stack: one layer per chapter, cross-faded by scroll position (core.js). -->
+<div id="atmo" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top">FGL<span class="brand-full"> · Fidel González Leiva</span></a>
+    <nav class="nav" aria-label="Chapters">
+      <a href="#origins"><span class="n">01</span>Origins</a>
+      <a href="#aero"><span class="n">02</span>Aerospace</a>
+      <a href="#auto"><span class="n">03</span>Automotive</a>
+      <a href="#break"><span class="n">04</span>Holding pattern</a>
+      <a href="#semi"><span class="n">05</span>Semiconductors</a>
+      <a href="#term"><span class="n">06</span>Terminal</a>
+      <a href="#agents"><span class="n">07</span>Agents</a>
+      <a href="#papers"><span class="n">08</span>Papers</a>
+      <a href="#contact"><span class="n">09</span>Contact</a>
+    </nav>
+    <div class="hud" aria-live="polite"><span id="hud-chapter">T-0 · HERO</span><span id="hud-alt">ALT 0</span></div>
+    <button class="theme-btn" id="theme-btn" type="button" aria-label="Switch to dark theme">
+      <svg class="ic-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+      <svg class="ic-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg>
+    </button>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open chapters menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobile-nav" hidden aria-label="Chapters">
+    <a href="#origins">01 Origins</a><a href="#aero">02 Aerospace</a><a href="#auto">03 Automotive</a><a href="#break">04 Holding pattern</a><a href="#semi">05 Semiconductors</a><a href="#term">06 Terminal</a><a href="#agents">07 Agents</a><a href="#papers">08 Papers</a><a href="#contact">09 Contact</a>
+  </nav>
+  <div class="progress" aria-hidden="true"><i id="progress-bar"></i></div>
+</header>
+
+<main id="main">
+<!-- 00-hero.html -->
+<section class="chapter chapter-hero" id="top" data-acc="cy" data-hud="T-0 · HERO">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Robotics &amp; automation engineer · Software developer</p>
+        <h1>Fidel González<br><em>Leiva</em></h1>
+        <p class="hero-role">I write C++ and Python for machines that have to work the first time: autonomous aircraft, safety-critical automotive systems and high-precision industrial equipment.</p>
+        <p class="hero-lead">Three years of perception and autonomy for UAVs at FADA-CATEC. Two years of safety-critical AUTOSAR software for BMW. Now rebuilding the build infrastructure of ASML's machine software. Three peer-reviewed papers on detecting and intercepting drones.</p>
+        <div class="hero-cta">
+          <a class="btn" href="#origins">Begin the flight
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+          <a class="btn ghost" href="https://github.com/lotape6/cv/raw/master/assets/cv.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+          <a class="btn ghost" href="https://github.com/lotape6" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/fidel-gonzalez-leiva/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn ghost" href="https://lotape6.github.io/FindingMemo/" target="_blank" rel="noopener">Finding Memo</a>
+        </div>
+      </div>
+      <aside class="panel corner hero-panel" aria-label="Flight plan">
+        <div class="panel-head"><b>Flight plan</b><span>9 chapters</span></div>
+        <ol class="hero-plan">
+          <li><a href="#origins"><span class="mono">01</span><span>Origins</span><span class="mono dim">Málaga · Seville · 2014–19</span></a></li>
+          <li><a href="#aero"><span class="mono">02</span><span>Aerospace</span><span class="mono dim">FADA-CATEC · 2019–22</span></a></li>
+          <li><a href="#auto"><span class="mono">03</span><span>Automotive</span><span class="mono dim">Bertrandt · BMW · 2022–24</span></a></li>
+          <li><a href="#break"><span class="mono">04</span><span>Holding pattern</span><span class="mono dim">sabbatical · 2024–25</span></a></li>
+          <li><a href="#semi"><span class="mono">05</span><span>Semiconductors</span><span class="mono dim">Alten · ASML · 2025–</span></a></li>
+          <li><a href="#term"><span class="mono">06</span><span>Terminal craft</span><span class="mono dim">dotfiles · tmux · fzf</span></a></li>
+          <li><a href="#agents"><span class="mono">07</span><span>Agentic engineering</span><span class="mono dim">harnesses · Claude Code · OpenCode</span></a></li>
+          <li><a href="#papers"><span class="mono">08</span><span>Papers</span><span class="mono dim">ICUAS · Electronics · SSRR</span></a></li>
+          <li><a href="#contact"><span class="mono">09</span><span>Contact</span><span class="mono dim">remote · Andalusia</span></a></li>
+        </ol>
+        <p class="hero-quote">“I usually go wrong, but every time I make better mistakes.”</p>
+      </aside>
+    </div>
+    <div class="hero-telemetry mono" aria-hidden="true">
+      <span>POS 36.69N 006.13W</span><span>JEREZ DE LA FRONTERA</span><span>SYS NOMINAL</span><span id="hero-clock">UTC --:--:--</span>
+    </div>
+  </div>
+</section>
+
+<!-- 10-origins.html -->
+<section class="chapter" id="origins" data-atmo="origins" data-acc="cy" data-hud="CH 01 · ORIGINS">
+  <div class="wrap">
+    <div class="chapter-head">
+      <p class="eyebrow"><span class="idx">01</span> Origins · Málaga and Seville · 2014–2019</p>
+      <h2>From a servo on a Raspberry Pi to a drone that catches drones</h2>
+      <p class="lede">One degree in robotics, started in Málaga and finished in Seville, a master's on top, and the first projects that put a camera, a controller and a motor in the same loop.</p>
+      <div class="meta"><span><b>B.Sc.</b> Electronic, Robotic &amp; Mechatronic Engineering · University of Málaga 2014–2017, final year at the University of Seville 2017–2018</span><span><b>M.Sc.</b> Electronic, Robotics &amp; Automation Engineering · University of Seville · 2018–2019</span></div>
+    </div>
+
+    <div class="origins-grid">
+      <div class="origins-route panel corner" aria-label="Route from Málaga to Seville">
+        <div class="panel-head"><b>Route</b><span>Iberian Peninsula · symbolic</span></div>
+        <svg class="origins-map" viewBox="0 0 600 440" role="img" aria-labelledby="origins-map-t">
+          <title id="origins-map-t">Symbolic map of the Iberian Peninsula with Andalusia highlighted and Málaga, Seville and Jerez de la Frontera marked</title>
+          <defs>
+            <pattern id="og-hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0V6" stroke="var(--acc)" stroke-opacity=".28" stroke-width="1"/></pattern>
+            <radialGradient id="og-sea" cx="30%" cy="80%" r="90%"><stop offset="0" stop-color="var(--acc)" stop-opacity=".16"/><stop offset="1" stop-color="var(--acc)" stop-opacity=".03"/></radialGradient>
+            <filter id="og-soft" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="2.5"/></filter>
+            <clipPath id="og-clip"><rect width="600" height="440"/></clipPath>
+          </defs>
+          <g clip-path="url(#og-clip)">
+            <rect class="og-sea" width="600" height="440" fill="url(#og-sea)"/>
+            <path class="og-grat" d="M7.8 0V440 M85.9 0V440 M163.9 0V440 M242.0 0V440 M320.0 0V440 M398.1 0V440 M476.1 0V440 M554.2 0V440 M0 404.6H600 M0 303.4H600 M0 202.3H600 M0 101.1H600"/>
+            <g class="og-grat-lbl"><text x="12" y="98">42°N</text><text x="12" y="199">40°N</text><text x="12" y="300">38°N</text><text x="12" y="401">36°N</text><text x="238" y="432">4°W</text><text x="394" y="432">0°</text></g>
+            <!-- neighbouring land, dimmed -->
+            <path class="og-land og-land-far" d="M329.8 32.9 L339.5 20.2 L351.2 0.0 L569.8 0.0 L600 0 L600 30.3 L526.8 37.9 L524.9 86.0 L495.6 80.9 L456.6 73.3 L417.6 65.7 L366.8 55.6 Z"/>
+            <path class="og-land og-land-far" d="M0.0 440.0 L156.1 440.0 L167.8 417.2 L189.3 409.7 L214.6 442.5 L261.5 445.1 L284.9 440.0 L320.0 450.1 L359.0 440.0 L600 440.0 L600 460 L0 460 Z"/>
+            <!-- coastal glow -->
+            <path class="og-glow" filter="url(#og-soft)" d="M70.2 30.3 L89.8 12.6 L124.9 22.8 L175.6 22.8 L222.4 30.3 L249.8 27.8 L284.9 32.9 L320.0 35.4 L329.8 32.9 L366.8 55.6 L417.6 65.7 L456.6 73.3 L495.6 80.9 L524.9 86.0 L519.0 106.2 L483.9 131.5 L444.9 146.7 L431.2 166.9 L409.8 187.1 L398.1 204.8 L386.3 227.6 L398.1 252.9 L405.9 265.5 L378.5 285.7 L370.7 321.1 L359.0 326.2 L335.6 336.3 L312.2 368.2 L296.6 364.1 L261.5 368.2 L225.6 369.2 L204.9 379.3 L189.3 398.5 L179.5 404.6 L162.0 389.4 L150.2 376.8 L126.8 346.4 L109.3 343.9 L87.8 354.0 L62.4 349.0 L48.8 354.0 L54.6 318.6 L48.8 283.2 L39.0 268.0 L27.3 263.0 L33.2 232.6 L50.7 192.2 L58.5 146.7 L52.7 116.3 L52.7 91.0 L35.1 55.6 L50.7 35.4 Z"/>
+            <!-- Iberian Peninsula -->
+            <path class="og-land og-iberia" d="M70.2 30.3 L89.8 12.6 L124.9 22.8 L175.6 22.8 L222.4 30.3 L249.8 27.8 L284.9 32.9 L320.0 35.4 L329.8 32.9 L366.8 55.6 L417.6 65.7 L456.6 73.3 L495.6 80.9 L524.9 86.0 L519.0 106.2 L483.9 131.5 L444.9 146.7 L431.2 166.9 L409.8 187.1 L398.1 204.8 L386.3 227.6 L398.1 252.9 L405.9 265.5 L378.5 285.7 L370.7 321.1 L359.0 326.2 L335.6 336.3 L312.2 368.2 L296.6 364.1 L261.5 368.2 L225.6 369.2 L204.9 379.3 L189.3 398.5 L179.5 404.6 L162.0 389.4 L150.2 376.8 L126.8 346.4 L109.3 343.9 L87.8 354.0 L62.4 349.0 L48.8 354.0 L54.6 318.6 L48.8 283.2 L39.0 268.0 L27.3 263.0 L33.2 232.6 L50.7 192.2 L58.5 146.7 L52.7 116.3 L52.7 91.0 L35.1 55.6 L50.7 35.4 Z"/>
+            <!-- Balearic Islands -->
+            <g class="og-land og-isles"><ellipse cx="513" cy="222" rx="13" ry="8"/><ellipse cx="455" cy="256" rx="6" ry="4"/><ellipse cx="556" cy="205" rx="7" ry="3.5"/></g>
+            <!-- Portugal border hint -->
+            <path class="og-border" d="M55 318 C 70 300 80 280 78 255 C 76 230 90 210 86 185 C 82 160 72 140 66 118"/>
+            <!-- Andalusia -->
+            <path class="og-andalusia" d="M109.3 343.9 L113.2 318.6 L124.9 293.3 L144.4 298.4 L183.4 280.7 L226.3 283.2 L281.0 278.2 L302.4 288.3 L323.9 311.0 L333.7 331.3 L323.9 351.5 L312.2 368.2 L296.6 364.1 L261.5 368.2 L225.6 369.2 L204.9 379.3 L189.3 398.5 L179.5 404.6 L162.0 389.4 L150.2 376.8 L126.8 346.4 Z"/>
+            <path class="og-andalusia-hatch" fill="url(#og-hatch)" d="M109.3 343.9 L113.2 318.6 L124.9 293.3 L144.4 298.4 L183.4 280.7 L226.3 283.2 L281.0 278.2 L302.4 288.3 L323.9 311.0 L333.7 331.3 L323.9 351.5 L312.2 368.2 L296.6 364.1 L261.5 368.2 L225.6 369.2 L204.9 379.3 L189.3 398.5 L179.5 404.6 L162.0 389.4 L150.2 376.8 L126.8 346.4 Z"/>
+            <!-- Guadalquivir -->
+            <path class="og-river" d="M300 300 C 270 310 240 318 215 322 C 195 326 178 332 164.7 334.3 C 152 342 140 352 131 362"/>
+            <!-- sea labels -->
+            <text class="og-sea-lbl" x="30" y="178" transform="rotate(-72 30 178)">ATLANTIC OCEAN</text>
+            <text class="og-sea-lbl" x="400" y="372" transform="rotate(-28 400 372)">MEDITERRANEAN SEA</text>
+            <text class="og-sea-lbl og-sea-lbl-s" x="176" y="420">STRAIT OF GIBRALTAR</text>
+            <!-- reference cities -->
+            <g class="og-ref"><circle cx="253.7" cy="181.1" r="2.2"/><text x="259" y="178">Madrid</text></g>
+            <g class="og-ref"><circle cx="41.4" cy="267" r="2.2"/><text x="47" y="263">Lisbon</text></g>
+            <g class="og-ref"><circle cx="482.7" cy="132" r="2.2"/><text x="488" y="129">Barcelona</text></g>
+            <g class="og-ref og-ref-work"><circle cx="256.4" cy="298.4" r="2.6"/><text x="262" y="296">Linares <tspan class="dim">ASSISTANCE pilot · 2022</tspan></text></g>
+            <!-- route -->
+            <path class="origins-path" d="M225.6 368.2 C 215 352 190 340 164.7 334.3" fill="none" stroke="var(--acc)" stroke-width="2" stroke-dasharray="6 6"/>
+            <path class="origins-path origins-path-2" d="M164.7 334.3 C 150 344 152 358 158.4 369.7" fill="none" stroke="var(--acc)" stroke-width="2" stroke-dasharray="6 6" stroke-opacity=".6"/>
+            <!-- cities -->
+            <g class="origins-city" transform="translate(225.6 368.2)"><circle class="og-pulse" r="11"/><circle r="4.5" fill="var(--acc)"/><text x="12" y="4">Málaga</text><text x="12" y="18" class="dim">UMA · B.Sc. 2014–17</text></g>
+            <g class="origins-city" transform="translate(164.7 334.3)"><circle class="og-pulse" r="11"/><circle r="4.5" fill="var(--acc)"/><text x="13" y="-7">Seville</text><text x="13" y="7" class="dim">B.Sc. final year · M.Sc. 2019</text><text x="13" y="21" class="dim">FADA-CATEC · Bertrandt</text></g>
+            <g class="origins-city" transform="translate(158.4 369.7)"><circle r="4" fill="none" stroke="var(--acc)" stroke-width="1.6"/><text x="-10" y="4" text-anchor="end">Jerez</text><text x="-10" y="17" text-anchor="end" class="dim">home base</text></g>
+            <!-- compass + scale -->
+            <g class="og-compass" transform="translate(556 60)"><circle r="16"/><path d="M0 -14 L4 0 L0 14 L-4 0 Z"/><path class="og-compass-n" d="M0 -14 L4 0 L-4 0 Z"/><text x="0" y="-22" text-anchor="middle">N</text></g>
+            <g class="og-scale" transform="translate(452 418)"><path d="M0 0H84"/><path d="M0 -4V4 M42 -3V3 M84 -4V4"/><text x="42" y="-7" text-anchor="middle">~ 200 km · symbolic</text></g>
+          </g>
+        </svg>
+      </div>
+
+      <div class="origins-projects">
+        <p class="eyebrow">First projects · all on GitHub</p>
+        <ul class="origins-list">
+          <li><a class="origins-item" href="https://github.com/lotape6/WillyFogMobile" target="_blank" rel="noopener"><span class="mono">2016</span><b>Willy Fog Mobile</b><span>An Android travel app with login, lists and async image loading. The first code I put online.</span><span class="chips"><span class="chip">Java</span><span class="chip">Android</span></span></a></li>
+          <li><a class="origins-item" href="https://github.com/lotape6/Pan-And-Track-Pi" target="_blank" rel="noopener"><span class="mono">2019</span><b>Pan-And-Track-Pi</b><span>OpenCV object tracker on a Raspberry Pi camera, driving a 9 g servo pan-tilt head with a PID loop.</span><span class="chips"><span class="chip">Python</span><span class="chip">OpenCV</span><span class="chip">RPi.GPIO</span></span></a></li>
+          <li><a class="origins-item" href="https://github.com/lotape6/kinect_aux_odom" target="_blank" rel="noopener"><span class="mono">2019</span><b>kinect_aux_odom</b><span>The old kinect_aux driver ported to ROS Kinetic, plus IMU-based odometry from the Kinect's accelerometer.</span><span class="chips"><span class="chip">C++</span><span class="chip">ROS</span></span></a></li>
+          <li><a class="origins-item" href="https://github.com/lotape6/DeTCT" target="_blank" rel="noopener"><span class="mono">2019</span><b>DeTCT</b><span>A ROS package that detects and tracks coloured balloons with HSV segmentation, with Gazebo worlds and RViz markers. The same problem, a year later, on real drones in Abu Dhabi.</span><span class="chips"><span class="chip">C++</span><span class="chip">ROS</span><span class="chip">OpenCV</span><span class="chip">Gazebo</span></span></a></li>
+        </ul>
+        <p class="origins-note">Also from these years: a Cambridge First Certificate in English (2016) and an introductory course on modelling mechatronic systems at UMA.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 20-aerospace.html -->
+<section class="chapter" id="aero" data-atmo="aero" data-acc="cy" data-hud="CH 02 · AEROSPACE">
+  <div class="wrap">
+    <div class="chapter-head">
+      <p class="eyebrow"><span class="idx">02</span> Aerospace · FADA-CATEC · Jun 2019 – Jul 2022</p>
+      <h2>Teaching drones to see</h2>
+      <p class="lede">Three years turning research drones into machines that fly a mission on their own: see a target, decide, intercept, land. Six projects, three papers, one competition organised.</p>
+      <div class="meta"><span><b>Role</b> Robotics engineer · Software developer</span><span><b>Stack</b> C++ · Python · ROS · OpenCV · Jetson</span><span><b>Where</b> Seville, Spain</span></div>
+      <p class="chapter-note">Built from the projects' public pages, the published papers and the videos CATEC and partners released.</p>
+    </div>
+
+    <div class="aero-deck" data-reveal>
+      <figure class="aero-scope-wrap panel corner" aria-labelledby="aero-scope-cap">
+        <div class="panel-head"><b>Radar scope</b><span>Six contacts · Jun 2019 → Jul 2022</span></div>
+        <div class="aero-scope" id="aero-scope">
+          <svg class="aero-scope-svg" viewBox="0 0 400 400" aria-hidden="true" focusable="false">
+            <defs>
+              <linearGradient id="aero-sweep-g" gradientUnits="userSpaceOnUse" x1="200" y1="200" x2="200" y2="0">
+                <stop offset="0" stop-color="currentColor" stop-opacity=".0"/>
+                <stop offset="1" stop-color="currentColor" stop-opacity=".9"/>
+              </linearGradient>
+              <radialGradient id="aero-glow-g">
+                <stop offset="0" stop-color="currentColor" stop-opacity=".18"/>
+                <stop offset="1" stop-color="currentColor" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <circle cx="200" cy="200" r="190" fill="url(#aero-glow-g)"/>
+            <g class="aero-rings" fill="none" stroke="currentColor" stroke-width="1">
+              <circle cx="200" cy="200" r="190" opacity=".55"/>
+              <circle cx="200" cy="200" r="142" opacity=".28"/>
+              <circle cx="200" cy="200" r="95" opacity=".28"/>
+              <circle cx="200" cy="200" r="47" opacity=".28"/>
+              <path d="M200 10V390M10 200H390" opacity=".22"/>
+              <path d="M65.6 65.6L334.4 334.4M334.4 65.6L65.6 334.4" opacity=".12"/>
+            </g>
+            <g class="aero-ticks" fill="currentColor" font-size="9" font-family="JetBrains Mono, monospace" opacity=".7">
+              <text x="200" y="26" text-anchor="middle">2019</text>
+              <text x="378" y="203" text-anchor="end">2020</text>
+              <text x="200" y="384" text-anchor="middle">2021</text>
+              <text x="22" y="203" text-anchor="start">2022</text>
+            </g>
+            <g class="aero-sweep" id="aero-sweep">
+              <path d="M200 200 L200 10 A190 190 0 0 0 112.5 31.5 Z" fill="url(#aero-sweep-g)" opacity=".55"/>
+              <path d="M200 200 L200 10" stroke="currentColor" stroke-width="1.5" opacity=".95"/>
+            </g>
+          </svg>
+          <div class="aero-blips" id="aero-blips">
+            <button type="button" class="aero-blip" data-dive="dive-mbzirc" data-m="2019-06" data-r=".72" data-cs="MBZIRC 2020" data-role="Software developer · computer vision" data-when="Jun 2019 – Feb 2020" aria-label="MBZIRC 2020: software developer, computer vision. Open mission"><i></i><span>01</span></button>
+            <button type="button" class="aero-blip" data-dive="dive-gaviota" data-m="2020-02" data-r=".78" data-cs="GAVIOTA / VIGIA" data-role="Software developer · audio and vision detection" data-when="Feb 2020 – Apr 2021" aria-label="GAVIOTA / VIGIA: software developer. Open mission"><i></i><span>02</span></button>
+            <button type="button" class="aero-blip" data-dive="dive-metrics" data-m="2020-12" data-r=".62" data-cs="METRICS / RAMI" data-role="Organiser and evaluator" data-when="Dec 2020 – Jan 2022" aria-label="METRICS / RAMI: organiser and evaluator. Open mission"><i></i><span>03</span></button>
+            <button type="button" class="aero-blip" data-dive="dive-delorean" data-m="2021-04" data-r=".40" data-cs="DELOREAN" data-role="Software developer · EGNSS urban flights" data-when="Apr 2021 – Jun 2021" aria-label="DELOREAN: software developer. Open mission"><i></i><span>04</span></button>
+            <button type="button" class="aero-blip" data-dive="dive-assistance" data-m="2021-06" data-r=".84" data-cs="ASSISTANCE" data-role="Software developer → project manager" data-when="Jun 2021 – Jul 2022" aria-label="ASSISTANCE: software developer, then project manager. Open mission"><i></i><span>05</span></button>
+            <button type="button" class="aero-blip" data-dive="dive-5g" data-m="2021-08" data-r=".58" data-cs="PILOTO 5G ANDALUCÍA" data-role="Software developer · swarm streaming over 5G" data-when="Aug 2021 – Oct 2021" aria-label="Piloto 5G Andalucía: software developer. Open mission"><i></i><span>06</span></button>
+          </div>
+        </div>
+        <figcaption class="aero-readout mono" id="aero-readout" aria-live="polite">
+          <span class="aero-ro-k">CONTACT</span><span class="aero-ro-cs" id="aero-ro-cs">— hover or focus a blip —</span>
+          <span class="aero-ro-k">ROLE</span><span id="aero-ro-role">six missions, one blip per project start</span>
+          <span class="aero-ro-k">WINDOW</span><span id="aero-ro-when">Jun 2019 – Jul 2022</span>
+        </figcaption>
+        <p id="aero-scope-cap" class="sr-only">Radar scope with six mission contacts placed by start date. Select a contact to open its mission panel.</p>
+      </figure>
+
+      <div class="aero-side">
+        <div class="panel aero-log">
+          <div class="panel-head"><b>Mission log</b><span>select to dive in</span></div>
+          <ol class="aero-log-list">
+            <li><button type="button" data-dive="dive-mbzirc" data-blip="dive-mbzirc"><span class="mono aero-log-n">01</span><span class="aero-log-cs">MBZIRC 2020 <small>Abu Dhabi</small></span><span class="mono aero-log-when">Jun 19 – Feb 20</span></button></li>
+            <li><button type="button" data-dive="dive-gaviota" data-blip="dive-gaviota"><span class="mono aero-log-n">02</span><span class="aero-log-cs">GAVIOTA / VIGIA <small>ground-to-air safety</small></span><span class="mono aero-log-when">Feb 20 – Apr 21</span></button></li>
+            <li><button type="button" data-dive="dive-metrics" data-blip="dive-metrics"><span class="mono aero-log-n">03</span><span class="aero-log-cs">METRICS / RAMI <small>H2020 · IROS 2021</small></span><span class="mono aero-log-when">Dec 20 – Jan 22</span></button></li>
+            <li><button type="button" data-dive="dive-delorean" data-blip="dive-delorean"><span class="mono aero-log-n">04</span><span class="aero-log-cs">DELOREAN <small>H2020 · EGNSS</small></span><span class="mono aero-log-when">Apr 21 – Jun 21</span></button></li>
+            <li><button type="button" data-dive="dive-assistance" data-blip="dive-assistance"><span class="mono aero-log-n">05</span><span class="aero-log-cs">ASSISTANCE <small>H2020 · 19 partners</small></span><span class="mono aero-log-when">Jun 21 – Jul 22</span></button></li>
+            <li><button type="button" data-dive="dive-5g" data-blip="dive-5g"><span class="mono aero-log-n">06</span><span class="aero-log-cs">Piloto 5G Andalucía <small>Red.es · Vodafone</small></span><span class="mono aero-log-when">Aug 21 – Oct 21</span></button></li>
+          </ol>
+        </div>
+
+        <div class="panel aero-stack">
+          <div class="panel-head"><b>Hardware &amp; stack</b><span>on board</span></div>
+          <div class="panel-body">
+            <div class="chips">
+              <span class="chip">Jetson TX2</span><span class="chip">Xavier NX</span><span class="chip">Raspberry Pi</span><span class="chip">Intel NUC</span><span class="chip">Linux for Tegra</span>
+              <span class="chip">ROS</span><span class="chip">OpenCV · C++ / Python</span><span class="chip">PCL</span><span class="chip">Darknet / YOLO</span><span class="chip">Docker + GPU</span><span class="chip">GStreamer · RTSP / RTP / SRT</span>
+            </div>
+            <p class="aero-note">Three papers came out of this period (<a href="#dive-mbzirc" data-dive="dive-mbzirc">ICUAS 2020</a>, <a href="#dive-gaviota" data-dive="dive-gaviota">Electronics 2020</a>, <a href="#dive-assistance" data-dive="dive-assistance">SSRR 2021</a>). Most of the code lived on CATEC's private Git server, so GitHub shows little of it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<dialog class="dive" id="dive-mbzirc" aria-labelledby="dive-mbzirc-t">
+  <div class="dive-frame">
+    <div class="dive-head"><b>Mission 01</b><span>MBZIRC 2020 · Abu Dhabi</span><button class="dive-close" type="button" aria-label="Close">✕</button></div>
+    <div class="dive-body">
+      <h3 id="dive-mbzirc-t">Catching a drone with a drone</h3>
+      <div class="dive-grid">
+        <div class="aero-videos">
+          <div class="video" data-yt="zAnWRs0QPc4" data-title="MBZIRC 2020 competition · FADA-CATEC"></div>
+          <div class="video" data-yt="RYYms1P1BIg" data-title="MBZIRC 2020 team promo · ISR Lisboa"></div>
+        </div>
+        <div>
+          <dl class="kv">
+            <dt>Role</dt><dd>Software developer, computer vision</dd>
+            <dt>When</dt><dd>Jun 2019 – Feb 2020</dd>
+            <dt>Partners</dt><dd>FADA-CATEC team, with ISR Lisboa; Mohamed Bin Zayed International Robotics Challenge, Abu Dhabi</dd>
+            <dt>Paper</dt><dd>Ruiz García, Caballero, González, Viguria, Ollero. “Autonomous drone with ability to track and capture an aerial target”. ICUAS 2020, pp. 32–40.</dd>
+          </dl>
+          <div class="links">
+            <a href="https://doi.org/10.1109/ICUAS48674.2020.9213883" target="_blank" rel="noopener">DOI 10.1109/ICUAS48674.2020.9213883</a>
+            <a href="https://www.youtube.com/watch?v=zAnWRs0QPc4" target="_blank" rel="noopener">Video on YouTube</a>
+          </div>
+        </div>
+      </div>
+      <div class="prose">
+        <p>My first mission at FADA-CATEC was the vision stack for the competition: detect an aerial target from a moving drone, keep it in frame, feed its position to the guidance loop so the interceptor could track and capture it on its own. The work ran on NVIDIA Jetson boards under ROS with OpenCV and Darknet/YOLO.</p>
+        <p>The tracking-and-capture pipeline was written up afterwards for ICUAS 2020, the first of three papers from this period.</p>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="dive" id="dive-gaviota" aria-labelledby="dive-gaviota-t">
+  <div class="dive-frame">
+    <div class="dive-head"><b>Mission 02</b><span>GAVIOTA / VIGIA · ground-to-air safety</span><button class="dive-close" type="button" aria-label="Close">✕</button></div>
+    <div class="dive-body">
+      <h3 id="dive-gaviota-t">Hearing aircraft before you see them</h3>
+      <div class="dive-grid">
+        <div class="aero-videos">
+          <div class="video" data-yt="6M2dLYKjCXI" data-title="VIGIA · AERTEC's detect-and-avoid demo from the same programme"></div>
+          <p class="aero-vnote mono">VIGIA is AERTEC's sister project in the same family; the video is theirs, not CATEC's.</p>
+        </div>
+        <div>
+          <dl class="kv">
+            <dt>Role</dt><dd>Software developer</dd>
+            <dt>When</dt><dd>Feb 2020 – Apr 2021</dd>
+            <dt>Partners</dt><dd>GAVIOTA: FADA-CATEC with PildoLabs. VIGIA: AERTEC's detect-and-avoid system in the same family.</dd>
+            <dt>Paper</dt><dd>Mariscal-Harana, Alarcón, González, Calvente, Pérez-Grau, Viguria, Ollero. “Audio-Based Aircraft Detection System for Safe RPAS BVLOS Operations”. Electronics 9(12):2076, 2020. Open access.</dd>
+          </dl>
+          <div class="links">
+            <a href="https://www.mdpi.com/2079-9292/9/12/2076" target="_blank" rel="noopener">Read on MDPI (open access)</a>
+            <a href="https://doi.org/10.3390/electronics9122076" target="_blank" rel="noopener">DOI 10.3390/electronics9122076</a>
+          </div>
+        </div>
+      </div>
+      <div class="prose">
+        <p>GAVIOTA built ground-to-air solutions so that drones can fly low-altitude operations beyond visual line of sight without surprising manned aircraft. My part was software on the detection side: sensing approaching aircraft and turning that into something the drone's operation could act on.</p>
+        <p>The audio-based aircraft detection system from the project was published open access in <em>Electronics</em> in December 2020.</p>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="dive" id="dive-metrics" aria-labelledby="dive-metrics-t">
+  <div class="dive-frame">
+    <div class="dive-head"><b>Mission 03</b><span>METRICS / RAMI · H2020 871252</span><button class="dive-close" type="button" aria-label="Close">✕</button></div>
+    <div class="dive-body">
+      <h3 id="dive-metrics-t">Running the competition instead of flying it</h3>
+      <div class="dive-grid">
+        <div class="panel aero-facts">
+          <div class="panel-head"><b>No video</b><span>facts on file</span></div>
+          <div class="panel-body">
+            <dl class="kv">
+              <dt>Programme</dt><dd>METRICS, Horizon 2020 grant 871252</dd>
+              <dt>Campaign</dt><dd>RAMI: Robotics for Asset Maintenance and Inspection</dd>
+              <dt>Event</dt><dd>1st RAMI Cascade Campaign for aerial robots, run with IROS 2021</dd>
+              <dt>Sector</dt><dd>Aerial robots for inspection and maintenance</dd>
+            </dl>
+          </div>
+        </div>
+        <div>
+          <dl class="kv">
+            <dt>Role</dt><dd>Organiser and evaluator</dd>
+            <dt>When</dt><dd>Dec 2020 – Jan 2022</dd>
+            <dt>Funding</dt><dd>EU Horizon 2020, grant 871252</dd>
+            <dt>Paper</dt><dd>None</dd>
+          </dl>
+          <div class="links">
+            <a href="https://cordis.europa.eu/project/id/871252" target="_blank" rel="noopener">Project on CORDIS</a>
+          </div>
+        </div>
+      </div>
+      <div class="prose">
+        <p>METRICS is an EU project that organises robotics competitions as a way of benchmarking the state of the art. Within it, RAMI covers aerial robots for asset maintenance and inspection. I was on the organising side: helping set up and evaluate the first RAMI cascade campaign for aerial robots, run alongside IROS 2021.</p>
+        <p>After competing in MBZIRC, writing the rules and scoring other teams was a useful change of seat.</p>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="dive" id="dive-delorean" aria-labelledby="dive-delorean-t">
+  <div class="dive-frame">
+    <div class="dive-head"><b>Mission 04</b><span>DELOREAN · H2020 870251</span><button class="dive-close" type="button" aria-label="Close">✕</button></div>
+    <div class="dive-body">
+      <h3 id="dive-delorean-t">Drones and EGNSS in the city</h3>
+      <div class="dive-grid">
+        <div class="aero-videos">
+          <div class="video" data-yt="NxC_7h8xo_A" data-title="DELOREAN · Benidorm flight tests (infodron.es)" data-pending="confirm"></div>
+          <p class="aero-vnote mono">Third-party footage of the Benidorm tests; CATEC is not named in it.</p>
+        </div>
+        <div>
+          <dl class="kv">
+            <dt>Role</dt><dd>Software developer</dd>
+            <dt>When</dt><dd>Apr 2021 – Jun 2021</dd>
+            <dt>Funding</dt><dd>EU Horizon 2020, grant 870251</dd>
+            <dt>Paper</dt><dd>None</dd>
+          </dl>
+          <div class="links">
+            <a href="https://cordis.europa.eu/project/id/870251" target="_blank" rel="noopener">Project on CORDIS</a>
+          </div>
+        </div>
+      </div>
+      <div class="prose">
+        <p>DELOREAN looked at drones and European GNSS (Galileo and EGNOS) for low-airspace urban mobility: how a drone can navigate reliably between buildings where satellite positioning degrades. A short but dense stint of software work on the flight side.</p>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="dive" id="dive-assistance" aria-labelledby="dive-assistance-t">
+  <div class="dive-frame">
+    <div class="dive-head"><b>Mission 05</b><span>ASSISTANCE · H2020 832576</span><button class="dive-close" type="button" aria-label="Close">✕</button></div>
+    <div class="dive-body">
+      <h3 id="dive-assistance-t">Drones for first responders</h3>
+      <div class="dive-grid">
+        <div class="aero-videos aero-videos-2x2">
+          <div class="video" data-yt="_mxQwBx6l0c" data-title="ASSISTANCE · project video (2020)"></div>
+          <div class="video" data-yt="PQQH8Z-VyXQ" data-title="ASSISTANCE · UAV integration and gas/smoke sensing (Jun 2021)"></div>
+          <div class="video" data-yt="8JxTLiy9tN8" data-title="ASSISTANCE · Pilot 2, Rotterdam (2022)"></div>
+          <div class="video" data-yt="Ux7T0L8sqtI" data-title="ASSISTANCE · Pilot 3, Linares (Jun 2022)"></div>
+        </div>
+        <div>
+          <dl class="kv">
+            <dt>Role</dt><dd>Software developer, then project manager from Nov 2021</dd>
+            <dt>When</dt><dd>Jun 2021 – Jul 2022</dd>
+            <dt>Partners</dt><dd>19 partners in 8 countries, coordinated by UPV. CATEC organised the final pilot in Linares, 17 Jun 2022.</dd>
+            <dt>Funding</dt><dd>EU Horizon 2020, grant 832576</dd>
+            <dt>Paper</dt><dd>González, Caballero, Pérez-Grau, Viguria. “Vision-based UAV Detection for Air-to-Air Neutralization”. IEEE SSRR 2021. First author.</dd>
+          </dl>
+          <div class="links">
+            <a href="https://assistance-project.eu/" target="_blank" rel="noopener">assistance-project.eu</a>
+            <a href="https://doi.org/10.1109/SSRR53300.2021.9597861" target="_blank" rel="noopener">DOI 10.1109/SSRR53300.2021.9597861</a>
+            <a href="https://zenodo.org/record/6519998" target="_blank" rel="noopener">Open access on Zenodo</a>
+            <a href="https://assistance-project.eu/2022/06/30/succesful-final-pilot-demonstration-in-linares/index.html" target="_blank" rel="noopener">Final pilot, Linares (photos)</a>
+          </div>
+        </div>
+      </div>
+      <div class="prose">
+        <p>ASSISTANCE put drones and sensors in the hands of first responders: UAVs that fly into a disaster area, sense gas and smoke and stream what they see back to the command post. CATEC, the main Spanish research centre for civil RPAS/UAS in the consortium, brought the aerial side. I started as a software developer on the UAV integration and, from November 2021, managed CATEC's part of the project through to the final pilot in Linares in June 2022.</p>
+        <p>The vision-based UAV detection work for air-to-air neutralisation, my first-author paper, was presented at IEEE SSRR 2021 and is open access on Zenodo.</p>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="dive" id="dive-5g" aria-labelledby="dive-5g-t">
+  <div class="dive-frame">
+    <div class="dive-head"><b>Mission 06</b><span>Piloto 5G Andalucía · Red.es / Vodafone</span><button class="dive-close" type="button" aria-label="Close">✕</button></div>
+    <div class="dive-body">
+      <h3 id="dive-5g-t">A swarm on the 5G network</h3>
+      <div class="dive-grid">
+        <div class="panel aero-facts">
+          <div class="panel-head"><b>No video</b><span>facts on file</span></div>
+          <div class="panel-body">
+            <dl class="kv">
+              <dt>Programme</dt><dd>Piloto 5G Andalucía, a Red.es and Vodafone pilot</dd>
+              <dt>Use case</dt><dd>A swarm of drones streaming video over 5G</dd>
+              <dt>Streaming</dt><dd>GStreamer pipelines over RTSP, RTP and SRT</dd>
+              <dt>Compute</dt><dd>Jetson boards and Raspberry Pi on board</dd>
+            </dl>
+          </div>
+        </div>
+        <div>
+          <dl class="kv">
+            <dt>Role</dt><dd>Software developer</dd>
+            <dt>When</dt><dd>Aug 2021 – Oct 2021</dd>
+            <dt>Partners</dt><dd>Red.es, Vodafone</dd>
+            <dt>Paper</dt><dd>None</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="prose">
+        <p>A short pilot inside the Andalusian 5G programme: several drones flying together and streaming their cameras over the mobile network at once. My work was the on-board software and the video pipelines that kept the streams flowing from the swarm to the ground.</p>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<!-- 30-automotive.html -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<section class="chapter" id="auto" data-atmo="auto" data-acc="am" data-hud="CH 03 · AUTOMOTIVE">
+  <div class="wrap">
+    <div class="chapter-head">
+      <p class="eyebrow"><span class="idx">03</span> Automotive · Bertrandt Group for BMW · Seville · Jul 2022 – May 2024</p>
+      <h2>The first part you touch</h2>
+      <p class="lede">Owner of the software for the flush door handles that extend on their own as you walk up to a Neue Klasse BMW: the iX3 and i3 released in 2025–2026.</p>
+      <div class="meta"><span><b>Role</b> Software developer · door-handle software</span><span><b>Stack</b> AUTOSAR C++ · CAN · LIN · SOME/IP · DLT · GTest</span></div>
+      <p class="chapter-note">Built from BMW's public press material and my CV. The bench and the signal board are original drawings of the public behaviour; no BMW design, signal catalogue or data appears here.</p>
+    </div>
+
+    <div class="auto-lab" data-reveal>
+      <!-- 1. the door in 3D -->
+      <div class="panel corner auto-stage" aria-labelledby="auto-stage-t">
+        <div class="panel-head"><b id="auto-stage-t">Door handle · 3D bench</b><span class="auto-stage-state mono" id="auto-stage-state">RETRACTED</span></div>
+        <div class="panel-body auto-stage-body">
+          <div class="auto-3d" id="auto-3d" tabindex="0" role="img" aria-label="3D model of a car door with a flush handle, its actuator, latch and wiring. Drag or use the arrow keys to orbit.">
+            <canvas class="auto-3d-canvas" id="auto-3d-canvas" aria-hidden="true"></canvas>
+            <p class="auto-3d-fallback mono" id="auto-3d-fallback" hidden>3D view unavailable here (WebGL or the Three.js library did not load). The signal board below still runs the same state machine.</p>
+            <div class="auto-3d-hud mono" aria-hidden="true"><span>drag · orbit</span><span id="auto-3d-hint">handle flush</span></div>
+            <div class="auto-3d-tools">
+              <button class="btn ghost auto-xray" type="button" id="auto-xray" aria-pressed="true">X-ray</button>
+            </div>
+          </div>
+
+          <div class="auto-walk">
+            <label class="auto-walk-label mono" for="auto-dist">Walk towards the car <span id="auto-dist-out" aria-live="off">10.0 m</span></label>
+            <div class="auto-walk-row">
+              <button class="btn ghost auto-step" type="button" id="auto-step-back" aria-label="Step back one metre">−</button>
+              <input class="auto-range" type="range" id="auto-dist" min="0" max="10" step="0.5" value="10" aria-label="Distance to the car in metres" aria-describedby="auto-walk-help">
+              <button class="btn ghost auto-step" type="button" id="auto-step-fwd" aria-label="Step one metre closer">+</button>
+            </div>
+            <p class="auto-walk-help mono" id="auto-walk-help">Far → near. Close to the car the key is detected and the handle extends.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. the state machine that drives both views -->
+      <div class="panel auto-fsm" aria-labelledby="auto-fsm-t">
+        <div class="panel-head"><b id="auto-fsm-t">State machine</b><span>drive it</span></div>
+        <div class="panel-body auto-fsm-body">
+          <ol class="auto-rail" id="auto-rail" aria-label="Handle states">
+            <li class="auto-node is-on" data-node="retracted"><span class="auto-node-i mono">S0</span>Retracted</li>
+            <li class="auto-node" data-node="key"><span class="auto-node-i mono">S1</span>Key detected</li>
+            <li class="auto-node" data-node="extended"><span class="auto-node-i mono">S2</span>Extended · lit</li>
+            <li class="auto-node" data-node="grasped"><span class="auto-node-i mono">S3</span>Grasped</li>
+            <li class="auto-node" data-node="open"><span class="auto-node-i mono">S4</span>Unlocked · open</li>
+            <li class="auto-node auto-node-branch" data-node="hold"><span class="auto-node-i mono">B1</span>Exit-warning hold</li>
+            <li class="auto-node auto-node-branch" data-node="mech"><span class="auto-node-i mono">B2</span>Mechanical redundancy</li>
+            <li class="auto-node auto-node-branch" data-node="crash"><span class="auto-node-i mono">B3</span>Crash-safe state</li>
+          </ol>
+          <div class="auto-note" id="auto-note" role="status" aria-live="polite">
+            <p class="auto-note-bus mono" id="auto-note-bus">LIN · sleep</p>
+            <p id="auto-note-text">Handle flush with the door. The handle controller sleeps and waits for a wake-up from the vehicle access function.</p>
+          </div>
+          <div class="auto-actions" id="auto-actions" aria-label="Transitions">
+            <button class="btn" type="button" data-act="approach">Walk up with the key</button>
+            <button class="btn ghost" type="button" data-act="cut">Cut all electrics</button>
+          </div>
+          <p class="auto-fsm-help mono">Buttons move the machine; the slider feeds the “key detected” transition. Generic behaviour only, from BMW’s public descriptions.</p>
+        </div>
+      </div>
+
+      <!-- 3. signal-flow board -->
+      <div class="panel auto-board" aria-labelledby="auto-board-t">
+        <div class="panel-head"><b id="auto-board-t">Signal flow</b><span id="auto-board-state" class="mono">S0 · retracted</span></div>
+        <div class="panel-body auto-board-body">
+          <svg class="auto-board-svg" id="auto-board-svg" viewBox="0 0 640 380" role="img" aria-labelledby="auto-board-title auto-board-desc" preserveAspectRatio="xMidYMid meet">
+            <title id="auto-board-title">Signal-flow board of the door-handle function</title>
+            <desc id="auto-board-desc">Generic nodes (digital key, vehicle access function, door handle controller, handle actuator, touch sensing, latch, exterior lighting, exit-warning sensor, crash signal, power supply) connected by CAN, LIN, discrete and mechanical links. The links carrying signals in the current state animate.</desc>
+          </svg>
+          <p class="auto-board-legend mono"><span><i class="auto-lg auto-lg-can"></i>CAN</span><span><i class="auto-lg auto-lg-lin"></i>LIN</span><span><i class="auto-lg auto-lg-dsc"></i>discrete</span><span><i class="auto-lg auto-lg-mec"></i>mechanical</span><span><i class="auto-lg auto-lg-rf"></i>radio</span></p>
+        </div>
+      </div>
+
+      <!-- 4. signals in play -->
+      <div class="panel auto-signals" aria-labelledby="auto-signals-t">
+        <div class="panel-head"><b id="auto-signals-t">Signals in play</b><span id="auto-signals-count" class="mono">0</span></div>
+        <div class="panel-body auto-signals-body">
+          <ul class="auto-signal-list" id="auto-signal-list" aria-live="polite" aria-relevant="additions text"></ul>
+          <p class="auto-signals-note mono">Generic shape of the problem. The real signal catalogue, names, timings and thresholds are BMW’s and confidential; nothing here is from it.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-2 auto-facts" data-reveal>
+      <div>
+        <p class="eyebrow">What I did</p>
+        <ul class="auto-list">
+          <li>Designed the software architecture for the extendable door handles of next-generation BMW vehicles, keeping system states, events and requirements traceable: the state machine above is the public shape of that work.</li>
+          <li>Automotive-critical C++ on AUTOSAR; requirement-driven development across the whole lifecycle.</li>
+          <li>Diagnosed integration issues from CAN, LIN, SOME/IP and DLT traces across interdependent components: the links on the signal board are where those traces come from.</li>
+          <li>Git-based integration, GTest/GMock unit tests, Scrum.</li>
+        </ul>
+        <div class="chips auto-chips"><span class="chip">AUTOSAR</span><span class="chip">C++</span><span class="chip">CAN</span><span class="chip">LIN</span><span class="chip">SOME/IP</span><span class="chip">DLT</span><span class="chip">GTest / GMock</span><span class="chip">Scrum</span></div>
+      </div>
+      <div>
+        <p class="eyebrow">The product, in BMW’s words</p>
+        <ul class="auto-list auto-quotes">
+          <li>“The door handles are integrated flush into the doors and extend automatically when the standard BMW Digital Key approaches.” <a href="https://www.press.bmwgroup.com/usa/article/attachment/T0452316EN_US/637548" target="_blank" rel="noopener">BMW iX3 press kit, Sep 2025</a></li>
+          <li>“When the BMW Digital Key Plus is near, the flush-mounted door handles automatically extend.” <a href="https://www.press.bmwgroup.com/global/article/detail/T0456164EN/the-new-bmw-i3-second-model-of-the-neue-klasse" target="_blank" rel="noopener">BMW i3, Mar 2026</a></li>
+          <li>“The assessors confirmed that the electrically operated handles worked reliably after all the crash tests”, with “a mechanical redundancy” for exit “even in the event of all the electrical systems failing”. <a href="https://www.press.bmwgroup.com/global/article/detail/T0459155EN/" target="_blank" rel="noopener">Euro NCAP five stars, Jul 2026</a></li>
+        </ul>
+        <div class="auto-dives">
+          <button class="btn" type="button" data-dive="dive-handle">How the handle thinks</button>
+          <button class="btn ghost" type="button" data-dive="dive-neueklasse">Neue Klasse, by BMW</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<dialog class="dive" id="dive-handle" aria-labelledby="dive-handle-t">
+  <div class="dive-frame">
+    <div class="dive-head"><b>Dive 03.1</b><span>The handle state machine</span><button class="dive-close" type="button" aria-label="Close">✕</button></div>
+    <div class="dive-body">
+      <h3 id="dive-handle-t">A small part with a lot of states</h3>
+      <div class="dive-grid">
+        <div>
+          <dl class="kv">
+            <dt>Client</dt><dd>BMW Group, through Bertrandt Group (Seville)</dd>
+            <dt>Period</dt><dd>July 2022 – May 2024</dd>
+            <dt>Target</dt><dd>Neue Klasse cars with extendable door handles: BMW iX3 (2025), BMW i3 (2026)</dd>
+            <dt>My part</dt><dd>Software architecture and development of the extendable door-handle software</dd>
+            <dt>Toolbox</dt><dd>AUTOSAR C++, CAN / LIN / SOME/IP / DLT traces, GTest &amp; GMock, Git, Scrum</dd>
+          </dl>
+          <div class="links">
+            <a href="https://www.press.bmwgroup.com/global/article/detail/T0448372EN" target="_blank" rel="noopener">“Four Superbrains for the Neue Klasse” · BMW</a>
+            <a href="https://www.bmwusa.com/vehicles/x-series/ix3/bmw-ix3/ix3-2025-na5-bev-exterior.html" target="_blank" rel="noopener">iX3 exterior · BMW USA</a>
+          </div>
+        </div>
+        <div class="auto-dive-fsm">
+          <ol class="auto-dive-steps">
+            <li><b>S0 Retracted</b> Flush. Low power; the handle controller waits for a wake-up from the vehicle access function.</li>
+            <li><b>S1 Key detected</b> The vehicle access function authenticates the digital key and asks the handle to extend. Vehicle-level signalling: CAN.</li>
+            <li><b>S2 Extended · lit</b> The actuator drives the handle out while its position sensor is monitored; the light strip comes on in darkness; the handle reports its state back. Local sensing and actuation in the door: LIN.</li>
+            <li><b>S3 Grasped</b> Capacitive sensing in the handle registers the grab and the handle raises an unlock request.</li>
+            <li><b>S4 Unlocked · open</b> The latch is released and the door reports ajar; the handle retracts once the door is closed and locked again.</li>
+            <li><b>B1 Exit-warning hold</b> If a road user is approaching, the exit warning holds the latch: the handle moves, the door doesn’t.</li>
+            <li><b>B2 Mechanical redundancy</b> With all electrics off, the handle can still be operated and a mechanical path to the latch opens the door.</li>
+            <li><b>B3 Crash-safe state</b> On a crash signal the function goes to its safe state: doors unlocked, handles reachable, and no automatic retraction until reset.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="prose">
+        <p><b>Why a state machine.</b> A handle that moves by itself has to be safe in every situation a car gets into: a dead battery, ice over the slot, a crash, a child pulling it while someone cycles past. The way to make that tractable is to name every state and every event explicitly, trace each transition back to a requirement, and test every transition in isolation with GTest and GMock before anything reaches a vehicle. That traceability, from requirement to state to test, was the backbone of my work.</p>
+        <p><b>Where the buses come in.</b> In general terms: vehicle-level decisions such as “the key is here, extend” travel over CAN from the access and body functions; sensing and actuation local to the door talk over LIN; richer service-based communication uses SOME/IP; and every component writes DLT logs. Most integration problems live between those layers, so most of my debugging was reading traces from all four side by side and finding the one message that arrived late, twice, or not at all. The X-ray view of the 3D door shows that layering physically: a controller, an actuator with its position sensor, a latch, and the harness between them.</p>
+        <p><b>The three branches.</b> The exit-warning hold, the mechanical redundancy and the crash-safe state are what make the part trustworthy. BMW reports that Euro NCAP confirmed the electrically operated handles kept working after all the crash tests and that a mechanical redundancy allows exit even if all electrical systems fail. The demo on this page shows the behaviour at the level BMW describes publicly; the real signal names, timings and thresholds are BMW’s and stay with them.</p>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="dive" id="dive-neueklasse" aria-labelledby="dive-neueklasse-t">
+  <div class="dive-frame">
+    <div class="dive-head"><b>Dive 03.2</b><span>Neue Klasse · BMW Group videos</span><button class="dive-close" type="button" aria-label="Close">✕</button></div>
+    <div class="dive-body">
+      <h3 id="dive-neueklasse-t">The cars the handles went into</h3>
+      <p class="auto-dive-note">These are BMW Group’s own videos, embedded from their official channel. They show the Neue Klasse programme; nothing in them is mine, except the pride of having a part in the door.</p>
+      <div class="grid-3 auto-videos">
+        <div class="video" data-yt="fWOx09Lvwg4" data-title="Neue Klasse documentary, Ep. 1 · BMW Group"></div>
+        <div class="video" data-yt="8amA1rK_m-8" data-title="Neue Klasse documentary, Ep. 3: design language · BMW Group"></div>
+        <div class="video" data-yt="GnsghaXyaTE" data-title="Neue Klasse deep dive: design · BMW Group"></div>
+      </div>
+      <div class="dive-grid">
+        <div>
+          <dl class="kv">
+            <dt>iX3</dt><dd>First Neue Klasse model, launched September 2025. Flush handles that extend when the BMW Digital Key approaches.</dd>
+            <dt>i3</dt><dd>Second Neue Klasse model, March 2026. “Retractable flush door handles that extend automatically.”</dd>
+            <dt>Safety</dt><dd>Euro NCAP five stars (July 2026); handles confirmed working after all crash tests.</dd>
+          </dl>
+        </div>
+        <div class="links">
+          <a href="https://www.press.bmwgroup.com/usa/article/attachment/T0452316EN_US/637548" target="_blank" rel="noopener">iX3 press kit · BMW Group</a>
+          <a href="https://www.press.bmwgroup.com/global/article/detail/T0456164EN/the-new-bmw-i3-second-model-of-the-neue-klasse" target="_blank" rel="noopener">The new BMW i3 · BMW Group</a>
+          <a href="https://www.press.bmwgroup.com/global/article/detail/T0459155EN/" target="_blank" rel="noopener">Euro NCAP result · BMW Group</a>
+          <a href="https://www.press.bmwgroup.com/global/article/detail/T0452379EN/" target="_blank" rel="noopener">Neue Klasse video page · BMW Group</a>
+        </div>
+      </div>
+      <div class="prose"><p>Press photos of the cars are licensed for press use only, so none are reproduced here; the door on this page is a generic model built from primitives, not a BMW part.</p></div>
+    </div>
+  </div>
+</dialog>
+
+<!-- 35-break.html -->
+<section class="chapter" id="break" data-atmo="break" data-acc="lv" data-hud="CH 04 · HOLDING PATTERN">
+  <div class="wrap">
+    <div class="chapter-head">
+      <p class="eyebrow"><span class="idx">04</span> Holding pattern · May 2024 – Feb 2025</p>
+      <h2>Circling, not stalling</h2>
+      <p class="lede">Nine months away from employment for personal and family responsibilities. Family came first; in the hours around it I kept the engines warm with two study tracks, the way a pilot flies a holding pattern while waiting for clearance.</p>
+      <div class="meta"><span><b>Status</b> Career break</span><span><b>Tracks</b> Cybersecurity · LLMs / RAG</span><span><b>Cleared</b> Feb 2025 → semiconductors</span></div>
+    </div>
+
+    <div class="break-grid">
+      <div class="panel corner break-radar" data-reveal>
+        <div class="panel-head"><b>Study radar</b><span>one lap = Sep 2024 → Jan 2025</span></div>
+        <div class="panel-body break-radar-body">
+          <div class="break-track" id="break-track">
+            <svg class="break-svg" id="break-svg" viewBox="0 0 800 420" preserveAspectRatio="none" role="img" aria-label="A racetrack-shaped holding pattern with month marks from September 2024 to January 2025. Eight study topics sit on the track, sized by the months their track lasted."></svg>
+            <div class="break-nodes" id="break-nodes"></div>
+          </div>
+          <div class="break-readout" id="break-readout" aria-live="polite">
+            <p class="break-readout-k mono" id="break-readout-k">Hover or focus a node</p>
+            <p class="break-readout-t" id="break-readout-t">Each node is one thing I studied. Size follows how many months its track ran on the CV; a node sits inside the months its track covered, not on a date.</p>
+          </div>
+          <div class="break-legend" id="break-legend" role="group" aria-label="Topic groups">
+            <button class="break-leg" type="button" data-group="off" aria-pressed="false"><i class="break-sw break-sw-off"></i>Offensive</button>
+            <button class="break-leg" type="button" data-group="def" aria-pressed="false"><i class="break-sw break-sw-def"></i>Defensive</button>
+            <button class="break-leg" type="button" data-group="ai" aria-pressed="false"><i class="break-sw break-sw-ai"></i>AI</button>
+            <button class="break-leg" type="button" data-group="tool" aria-pressed="false"><i class="break-sw break-sw-tool"></i>Alongside</button>
+          </div>
+          <div class="break-actions">
+            <button class="btn" type="button" data-dive="dive-redblue">Red team / blue team</button>
+            <button class="btn ghost" type="button" data-dive="dive-aigen-break">The local RAG agent</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="break-side">
+        <div class="panel" data-reveal>
+          <div class="panel-head"><b>Why a break</b><span>May 2024 – Feb 2025</span></div>
+          <div class="panel-body">
+            <p class="break-why">Personal and family responsibilities needed my time, so I took it. There is no project to show for that part, and that is fine. The study below happened around it, in the gaps, with no deadline and no employer: a way of staying current and of finding out what I wanted next.</p>
+          </div>
+        </div>
+        <div class="panel" data-reveal>
+          <div class="panel-head"><b>What came out of it</b><span>repos and a direction</span></div>
+          <div class="panel-body">
+            <ul class="break-out">
+              <li><a href="https://github.com/lotape6/HackingNotebook" target="_blank" rel="noopener">HackingNotebook</a> <span class="mono">Obsidian vault</span><br>21 cheat sheets (nmap, SMB, LDAP, Active Directory, Hashcat, John, Hydra, web discovery…) plus write-ups for the HTB tracks, LetsDefend alerts and two malware samples.</li>
+              <li><a href="https://github.com/lotape6/AIgen" target="_blank" rel="noopener">AIgen</a> <span class="mono">Python · llama.cpp · pgvector</span><br>A local RAG agent: index documents into PostgreSQL, retrieve by cosine similarity, answer with a GPU-offloaded model, chat in Gradio.</li>
+              <li><a href="https://github.com/lotape6/ShellCheatsheet" target="_blank" rel="noopener">ShellCheatsheet</a> <span class="mono">LaTeX one-pager</span><br>The shell habits from the terminal chapter, condensed to a single printable page.</li>
+              <li><b>A direction.</b> The LLM track is what I carried into 2025: it became the <a href="#semi">AI Champion</a> part of the semiconductors role, evaluating tools and setting up AI-assisted workflows for developers.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<dialog class="dive" id="dive-redblue" aria-labelledby="dive-redblue-t">
+  <div class="dive-frame">
+    <div class="dive-head"><b>Dive 04-A</b><span>Red team / blue team · Sep 2024 – Jan 2025</span><button class="dive-close" type="button" aria-label="Close">✕</button></div>
+    <div class="dive-body">
+      <h3 id="dive-redblue-t">Both sides of the same lab</h3>
+      <div class="prose">
+        <p>Five months of hands-on security on lab platforms, kept as an Obsidian vault. The offensive half followed Hack The Box: enumeration, web exploitation, privilege escalation and Active Directory on Windows and Linux boxes. The defensive half followed LetsDefend and the HTB blue-team track: alert triage, phishing analysis, IOC validation, endpoint investigation and incident response, plus a couple of real malware samples pulled from <b>bazaar.abuse.ch</b> and taken apart by hand.</p>
+        <p>The notebook is a working vault, not a tutorial: every command that turned out useful ended up in a cheat sheet. Nothing from the labs is reproduced here beyond topic names.</p>
+      </div>
+      <div class="break-table-wrap">
+        <table class="break-table">
+          <thead><tr><th>Track</th><th>What it covered</th><th>Tools in the notes</th><th>State</th></tr></thead>
+          <tbody>
+            <tr><td><b>HTB · CREST CRT</b><br><span class="mono">14 boxes</span></td><td>Port and service enumeration, web discovery and injection, Linux and Windows privilege escalation, Active Directory enumeration and lateral movement, hash cracking</td><td>nmap, gobuster, ffuf, sqlmap, Burp Suite, impacket, BloodHound, evil-winrm, linPEAS / winPEAS, Hashcat, John the Ripper, Hydra</td><td>in progress</td></tr>
+            <tr><td><b>HTB · Intro to Blue Team</b><br><span class="mono">9 labs</span></td><td>Log analysis, persistence hunting, phishing lures, ransomware triage, data exfiltration, insider activity, memory forensics</td><td>Wireshark, Volatility, Windows .evtx event logs, Ghidra</td><td>finished</td></tr>
+            <tr><td><b>LetsDefend</b><br><span class="mono">SOC alerts</span></td><td>SIEM alert triage, phishing analysis, IOC validation, endpoint investigation, incident response; write-up of a Follina (CVE-2022-30190) detection</td><td>SIEM console, VirusTotal, Any.run and Hybrid Analysis sandboxes, PowerShell decoding</td><td>practised</td></tr>
+            <tr><td><b>Malware analysis</b><br><span class="mono">2 samples</span></td><td>Static analysis of droppers: de-obfuscating JavaScript and base64 PowerShell stagers with small Python scripts until the download URL falls out</td><td>Python, VirusTotal</td><td>2 write-ups</td></tr>
+            <tr><td><b>Ringzer0 CTF</b><br><span class="mono">1 challenge</span></td><td>A breach investigation from a web server log: spotting and URL-decoding blind SQL-injection payloads to reconstruct what the attacker read</td><td>Apache logs, URL decoding</td><td>solved</td></tr>
+            <tr><td><b>Cheat sheets</b><br><span class="mono">21 pages</span></td><td>nmap, SMB, NFS, FTP, LDAP, Active Directory, SQL, Tomcat, web discovery, injection search, reverse-shell sanitising, LXD/LXC escape, Windows CMD, Bash, Hashcat, John, Hydra, printers, client certificates</td><td>—</td><td>living</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="dive-grid">
+        <dl class="kv">
+          <dt>Period</dt><dd>September 2024 – January 2025</dd>
+          <dt>Platforms</dt><dd>Hack The Box, LetsDefend, Ringzer0 CTF, MalwareBazaar (abuse.ch)</dd>
+          <dt>Format</dt><dd>Self-directed; notes in Obsidian, published as a git repository</dd>
+          <dt>Why</dt><dd>Curiosity, and a software engineer's wish to know what the attacks on his code actually look like from both chairs</dd>
+        </dl>
+        <div>
+          <p class="break-note">The vault's own README calls its organisation poor and points visitors to the cheat sheets. That is an honest description, and the cheat sheets are the useful part.</p>
+          <div class="links">
+            <a href="https://github.com/lotape6/HackingNotebook" target="_blank" rel="noopener">github.com/lotape6/HackingNotebook</a>
+            <a href="https://github.com/lotape6/HackingNotebook/tree/master/Cheatsheets" target="_blank" rel="noopener">Cheat sheets</a>
+            <a href="https://github.com/lotape6/HackingNotebook/tree/master/Tracks" target="_blank" rel="noopener">Track write-ups</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="dive" id="dive-aigen-break" aria-labelledby="dive-aigen-break-t">
+  <div class="dive-frame">
+    <div class="dive-head"><b>Dive 04-B</b><span>AIgen · Sep – Nov 2024</span><button class="dive-close" type="button" aria-label="Close">✕</button></div>
+    <div class="dive-body">
+      <h3 id="dive-aigen-break-t">A RAG agent that never leaves the machine</h3>
+      <div class="prose">
+        <p>Three months on large language models, learned by building the plumbing rather than calling an API. AIgen indexes a folder of documents into PostgreSQL with the pgvector extension, retrieves the closest chunks for a question and hands them to a model running locally through llama.cpp on an NVIDIA GPU. A small Gradio page is the chat window. Everything runs on one Linux box with no external service.</p>
+      </div>
+      <ol class="break-pipe" aria-label="Pipeline">
+        <li><span class="mono">01</span><b>Documents</b><span>.docx and .pdf read with LlamaIndex readers (DocxReader, PyMuPDF)</span></li>
+        <li><span class="mono">02</span><b>Indexer</b><span>chunks embedded with a Hugging Face sentence model; table created with a VECTOR column</span></li>
+        <li><span class="mono">03</span><b>pgvector</b><span>PostgreSQL 15 + pgvector 0.8; HNSW index, cosine distance</span></li>
+        <li><span class="mono">04</span><b>Retriever</b><span>embeds the question, top-k nearest nodes with scores, wrapped as a LlamaIndex retriever</span></li>
+        <li><span class="mono">05</span><b>llama.cpp</b><span>llama-cpp-python built with GGML_CUDA; GGUF model, part of the layers offloaded to the GPU, 3.9k context window</span></li>
+        <li><span class="mono">06</span><b>Gradio</b><span>chat UI with history on a local port</span></li>
+      </ol>
+      <div class="dive-grid">
+        <dl class="kv">
+          <dt>Period</dt><dd>September – November 2024</dd>
+          <dt>Stack</dt><dd>Python 3.12, LlamaIndex, llama.cpp (CUDA 12.5), PostgreSQL + pgvector, Hugging Face embeddings, Gradio</dd>
+          <dt>Status</dt><dd>Work in progress, as the README says; a learning build, not a product</dd>
+          <dt>Led to</dt><dd>The AI Champion role at the semiconductors job in 2025</dd>
+        </dl>
+        <div>
+          <p class="break-note">What I took from it: embeddings and vector search are the easy part; chunking, context budgets and GPU memory are where the real decisions sit. That is also the part that transferred to evaluating tools for other developers a few months later.</p>
+          <div class="links">
+            <a href="https://github.com/lotape6/AIgen" target="_blank" rel="noopener">github.com/lotape6/AIgen</a>
+            <a href="https://github.com/pgvector/pgvector" target="_blank" rel="noopener">pgvector</a>
+            <a href="https://github.com/ggml-org/llama.cpp" target="_blank" rel="noopener">llama.cpp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<!-- 40-semiconductors.html -->
+<section class="chapter" id="semi" data-atmo="semi" data-acc="mg" data-hud="CH 05 · SEMICONDUCTORS">
+  <div class="wrap">
+    <div class="chapter-head">
+      <p class="eyebrow"><span class="idx">05</span> Semiconductors · Alten Delivery Center Spain for ASML · Feb 2025 – now</p>
+      <h2>The ground under every subsystem</h2>
+      <p class="lede">Not one subsystem of the machine, but the build that all of them stand on: moving lithography-machine software from Makefiles to Bazel and clearing years of dependency debt on the way.</p>
+      <div class="meta"><span><b>Role</b> Software developer (remote)</span><span><b>Stack</b> C/C++ · Bazel · Make · Python</span><span><b>Also</b> AI Champion</span></div>
+      <p class="chapter-note">Built from ASML's public statements and my CV. Nothing here describes ASML's actual software, infrastructure or data; the puzzle is a generic illustration.</p>
+    </div>
+
+    <div class="semi-grid">
+      <div class="panel corner semi-lab" data-reveal>
+        <div class="panel-head"><b>Untangle the graph</b><span id="semi-state-label">Make world · implicit dependencies</span></div>
+        <div class="panel-body semi-lab-body">
+          <div class="semi-canvas-wrap">
+            <canvas id="semi-graph" role="img" aria-label="Dependency graph of about forty build targets. Make world: tangled edges with cycles. Bazel world: a layered directed acyclic graph with explicit edges."></canvas>
+            <div class="semi-legend mono" aria-hidden="true"><span><i class="semi-sw semi-sw-ok"></i>explicit edge</span><span><i class="semi-sw semi-sw-bad"></i>cycle / hidden dep</span></div>
+          </div>
+          <div class="semi-counters" role="status" aria-live="polite">
+            <div class="semi-counter"><span class="mono semi-counter-k">Cycles found</span><b id="semi-c-cycles" class="semi-counter-v">7</b></div>
+            <div class="semi-counter"><span class="mono semi-counter-k">Duplicated symbols</span><b id="semi-c-dups" class="semi-counter-v">12</b></div>
+            <div class="semi-counter"><span class="mono semi-counter-k">Reproducible build</span><b id="semi-c-repro" class="semi-counter-v semi-no">✗</b></div>
+          </div>
+          <div class="semi-actions">
+            <button class="btn" type="button" id="semi-toggle" aria-pressed="false">Migrate to Bazel
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <button class="btn ghost" type="button" data-dive="dive-bazel">Show me the files</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="semi-side">
+        <div class="panel" data-reveal>
+          <div class="panel-head"><b>Work log</b><span>infrastructure, not a subsystem</span></div>
+          <div class="panel-body">
+            <ul class="semi-log">
+              <li><b>Technical-debt assessment</b> of a large C/C++ codebase and its production libraries: circular dependencies, duplicated symbols, inconsistent dependency declarations.</li>
+              <li><b>Makefiles → Bazel</b> for large lithography-machine components: explicit dependencies, reproducible builds.</li>
+              <li><b>AI Champion</b>: evaluated tools and set up practical AI-assisted engineering workflows for developers.</li>
+              <li><b>Automation and verification tooling</b> that removed manual steps; better code review and engineering practice.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="panel" data-reveal>
+          <div class="panel-head"><b>Scale, in ASML's words</b><span>©ASML</span></div>
+          <div class="panel-body">
+            <dl class="semi-facts">
+              <div><dt class="mono">Software engineers</dt><dd>over 4,000</dd></div>
+              <div><dt class="mono">Embedded software</dt><dd>“millions of lines of code”</dd></div>
+              <div><dt class="mono">Parts per machine</dt><dd>around 100,000</dd></div>
+              <div><dt class="mono">EUV light</dt><dd>13.5 nm, tin plasma</dd></div>
+            </dl>
+            <div class="semi-side-actions">
+              <button class="btn ghost" type="button" data-dive="dive-euv">What the machine does</button>
+              <a class="mono semi-ext" href="https://bazelcon2024.sched.com/event/1h6Sn/" target="_blank" rel="noopener">BazelCon 2024: ASML's Bazel migration ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<dialog class="dive" id="dive-bazel" aria-labelledby="dive-bazel-t">
+  <div class="dive-frame">
+    <div class="dive-head"><b>Dive 04-A</b><span>Makefiles → Bazel</span><button class="dive-close" type="button" aria-label="Close">✕</button></div>
+    <div class="dive-body">
+      <h3 id="dive-bazel-t">Why move a machine's software off Make</h3>
+      <div class="prose">
+        <p>A Makefile describes <b>how</b> to build: recipes, include paths, link lines. What it does not describe is <b>what depends on what</b>. Over years, a large C/C++ tree accumulates include paths that reach into other components, libraries that link because they always have, and two copies of the same symbol that only one linker order resolves. The build works, but nobody can prove why, and a full rebuild is the only safe one.</p>
+        <p>Bazel inverts that. Every target declares its sources and its dependencies, and nothing else is visible to it. Hidden includes fail to compile. Circular dependencies fail to analyse. Duplicated symbols stop hiding behind link order. Once the graph is explicit it is also a DAG, so the build becomes incremental, cacheable and reproducible: the same inputs give the same outputs, on a laptop or a build farm.</p>
+        <p>My part was the unglamorous half: assessing the debt first (cycles, duplicated symbols, declarations that disagreed with reality), then migrating large lithography-machine components target by target, and writing the automation and verification tooling that kept the migration honest. The toy below shows the shape of the change, not ASML's code.</p>
+      </div>
+      <div class="semi-code">
+        <div class="panel">
+          <div class="panel-head"><b>Before</b><span>Makefile</span></div>
+          <pre class="semi-pre"><code># implicit: where does stage_ctl.h come from?
+CXXFLAGS += -I../common -I../../metrology/include
+LDLIBS   += -lmetrology -lcommon -lstage
+
+all: stage_ctl
+
+stage_ctl: stage_ctl.o servo.o
+	$(CXX) $^ $(LDLIBS) -o $@
+
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $&lt; -o $@
+
+# metrology/Makefile links -lstage back → cycle</code></pre>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><b>After</b><span>BUILD.bazel</span></div>
+          <pre class="semi-pre"><code># explicit: every input is a label
+cc_library(
+    name = "servo",
+    srcs = ["servo.cpp"],
+    hdrs = ["servo.h"],
+    deps = ["//common:math"],
+)
+
+cc_binary(
+    name = "stage_ctl",
+    srcs = ["stage_ctl.cpp"],
+    deps = [
+        ":servo",
+        "//metrology:interface",  # not //metrology:all
+    ],
+)
+# a dep back from //metrology to :servo is a build error</code></pre>
+        </div>
+      </div>
+      <div class="dive-grid">
+        <dl class="kv">
+          <dt>Employer</dt><dd>Alten Delivery Center Spain, working for ASML (remote)</dd>
+          <dt>Period</dt><dd>February 2025 – present</dd>
+          <dt>Scope</dt><dd>Build infrastructure of lithography-machine software; large C/C++ components</dd>
+          <dt>Tools</dt><dd>Bazel, GNU Make, C/C++, Python tooling, AI-assisted workflows</dd>
+        </dl>
+        <div>
+          <p class="semi-note">Public evidence that ASML is migrating to Bazel: a BazelCon 2024 talk by an ASML contractor described as “leading a migration to the Bazel build system”. I did not give that talk; it is linked here as context.</p>
+          <div class="links">
+            <a href="https://bazelcon2024.sched.com/event/1h6Sn/" target="_blank" rel="noopener">BazelCon 2024 · rules_variant (ASML)</a>
+            <a href="https://bazel.build/" target="_blank" rel="noopener">bazel.build</a>
+            <a href="https://www.asml.com/en/news/stories/2024/byte-sized-software-engineering" target="_blank" rel="noopener">ASML · software engineering at ASML</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="dive" id="dive-euv" aria-labelledby="dive-euv-t">
+  <div class="dive-frame">
+    <div class="dive-head"><b>Dive 04-B</b><span>The machine, in ASML's words</span><button class="dive-close" type="button" aria-label="Close">✕</button></div>
+    <div class="dive-body">
+      <h3 id="dive-euv-t">What an EUV scanner does, as ASML describes it</h3>
+      <div class="prose">
+        <p>All figures below are ASML's own public statements, quoted from asml.com. They are here to explain why the software's build infrastructure matters, not as claims about my work.</p>
+      </div>
+      <div class="dive-grid">
+        <dl class="kv">
+          <dt>Light</dt><dd>13.5 nm extreme ultraviolet, made by hitting tin droplets with a laser to form a plasma at about 500,000 K; mirrors instead of lenses.</dd>
+          <dt>Source</dt><dd>Tin droplets travelling at 70 m/s, hit 50,000 times per second.</dd>
+          <dt>Wafer stage</dt><dd>Positioned to a quarter of a nanometre, corrected 20,000 times a second.</dd>
+          <dt>Parts</dt><dd>Around 100,000 per machine; shipping one takes 40 freight containers, three cargo planes and 20 trucks.</dd>
+          <dt>Software</dt><dd>Over 4,000 software engineers; embedded software of “millions of lines of code” steers and controls the machines.</dd>
+          <dt>Product</dt><dd>TWINSCAN NXE:3800E: high-volume manufacturing for 2 nm logic.</dd>
+        </dl>
+        <div>
+          <p class="semi-note">ASML does not publish an exact line count, and neither does this page.</p>
+          <div class="links">
+            <a href="https://www.asml.com/en/discover/hot-machines" target="_blank" rel="noopener">ASML · Hot machines (EUV facts)</a>
+            <a href="https://www.asml.com/news/stories/2022/busting-asml-myths" target="_blank" rel="noopener">ASML · Busting ASML myths (parts, shipping)</a>
+            <a href="https://www.asml.com/en/news/stories/2024/byte-sized-software-engineering" target="_blank" rel="noopener">ASML · Byte-sized software engineering</a>
+            <a href="https://asml.com/en/products/euv-lithography-systems/twinscan-nxe-3800e" target="_blank" rel="noopener">ASML · TWINSCAN NXE:3800E</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<!-- 50-terminal.html -->
+<section class="chapter" id="term" data-atmo="term" data-acc="lv" data-hud="CH 06 · TERMINAL">
+  <div class="wrap">
+    <div class="chapter-head">
+      <p class="eyebrow"><span class="idx">06</span> Terminal craft · dotfiles · tmux · fzf</p>
+      <h2>Daily toolkit</h2>
+      <p class="lede">A terminal tuned so that moving between projects, sessions and files costs one keystroke, and the whole setup reinstalls on a new machine with one command.</p>
+      <div class="meta"><span><b>Shell</b> zsh · Oh My Zsh · Starship</span><span><b>Mux</b> tmux · TPM · tmuxinator</span><span><b>Find</b> fzf · fd · bat · delta</span><span><b>Install</b> dotbot</span></div>
+    </div>
+
+    <div class="term-layout">
+      <div class="term-stage">
+        <div class="term-toolbar">
+          <div class="term-themes" role="group" aria-label="Terminal theme (DOTFILES_THEME)">
+            <span class="mono term-themes-label">DOTFILES_THEME=</span>
+            <button class="term-theme" type="button" data-theme="lavender" aria-pressed="true"><i></i>lavender</button>
+            <button class="term-theme" type="button" data-theme="rose" aria-pressed="false"><i></i>rose</button>
+            <button class="term-theme" type="button" data-theme="mint" aria-pressed="false"><i></i>mint</button>
+            <button class="term-theme" type="button" data-theme="peach" aria-pressed="false"><i></i>peach</button>
+            <button class="term-theme" type="button" data-theme="gentle" aria-pressed="false"><i></i>gentle</button>
+          </div>
+          <button class="btn term-altq" type="button" id="term-altq" aria-controls="term-popup" aria-expanded="false"><kbd>Alt</kbd>+<kbd>q</kbd> sessionizer</button>
+        </div>
+
+        <div class="term-win" id="term-win" tabindex="0" aria-label="Fake terminal: kitty running tmux. Press Alt+Q for the session picker, Alt+W for projects, Alt+1 to 3 for windows." data-theme="lavender">
+          <div class="term-titlebar mono" aria-hidden="true"><span class="term-dots"><i></i><i></i><i></i></span><span class="term-title">kitty · tmux · portfolio</span><span class="term-font">Ubuntu Sans Mono 13</span></div>
+          <div class="term-screen">
+            <pre class="term-pane mono" id="term-pane" aria-live="polite" aria-label="Active pane"></pre>
+            <div class="term-popup" id="term-popup" hidden role="dialog" aria-modal="false" aria-label="tmux sessions">
+              <div class="term-popup-frame">
+                <div class="term-popup-label mono" id="term-popup-label">✦ tmux sessions</div>
+                <div class="term-popup-cols">
+                  <div class="term-fzf">
+                    <div class="term-fzf-prompt mono" id="term-fzf-prompt"><span class="term-fzf-glyph">session ✦ </span><span class="term-fzf-query" id="term-fzf-query"></span><span class="term-fzf-caret" aria-hidden="true"></span></div>
+                    <div class="term-fzf-info mono" id="term-fzf-info">5/5</div>
+                    <div class="term-fzf-list" id="term-fzf-list" role="listbox" aria-label="Sessions" tabindex="0" aria-activedescendant=""></div>
+                    <div class="term-fzf-header mono" id="term-fzf-header">current: portfolio<br>Enter:go Esc:quit ?:preview<br>Alt+p:toggle Alt+w:cycle</div>
+                  </div>
+                  <pre class="term-preview mono" id="term-preview" aria-live="polite" aria-label="Preview"></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="term-status mono" id="term-status" aria-label="tmux status bar">
+            <span class="term-st-session" id="term-st-session">✦ portfolio</span>
+            <span class="term-st-windows" id="term-st-windows"></span>
+            <span class="term-st-right">
+              <span class="term-st-host" id="term-st-host">⬡ jerez</span><span class="term-st-time" id="term-st-time">◈ Oct 16  14:02</span><span class="term-st-cpu" id="term-st-cpu">◆ cpu:0.42 mem:31%</span><span class="term-st-net" id="term-st-net">◉ ↓12K ↑3K</span>
+            </span>
+          </div>
+        </div>
+
+        <dl class="term-legend mono" aria-label="Keystroke legend">
+          <div><dt><button type="button" class="term-key" data-key="q"><kbd>Alt</kbd>+<kbd>q</kbd></button></dt><dd>sessionizer: fzf over tmux sessions, live pane preview</dd></div>
+          <div><dt><button type="button" class="term-key" data-key="w"><kbd>Alt</kbd>+<kbd>w</kbd></button></dt><dd>projects: fzf over tmuxinator layouts, YAML preview</dd></div>
+          <div><dt><button type="button" class="term-key" data-key="1"><kbd>Alt</kbd>+<kbd>1</kbd></button>…<button type="button" class="term-key" data-key="3"><kbd>3</kbd></button></dt><dd>jump to window N (1..9), no prefix</dd></div>
+          <div><dt><kbd>Alt</kbd>+<kbd>←↑↓→</kbd></dt><dd>move between panes · <kbd>Shift</kbd> to resize by 5</dd></div>
+          <div><dt><kbd>Alt</kbd>+<kbd>v</kbd> / <kbd>Alt</kbd>+<kbd>o</kbd></dt><dd>split side by side / stacked, in the current path</dd></div>
+          <div><dt><kbd>prefix</kbd> <kbd>r</kbd></dt><dd>reload tmux.conf · <kbd>prefix</kbd> <kbd>Enter</kbd> vi copy mode to clipboard</dd></div>
+          <div><dt><kbd>Ctrl</kbd>+<kbd>t</kbd> / <kbd>Ctrl</kbd>+<kbd>r</kbd></dt><dd>fzf files (fd + bat preview) / history · <kbd>Ctrl</kbd>+<kbd>/</kbd> toggles preview</dd></div>
+        </dl>
+      </div>
+
+      <aside class="term-side">
+        <div class="panel corner">
+          <div class="panel-head"><b>The stack</b><span>as linked by dotbot</span></div>
+          <div class="panel-body term-stack">
+            <div><span class="term-stack-k mono">terminal</span><p><b>kitty</b> borderless, 90% opacity, 100k scrollback, theme by include</p></div>
+            <div><span class="term-stack-k mono">shell</span><p><b>zsh + Oh My Zsh</b> git, z, docker, kubectl, fzf, tmuxinator; autosuggestions + syntax highlighting; 100k shared history</p></div>
+            <div><span class="term-stack-k mono">prompt</span><p><b>Starship</b> dir, git, runtimes, k8s/docker context, duration</p></div>
+            <div><span class="term-stack-k mono">mux</span><p><b>tmux + TPM</b> prefix-free Alt bindings, vi copy mode; <b>tmuxinator</b> YAML layouts</p></div>
+            <div><span class="term-stack-k mono">find</span><p><b>fzf + fd + bat + delta</b> hidden files, no .git, previews, themed colours</p></div>
+            <div><span class="term-stack-k mono">status</span><p><b>tmux-metrics</b> load, mem %, GPU % · <b>tmux-net-stat</b> ↓↑ rate</p></div>
+          </div>
+        </div>
+        <div class="chips">
+          <span class="chip">5 themes as data</span><span class="chip">symlinks, nothing copied</span><span class="chip">rm cp mv interactive</span><span class="chip">worktrees ~/gt/&lt;repo&gt;/crew/&lt;branch&gt;</span>
+        </div>
+        <div class="term-ctas">
+          <button class="btn" type="button" data-dive="dive-dotfiles">Dotfiles: stack &amp; install</button>
+          <button class="btn ghost" type="button" data-dive="dive-sessionizer">Sessionizer &amp; flux-capacitor</button>
+        </div>
+        <div class="links">
+          <a href="https://github.com/laiadlotape/dotfiles" target="_blank" rel="noopener">dotfiles</a>
+          <a href="https://github.com/lotape6/flux-capacitor" target="_blank" rel="noopener">flux-capacitor</a>
+          <a href="https://github.com/lotape6/ShellCheatsheet" target="_blank" rel="noopener">ShellCheatsheet</a>
+        </div>
+      </aside>
+    </div>
+    <div class="panel corner term-tools" id="term-tools">
+      <div class="panel-head"><b>Daily tools</b><span>from the dotfiles · <i class="term-tag">typical</i> = not pinned down by the repo</span></div>
+      <div class="panel-body term-tools-grid">
+        <div><b>kitty</b><p>GPU terminal: borderless, 90% opacity, 100k scrollback, copy on select, theme by include</p></div>
+        <div><b>tmux + tmuxinator</b><p>Alt-only bindings, vi copy mode, <code>mux</code> layouts in YAML (<code>Town.yml</code>, <code>tslam.yml</code>)</p></div>
+        <div><b>zsh + Oh My Zsh + Starship</b><p>git/z/docker/kubectl/fzf plugins, autosuggestions, syntax highlighting; Starship prompt themed per palette</p></div>
+        <div><b>fzf</b><p>Ctrl+T files, Ctrl+R history, Alt+C cd, <code>**</code> completion; popup inside tmux</p></div>
+        <div><b>fd</b><p><code>FZF_DEFAULT_COMMAND</code>: hidden files, follows links, skips <code>.git</code></p></div>
+        <div><b>ripgrep <i class="term-tag">typical</i></b><p>daily driver for code search in big C++ trees; fd finds files, rg finds text</p></div>
+        <div><b>bat</b><p>syntax-highlighted previews in fzf (Ctrl+T) and in the project picker (YAML)</p></div>
+        <div><b>delta</b><p>git pager and interactive diff filter: side by side, line numbers, navigate</p></div>
+        <div><b>z</b><p>Oh My Zsh plugin: jump to a frequent directory by fragment</p></div>
+        <div><b>VS Code</b><p><code>EDITOR="code --wait"</code> and <code>editrc</code> from the zshrc; <i class="term-tag">typical</i> settings sync, tasks, keybindings, Remote/WSL, C++/Python/Bazel extensions</p></div>
+        <div><b>git</b><p>worktrees under <code>~/gt/&lt;repo&gt;/crew/&lt;branch&gt;</code>, global ignore, pull with rebase, <code>diff3</code> conflicts, gh as credential helper</p></div>
+        <div><b>Docker</b><p><code>dk</code>, <code>dkc</code>, <code>dkps</code> aliases and the docker plugin; GPU containers on Jetson in the aerospace years</p></div>
+        <div><b>Obsidian <i class="term-tag">typical</i></b><p>daily driver for notes: the HackingNotebook vault, markdown in git</p></div>
+        <div><b>xclip</b><p>tmux copy mode and mouse drags pipe to the system clipboard</p></div>
+        <div><b>nvidia-smi</b><p><code>tmux-metrics</code> appends GPU % to the status bar when a GPU is present</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<dialog class="dive" id="dive-dotfiles" aria-labelledby="dive-dotfiles-t">
+  <div class="dive-frame">
+    <div class="dive-head"><b>Toolkit 01</b><span>dotfiles · stack &amp; install</span><button class="dive-close" type="button" aria-label="Close">✕</button></div>
+    <div class="dive-body">
+      <h3 id="dive-dotfiles-t">One repo, one command, every machine</h3>
+      <div class="term-table-wrap">
+        <table class="term-table">
+          <thead><tr><th>Layer</th><th>Tool</th><th>How it is used</th></tr></thead>
+          <tbody>
+            <tr><td>Terminal</td><td>kitty</td><td>borderless, 90% opacity, Ubuntu Sans Mono 13, 100k scrollback, theme loaded by include</td></tr>
+            <tr><td>Shell</td><td>zsh + Oh My Zsh</td><td>plugins git, z, docker, kubectl, fzf, tmuxinator; zsh-autosuggestions and zsh-syntax-highlighting as submodules; 100k shared history with dedup and timestamps</td></tr>
+            <tr><td>Prompt</td><td>Starship</td><td>directory, git branch/status, language runtimes (python, node, rust, go, java), kubernetes and docker context, command duration</td></tr>
+            <tr><td>Multiplexer</td><td>tmux + TPM</td><td>vi copy mode to clipboard, Alt+arrows pane navigation, Alt+1..9 windows, Alt+v / Alt+o splits in the current path, <code>prefix r</code> reload</td></tr>
+            <tr><td>Session launcher</td><td>tmuxinator</td><td>project layouts in YAML (<code>mux</code>); the <code>Town.yml</code> layout opens the Git worktree tree <code>~/gt/&lt;repo&gt;/crew/&lt;branch&gt;</code></td></tr>
+            <tr><td>Fuzzy finder</td><td>fzf + fd + bat + delta</td><td>fd as default command (hidden files, no .git), Ctrl-T with bat preview, Ctrl-R history, Ctrl-/ toggles preview; colours and symbols come from the active theme</td></tr>
+            <tr><td>Editor</td><td>VS Code</td><td><code>EDITOR</code> and <code>VISUAL</code> are <code>code --wait</code> when available (nano otherwise), <code>editrc</code> opens the zshrc; settings sync, tasks, keybindings, Remote/WSL and C++/Python/Bazel extensions are the usual setup <i class="term-tag">typical</i></td></tr>
+            <tr><td>Version control</td><td>git + delta</td><td>worktrees under <code>~/gt/&lt;repo&gt;/crew/&lt;branch&gt;</code> (one tmux window each), <code>~/.gitignore_global</code>, delta as pager (side by side, line numbers), <code>pull.rebase</code>, <code>diff3</code> conflicts, <code>gh</code> as credential helper</td></tr>
+            <tr><td>Search</td><td>ripgrep</td><td>text search next to fd's file search in large C++ trees <i class="term-tag">typical</i></td></tr>
+            <tr><td>Containers</td><td>Docker</td><td><code>dk</code>, <code>dkc</code>, <code>dkps</code>, <code>dki</code> aliases and the Oh My Zsh docker plugin</td></tr>
+            <tr><td>Notes</td><td>Obsidian</td><td>the HackingNotebook vault, markdown notes kept in git <i class="term-tag">typical</i></td></tr>
+            <tr><td>Clipboard</td><td>xclip</td><td><code>y</code> in vi copy mode and mouse drags pipe through <code>xclip -selection clipboard</code>; kitty also copies on select</td></tr>
+            <tr><td>GPU</td><td>nvidia-smi</td><td><code>tmux-metrics</code> queries <code>utilization.gpu</code> and appends <code>G:NN%</code> to the status line when a GPU is present</td></tr>
+            <tr><td>Installer</td><td>dotbot</td><td><code>install.conf.yaml</code> links everything into <code>~</code>, pulls submodules and installs tmux plugins; <code>test/validate.sh</code> checks the result</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="dive-grid">
+        <div>
+          <h4 class="term-h4">Install flow</h4>
+          <ol class="term-flow mono">
+            <li><span>01</span><div><b>git clone … &amp;&amp; ./install.sh</b> idempotent bootstrap, detects macOS / Linux and the package manager</div></li>
+            <li><span>02</span><div><b>git submodule update --init --recursive</b> Oh My Zsh plugins and TPM arrive as submodules</div></li>
+            <li><span>03</span><div><b>dotbot link</b> <code>~/.zshrc</code>, <code>~/.tmux.conf</code>, <code>~/.fzf.zsh</code>, <code>~/.config/starship.toml</code>, <code>~/.config/kitty/kitty.conf</code>, <code>~/.config/tmuxinator</code>, the themes folder and the four scripts into <code>~/.local/bin</code></div></li>
+            <li><span>04</span><div><b>tpm/bin/install_plugins</b> tmux-sensible and tmux-yank</div></li>
+            <li><span>05</span><div><b>test/validate.sh</b> checks that every link resolves</div></li>
+          </ol>
+        </div>
+        <div>
+          <h4 class="term-h4">Themes as data</h4>
+          <dl class="kv">
+            <dt>Switch</dt><dd>one variable, <code>DOTFILES_THEME</code>, picks kitty colours, Starship, tmux status, fzf colours and the prompt glyphs (<code>❯</code>, <code>◈</code>, <code>✦</code>)</dd>
+            <dt>Palettes</dt><dd>lavender (Catppuccin Mocha), rose (Rosé Pine), mint (Everforest), peach (Kanagawa Wave), gentle (terminal defaults)</dd>
+            <dt>Contract</dt><dd>each theme exports <code>THEME_*</code> variables that every script reads: <code>THEME_FZF_COLORS</code>, <code>THEME_EMOJI_SESSION_POINTER</code>, …</dd>
+            <dt>Status</dt><dd><code>tmux-metrics</code> (load, memory %, GPU % from nvidia-smi) and <code>tmux-net-stat</code> (up/down rate) feed the status line every 5 s</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="prose">
+        <p>Everything is symlinked, nothing copied: <b>git pull updates the machine</b>. History holds 100,000 entries, shared across panes and written immediately. <code>rm</code>, <code>cp</code> and <code>mv</code> are interactive by default. Repos live under <code>~/gt/&lt;repo&gt;/crew/&lt;branch&gt;</code> as Git worktrees, one tmux window per worktree.</p>
+        <p><b>ShellCheatsheet</b> is the paper companion: a one-page LaTeX cheat sheet of the shell tools above, published as PNG and PDF.</p>
+      </div>
+      <div class="links">
+        <a href="https://github.com/laiadlotape/dotfiles" target="_blank" rel="noopener">dotfiles on GitHub</a>
+        <a href="https://github.com/lotape6/ShellCheatsheet" target="_blank" rel="noopener">ShellCheatsheet</a>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="dive" id="dive-sessionizer" aria-labelledby="dive-sessionizer-t">
+  <div class="dive-frame">
+    <div class="dive-head"><b>Toolkit 02</b><span>sessionizer · projects · flux-capacitor</span><button class="dive-close" type="button" aria-label="Close">✕</button></div>
+    <div class="dive-body">
+      <h3 id="dive-sessionizer-t">One keystroke between sessions</h3>
+      <div class="dive-grid">
+        <figure class="term-figure">
+          <img src="assets/img/flux.gif" alt="Animated demo of flux-capacitor: a fuzzy session picker in a terminal switching between tmux sessions" width="800" height="450" loading="lazy">
+          <figcaption class="mono">flux-capacitor demo GIF, the predecessor of today's sessionizer</figcaption>
+        </figure>
+        <div>
+          <dl class="kv">
+            <dt>Alt+q</dt><dd><b>tmux-sessionizer</b>: a tmux popup (87% wide, 73–80% tall depending on the window height) runs fzf over <code>tmux list-sessions</code>. Each row: name, window count, attached marker, age, current path.</dd>
+            <dt>Preview</dt><dd>right pane, 80% width: <code>tmux capture-pane -p -e -J -S -</code>, the full scrollback of the session's pane with colours, following the bottom. PgUp/PgDn scroll it, Home/End jump, <code>?</code> and Alt+p toggle it, Alt+w cycles its position.</dd>
+            <dt>Enter</dt><dd>inside tmux: <code>switch-client</code>; outside: <code>exec tmux attach-session</code>. Outside tmux it is a zsh widget so fzf gets a TTY.</dd>
+            <dt>Alt+w</dt><dd><b>tmux-projects</b>: fzf over tmuxinator YAMLs. Running projects show a live pane capture, the others their YAML through bat. Alt+o toggles preview mode, Alt+e edits the config and offers a restart.</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="prose">
+        <p><b>flux-capacitor</b> came first: a Back-to-the-Future flavoured tmux session manager, inspired by sesh. <code>flux connect &lt;dir&gt;</code> warps into a session rooted at a directory and re-attaches if one exists; <code>-p</code> runs a command in every new pane, <code>-P</code> after the session ends, <code>-e</code> auto-loads an env file, <code>-f</code> forces a fresh session. <code>flux launch</code> builds a workspace from a <code>.flux.yml</code>. It has GitHub Actions integration tests (basic and daily).</p>
+        <p>The sessionizer in the dotfiles is its successor: fewer features, one script, theme-aware symbols and colours, and the same promise that moving between projects costs one keystroke.</p>
+      </div>
+      <div class="links">
+        <a href="https://github.com/lotape6/flux-capacitor" target="_blank" rel="noopener">flux-capacitor on GitHub</a>
+        <a href="https://github.com/laiadlotape/dotfiles/blob/main/scripts/tmux-sessionizer" target="_blank" rel="noopener">tmux-sessionizer source</a>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<!-- 60-agentic.html -->
+<section class="chapter" id="agents" data-atmo="agents" data-acc="gn" data-hud="CH 07 · AGENTS">
+  <div class="wrap">
+    <div class="chapter-head">
+      <p class="eyebrow"><span class="idx">07</span> Agentic engineering · AIgen · ASML · Finding Memo · 2024–2026</p>
+      <h2>Giving the agent a harness</h2>
+      <p class="lede">AI coding agents treated like any other engineering tool: give them a harness (instructions, memory, permissions, reviewers, hooks, skills, evals), measure the result, and teach the team. The harnesses I run at work are company property and cannot be shown; this explorer mirrors their structure with snippets from my public repos.</p>
+      <div class="meta"><span><b>Role</b> AI Champion at ASML (via Alten)</span><span><b>Stack</b> Claude Code · OpenCode · tmux · git worktrees · Docker · llama.cpp · MARP</span></div>
+      <p class="chapter-note">The public snippets are from my own repositories. The harnesses I run at work stay private; only their general shape is mirrored.</p>
+    </div>
+
+    <div class="agents-layout">
+      <aside class="panel corner agents-timeline-panel" aria-label="Timeline">
+        <div class="panel-head"><b>Log</b><span>2024 → 2026</span></div>
+        <ol class="agents-timeline">
+          <li>
+            <span class="mono agents-when">Sep–Nov 2024</span>
+            <b>AIgen</b>
+            <p>Local LLM agent with RAG on llama.cpp (CUDA), LlamaIndex and PostgreSQL pgvector. First contact with agent loops.</p>
+            <button class="btn ghost agents-mini" type="button" data-dive="dive-aigen">Dive in</button>
+          </li>
+          <li>
+            <span class="mono agents-when">Feb 2025 – now</span>
+            <b>AI Champion at ASML</b>
+            <p>Evaluated AI tools for a large C/C++ codebase and set up practical workflows so developers could adopt AI-assisted engineering. The Bazel migration work was itself done with agent assistance. The harnesses built there stay at ASML/Alten.</p>
+          </li>
+          <li>
+            <span class="mono agents-when">Mar–May 2026</span>
+            <b>Finding Memo</b>
+            <p>An interactive guide and 5-minute talk that explains agents through Finding Nemo. Built by an agent, with a reconstruction of its own build you can step through.</p>
+            <button class="btn ghost agents-mini" type="button" data-dive="dive-findingmemo">Dive in</button>
+          </li>
+          <li>
+            <span class="mono agents-when">2026</span>
+            <b>Harnesses in every repo</b>
+            <p><code>.opencode/</code> in alikindoi (OpenCode), agents and skills in Finding Memo (Claude Code), an HR-reviewer agent in the CV repo.</p>
+            <button class="btn ghost agents-mini" type="button" data-dive="dive-harness">Full tour</button>
+          </li>
+        </ol>
+      </aside>
+
+      <div class="panel corner agents-explorer" id="agents-explorer">
+        <div class="panel-head agents-explorer-head">
+          <b>Harness explorer</b>
+          <div class="agents-tabs" role="tablist" aria-label="Explorer views">
+            <button class="agents-tab" role="tab" type="button" id="agents-tab-files" aria-selected="true" aria-controls="agents-pane-files">Files</button>
+            <button class="agents-tab" role="tab" type="button" id="agents-tab-topo" aria-selected="false" aria-controls="agents-pane-topo" tabindex="-1">Topology</button>
+            <button class="agents-tab" role="tab" type="button" id="agents-tab-loop" aria-selected="false" aria-controls="agents-pane-loop" tabindex="-1">The loop</button>
+          </div>
+        </div>
+        <p class="agents-disclaimer mono"><span class="agents-vis agents-vis-public">public</span> verbatim from my repos · <span class="agents-vis agents-vis-private">private</span> exists in the work harnesses (ASML/Alten), company property, not shown · structure mirrored, contents redacted</p>
+
+        <div class="agents-pane" id="agents-pane-files" role="tabpanel" aria-labelledby="agents-tab-files">
+          <div class="agents-files">
+            <div class="agents-tree" id="agents-tree" role="tree" aria-label="Harness layers and files">
+              <p class="mono agents-tree-root">harness/ <span id="agents-tree-count"></span></p>
+              <noscript><p class="agents-small">The tree needs JavaScript; the full tour below lists the same public files.</p></noscript>
+            </div>
+            <div class="agents-code" aria-live="polite">
+              <div class="agents-code-head mono"><span id="agents-code-path">AGENTS.md</span><span id="agents-code-kind">instructions</span><span class="agents-vis" id="agents-code-vis">public</span></div>
+              <pre class="agents-pre" tabindex="0" id="agents-pre"><code id="agents-code">loading…</code></pre>
+              <div class="agents-redacted" id="agents-redacted" hidden aria-label="Redacted: company property">
+                <span class="agents-redacted-tag mono">redacted · company property</span>
+                <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                <p class="agents-small" id="agents-redacted-text"></p>
+              </div>
+              <p class="agents-note"><b>What this buys you</b> <span id="agents-code-note"></span></p>
+              <div class="agents-where mono"><span>Runs in</span><span class="agents-where-chip" data-where="cc">Claude Code</span><span class="agents-where-chip" data-where="oc">OpenCode</span><span class="agents-where-chip" data-where="ci">CI</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="agents-pane" id="agents-pane-topo" role="tabpanel" aria-labelledby="agents-tab-topo" hidden>
+          <div class="agents-topo">
+            <div class="agents-topo-scroll">
+              <svg class="agents-topo-svg" viewBox="0 0 820 350" role="img" aria-labelledby="agents-topo-title agents-topo-desc" preserveAspectRatio="xMidYMid meet">
+                <title id="agents-topo-title">Harness topology at runtime</title>
+                <desc id="agents-topo-desc">The human writes a task; instructions and memory are loaded; the agent loop calls tools and MCP servers through hooks; a read-only reviewer and the tests gate the commit; CI gates the merge.</desc>
+                <defs>
+                  <marker id="agents-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5 0 10z" fill="currentColor"/></marker>
+                  <path id="agents-topo-path" d="M70 92 H346 L441 92 L536 78 H664 L668 92 L668 106 H540 L475 110 V192 L475 228 H636 L695 228 V298 L695 322"/>
+                </defs>
+                <g class="agents-topo-edges" fill="none" stroke="currentColor" stroke-width="1.2" marker-end="url(#agents-arrow)">
+                  <path d="M112 92 H136"/>
+                  <path d="M318 92 H342"/>
+                  <path d="M536 78 H664"/>
+                  <path d="M668 106 H540"/>
+                  <path d="M475 126 V192"/>
+                  <path d="M580 228 H636"/>
+                  <path d="M695 250 V298"/>
+                </g>
+                <g class="agents-topo-hooks">
+                  <rect x="548" y="40" width="108" height="104" rx="10" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="4 3"/>
+                  <text x="602" y="33" class="agents-topo-tag" text-anchor="middle">hooks wrap every tool call</text>
+                  <text x="602" y="156" class="agents-topo-tag" text-anchor="middle">pre-tool-use guard · post-edit lint</text>
+                </g>
+                <g class="agents-topo-node" transform="translate(16 70)">
+                  <rect width="96" height="44" rx="6"/><text x="48" y="19" text-anchor="middle" class="agents-topo-h">Human</text><text x="48" y="34" text-anchor="middle" class="agents-topo-s">task · review · merge</text>
+                </g>
+                <g class="agents-topo-node" transform="translate(140 58)">
+                  <rect width="178" height="68" rx="6"/><text x="89" y="19" text-anchor="middle" class="agents-topo-h">Instructions + memory</text><text x="89" y="35" text-anchor="middle" class="agents-topo-s">AGENTS.md · CLAUDE.md · rules</text><text x="89" y="48" text-anchor="middle" class="agents-topo-s">memory · decisions · skills</text><text x="89" y="61" text-anchor="middle" class="agents-topo-s">permissions allow / ask / deny</text>
+                </g>
+                <g class="agents-topo-node agents-topo-loop" transform="translate(346 58)">
+                  <rect width="190" height="68" rx="6"/><text x="95" y="19" text-anchor="middle" class="agents-topo-h">Agent loop</text><text x="95" y="35" text-anchor="middle" class="agents-topo-s">prompt → model → tool → result</text><text x="95" y="48" text-anchor="middle" class="agents-topo-s">subagents: planner · implementer</text><text x="95" y="61" text-anchor="middle" class="agents-topo-s">context grows · compaction</text>
+                </g>
+                <g class="agents-topo-node" transform="translate(668 58)">
+                  <rect width="134" height="68" rx="6"/><text x="67" y="19" text-anchor="middle" class="agents-topo-h">Tools / MCP</text><text x="67" y="35" text-anchor="middle" class="agents-topo-s">git · GitHub · browser</text><text x="67" y="48" text-anchor="middle" class="agents-topo-s">DB · CI · issue tracker</text><text x="67" y="61" text-anchor="middle" class="agents-topo-s">shell in a sandbox</text>
+                </g>
+                <g class="agents-topo-node agents-topo-gate" transform="translate(370 196)">
+                  <rect width="210" height="64" rx="6"/><text x="105" y="19" text-anchor="middle" class="agents-topo-h">Gate · reviewer + tests</text><text x="105" y="35" text-anchor="middle" class="agents-topo-s">read-only reviewer · security</text><text x="105" y="48" text-anchor="middle" class="agents-topo-s">/test green · evals · budgets</text><text x="105" y="60" text-anchor="middle" class="agents-topo-s">APPROVE / REQUEST CHANGES</text>
+                </g>
+                <g class="agents-topo-node" transform="translate(640 206)">
+                  <rect width="110" height="44" rx="6"/><text x="55" y="19" text-anchor="middle" class="agents-topo-h">Commit</text><text x="55" y="34" text-anchor="middle" class="agents-topo-s">/ship · worktree</text>
+                </g>
+                <g class="agents-topo-node agents-topo-gate" transform="translate(580 302)">
+                  <rect width="230" height="40" rx="6"/><text x="115" y="18" text-anchor="middle" class="agents-topo-h">CI gate → merge</text><text x="115" y="32" text-anchor="middle" class="agents-topo-s">PR template · review bot · deploy gate</text>
+                </g>
+                <g class="agents-topo-side">
+                  <text x="16" y="200" class="agents-topo-tag">1 · human writes the task</text>
+                  <text x="16" y="216" class="agents-topo-tag">2 · harness files load first</text>
+                  <text x="16" y="232" class="agents-topo-tag">3 · loop: model ⇄ tools, hooks in between</text>
+                  <text x="16" y="248" class="agents-topo-tag">4 · reviewer + tests gate the commit</text>
+                  <text x="16" y="264" class="agents-topo-tag">5 · CI gates the merge, human merges</text>
+                </g>
+                <circle class="agents-topo-packet" r="4" fill="currentColor">
+                  <animateMotion dur="11s" repeatCount="indefinite" rotate="auto"><mpath href="#agents-topo-path"/></animateMotion>
+                </circle>
+              </svg>
+            </div>
+            <ol class="agents-topo-legend">
+              <li><b>Human → harness.</b> The task lands on top of instructions, memory and permissions that were written beforehand, so what the model reads first is yours.</li>
+              <li><b>Agent loop ⇄ tools.</b> Every tool and MCP call passes through hooks: a pre-tool-use guard can block it, a post-edit hook formats and lints the result.</li>
+              <li><b>Gate before commit.</b> A read-only reviewer and the test command must both say yes; the reviewer cannot edit, it can only report.</li>
+              <li><b>Gate before merge.</b> CI re-runs the checks, the review bot comments, the deploy gate waits for a human.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="agents-pane" id="agents-pane-loop" role="tabpanel" aria-labelledby="agents-tab-loop" hidden>
+          <div class="agents-loop">
+            <ol class="agents-steps" aria-label="Agent loop steps">
+              <li><button class="agents-step" type="button" data-step="0" aria-current="step">Prompt</button></li>
+              <li><button class="agents-step" type="button" data-step="1">Model</button></li>
+              <li><button class="agents-step" type="button" data-step="2">Tool call</button></li>
+              <li><button class="agents-step" type="button" data-step="3">Result</button></li>
+              <li><button class="agents-step" type="button" data-step="4">Context grows</button></li>
+              <li><button class="agents-step" type="button" data-step="5">Compaction</button></li>
+            </ol>
+            <div class="agents-ctx" aria-hidden="true">
+              <div class="agents-ctx-bar"><i id="agents-ctx-fill"></i></div>
+              <div class="agents-ctx-labels mono"><span>context window</span><span id="agents-ctx-pct">12%</span></div>
+            </div>
+            <p class="agents-step-text" id="agents-step-text" aria-live="polite">You describe the task. The prompt, the loaded instructions (AGENTS.md, CLAUDE.md) and any skills go into the context window first.</p>
+            <div class="agents-loop-ctl">
+              <button class="btn ghost" type="button" id="agents-prev" aria-label="Previous step">← Prev</button>
+              <span class="mono agents-step-count" id="agents-step-count">Step 1 / 6</span>
+              <button class="btn" type="button" id="agents-next" aria-label="Next step">Next →</button>
+            </div>
+            <p class="agents-loop-foot">Adapted from the "How it works" section of Finding Memo: currents are the harness, Marlin is the agent, Dory is a subagent with the same brain and a smaller context.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-3 agents-cards">
+      <div class="panel agents-card">
+        <div class="panel-head"><b>What a harness is</b><span>10 layers</span></div>
+        <div class="panel-body">
+          <ul class="agents-list">
+            <li><b>Instructions</b> global rules, user profile, AGENTS.md / CLAUDE.md, per-directory rules.</li>
+            <li><b>Context &amp; memory</b> memory files, decision log, inputs notes.</li>
+            <li><b>Permissions</b> allow / ask / deny, protected paths, secrets policy.</li>
+            <li><b>Agents</b> planner, implementer, read-only reviewer, security, tests, docs, visual QA.</li>
+            <li><b>Commands &amp; skills</b> <code>/test</code>, <code>/ship</code>, <code>/review</code>; rules that auto-load by file.</li>
+            <li><b>Hooks, tools, evals, CI</b> guards around tool calls, MCP servers, golden outputs, merge gates.</li>
+          </ul>
+          <p class="agents-small">Public pieces are shown verbatim in the explorer; the work harnesses are company property and only their shape is mirrored.</p>
+          <button class="btn" type="button" data-dive="dive-harness">Tour the public files</button>
+        </div>
+      </div>
+      <div class="panel agents-card">
+        <div class="panel-head"><b>Tools</b><span>daily desk</span></div>
+        <div class="panel-body">
+          <dl class="agents-desk">
+            <dt>Agents</dt><dd><span class="chip">Claude Code CLI</span><span class="chip">OpenCode</span></dd>
+            <dt>Terminal</dt><dd><span class="chip">tmux · agents in panes</span><span class="chip">kitty</span></dd>
+            <dt>Editor</dt><dd><span class="chip">VS Code · tuned settings, tasks, keybindings</span></dd>
+            <dt>Isolation</dt><dd><span class="chip">git worktree per task</span><span class="chip">Docker sandboxes</span></dd>
+            <dt>Writing</dt><dd><span class="chip">MARP for talks</span><span class="chip">Obsidian for notes</span></dd>
+            <dt>Local models</dt><dd><span class="chip">llama.cpp</span><span class="chip">LlamaIndex</span><span class="chip">pgvector</span></dd>
+          </dl>
+          <p class="agents-small">Copilot and Cursor are covered in the Finding Memo knowledge base, alongside Claude Code and OpenCode. The editor config carries no secrets.</p>
+        </div>
+      </div>
+      <div class="panel agents-card">
+        <div class="panel-head"><b>Finding Memo</b><span>guide + talk</span></div>
+        <div class="panel-body">
+          <p class="agents-small">"AI agents are simpler than you think." An interactive guide built by an agent, making it a live example of what it teaches, plus a 14-slide MARP deck for a 5-minute talk.</p>
+          <div class="agents-card-ctl">
+            <button class="btn" type="button" data-dive="dive-findingmemo">Open</button>
+            <a class="btn ghost" href="https://lotape6.github.io/FindingMemo" target="_blank" rel="noopener">Visit the guide</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<dialog class="dive" id="dive-harness" aria-labelledby="dive-harness-t">
+  <div class="dive-frame">
+    <div class="dive-head"><b>Harness 01</b><span>The public tour · alikindoi · Finding Memo · CV</span><button class="dive-close" type="button" aria-label="Close">✕</button></div>
+    <div class="dive-body">
+      <h3 id="dive-harness-t">The public pieces of a working harness</h3>
+      <div class="prose">
+        <p>A harness is everything around the model that makes its output predictable: what it reads first, what it may run, who checks its work, and which rules kick in automatically. These are the real files from three public repositories. The harnesses I run at work (hooks, evals, CI gates, per-directory rules, security reviewers) are company property and are only mirrored as structure in the explorer.</p>
+      </div>
+      <div class="agents-tour">
+        <div class="agents-tour-item">
+          <div class="agents-tour-head"><span class="mono">1 · Instructions</span><span class="mono agents-tour-path">AGENTS.md · opencode.json</span></div>
+          <p><code>AGENTS.md</code> describes stack, layout, commands and the hard rules (anti-ban, audit trail). <code>opencode.json</code> loads it plus <code>TODOs.md</code> into every session.</p>
+          <pre class="agents-pre"><code>"instructions": ["AGENTS.md", "TODOs.md"],</code></pre>
+          <pre class="agents-pre"><code>- Never hard-delete jobs; tombstone via `is_active=False` + `job_events` entry.
+- Anti-ban is a hard requirement: per-source rate limits, jitter, backoff on
+  429/403, configurable cadence with enforced safe minimums. Do not bypass.</code></pre>
+        </div>
+        <div class="agents-tour-item">
+          <div class="agents-tour-head"><span class="mono">2 · Permissions</span><span class="mono agents-tour-path">opencode.json</span></div>
+          <p>Bash is allowed, so the agent can run tests and commit, but destructive git and <code>rm -rf</code> ask first.</p>
+          <pre class="agents-pre"><code>"permission": {
+  "bash": {
+    "*": "allow",
+    "git push*": "allow",
+    "git commit*": "allow",
+    "git reset*": "ask",
+    "rm -rf*": "ask"
+  }
+}</code></pre>
+        </div>
+        <div class="agents-tour-item">
+          <div class="agents-tour-head"><span class="mono">3 · Reviewer subagent</span><span class="mono agents-tour-path">.opencode/agents/reviewer.md</span></div>
+          <p>Read-only (<code>edit: deny</code>). Checks anti-ban floors, the audit-trail rule, config safety, tests and docs. Verdict APPROVE / REQUEST CHANGES with <code>file:line</code> findings.</p>
+          <pre class="agents-pre"><code>mode: subagent
+permission:
+  edit: deny
+  bash: allow
+---
+You are the code reviewer for alikindoi, a job-scraping tracker. You NEVER
+modify files — you inspect and report.
+
+1. **Anti-ban (hard requirement)** — reject any change that:
+   - lowers a value in `HARD_MIN_INTERVALS` or bypasses `source_allowed()`
+   - adds retries/loops against a job board (fail fast, skip, move on)</code></pre>
+        </div>
+        <div class="agents-tour-item">
+          <div class="agents-tour-head"><span class="mono">4 · Commands</span><span class="mono agents-tour-path">.opencode/commands/test.md · ship.md</span></div>
+          <p><code>/test</code> runs pytest and the frontend build and fixes until green. <code>/ship</code> verifies, calls the reviewer, then commits and pushes.</p>
+          <pre class="agents-pre"><code>1. Run the verification suite: `backend/.venv/bin/pytest` and
+   `npm run build` in `frontend/`. Stop and fix if not green.
+2. Use the `reviewer` subagent (Task tool) to review `git diff HEAD` against
+   the project rules. Address any REQUEST CHANGES findings first.
+3. Inspect `git status` and `git log --oneline -5` for message style.
+4. Stage only intended files (never `.env`, `data/`, or `node_modules/`),</code></pre>
+        </div>
+        <div class="agents-tour-item">
+          <div class="agents-tour-head"><span class="mono">5 · Skills</span><span class="mono agents-tour-path">.opencode/skills/scraping-safety/SKILL.md</span></div>
+          <p>Auto-triggers when adapters, runner, scheduler or rate limits are edited. Its rules override feature requests.</p>
+          <pre class="agents-pre"><code>description: Anti-ban and rate-limiting rules for alikindoi's scraping engine. Use when modifying adapters/, runner.py, scheduler.py, salary/description enrichment, config rate_limits, or adding a new job-board source.
+---
+This project's survival depends on NOT getting banned by job boards. When
+touching scraping code, these rules override any feature request.</code></pre>
+        </div>
+        <div class="agents-tour-item">
+          <div class="agents-tour-head"><span class="mono">6 · Specialised agents</span><span class="mono agents-tour-path">FindingMemo/agents · skills</span></div>
+          <p><code>content-architect</code> (multi-level content, cross-tool knowledge of Claude Code, Copilot, Cursor, OpenCode), <code>frontend-builder</code> (vanilla HTML/CSS/JS + GSAP ScrollTrigger, accessibility rules) and <code>visual-qa</code> (screenshots at 1280/768/480, structured QA report). Skills <code>analyze-section</code>, <code>build-section</code>, <code>build-fauna</code>.</p>
+          <pre class="agents-pre"><code>name: visual-qa
+description: Takes screenshots of the built page and validates visual quality
+model: opus
+tools: Read, Bash, Glob
+---
+5. **Responsiveness**: check at 1280px, 768px, 480px widths
+4. Report issues as a structured list with section, issue, severity
+   (critical/major/minor), and suggested fix</code></pre>
+        </div>
+        <div class="agents-tour-item">
+          <div class="agents-tour-head"><span class="mono">7 · CV reviewer agent</span><span class="mono agents-tour-path">cv/agents/hhrr-reviewer</span></div>
+          <p>Prompt, checklist and output template for HR-style CV reviews: headline, strengths, prioritised improvements, before → after rewrites, ATS keywords, score.</p>
+          <pre class="agents-pre"><code>You are an expert Human Resources (HHRR) reviewer specializing in software developer CVs.
+...
+7) Final score (1-10) and concise next steps (apply, tailor, add projects, refine metrics).</code></pre>
+        </div>
+        <div class="agents-tour-item">
+          <div class="agents-tour-head"><span class="mono">8 · CI deploy gate</span><span class="mono agents-tour-path">FindingMemo/.github/workflows/deploy.yml</span></div>
+          <p>The build runs in CI with read-only contents permission; the deploy job only starts after the build job succeeds.</p>
+          <pre class="agents-pre"><code>permissions:
+  contents: read
+  pages: write
+  id-token: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+  deploy:
+    needs: build</code></pre>
+        </div>
+        <div class="agents-tour-item agents-tour-private">
+          <div class="agents-tour-head"><span class="mono">9 · What stays private</span><span class="mono agents-tour-path">ASML / Alten harnesses</span></div>
+          <p>Hooks (pre-tool-use guards, post-edit formatters, session bootstrap, stop-time summaries), eval suites with golden outputs and cost budgets, security reviewers, per-directory rules and CI review bots exist in the work harnesses. They are company property: the explorer shows where they sit, not what they contain.</p>
+        </div>
+      </div>
+      <div class="links">
+        <a href="https://github.com/lotape6/alikindoi" target="_blank" rel="noopener">alikindoi (.opencode/)</a>
+        <a href="https://github.com/lotape6/FindingMemo" target="_blank" rel="noopener">FindingMemo (agents, skills)</a>
+        <a href="https://github.com/lotape6/cv" target="_blank" rel="noopener">cv (agents/hhrr-reviewer)</a>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="dive" id="dive-findingmemo" aria-labelledby="dive-findingmemo-t">
+  <div class="dive-frame">
+    <div class="dive-head"><b>Guide 02</b><span>Finding Memo · Mar–May 2026</span><button class="dive-close" type="button" aria-label="Close">✕</button></div>
+    <div class="dive-body">
+      <h3 id="dive-findingmemo-t">AI agents are simpler than you think</h3>
+      <div class="dive-grid">
+        <div>
+          <table class="agents-table">
+            <caption class="mono">The metaphor</caption>
+            <thead><tr><th>Finding Nemo</th><th>AI</th><th></th></tr></thead>
+            <tbody>
+              <tr><td>Marlin</td><td>The Agent</td><td>The intelligence that drives action</td></tr>
+              <tr><td>Water Currents</td><td>The Harness</td><td>Infrastructure that carries the agent</td></tr>
+              <tr><td>Crush</td><td>The Human</td><td>Knows the currents, builds the currents</td></tr>
+              <tr><td>Dory</td><td>Subagent</td><td>Same brain, smaller context</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <dl class="kv">
+            <dt>What</dt><dd>Interactive single-page guide + 14-slide MARP presentation for a 5-minute talk with deep-dive speaker notes</dd>
+            <dt>Built with</dt><dd>MARP for slides, Claude Code for everything else, GSAP for scroll animations</dd>
+            <dt>Harness</dt><dd>Agents <code>content-architect</code>, <code>frontend-builder</code>, <code>visual-qa</code>; skills <code>analyze-section</code>, <code>build-section</code>, <code>build-fauna</code></dd>
+            <dt>Licence</dt><dd>MIT</dd>
+          </dl>
+          <div class="links">
+            <a href="https://lotape6.github.io/FindingMemo" target="_blank" rel="noopener">lotape6.github.io/FindingMemo</a>
+            <a href="https://lotape6.github.io/FindingMemo/lessons/00-introduction/index.html" target="_blank" rel="noopener">The slides</a>
+            <a href="https://github.com/lotape6/FindingMemo" target="_blank" rel="noopener">Source</a>
+          </div>
+        </div>
+      </div>
+      <div class="prose">
+        <p><b>The Cast.</b> What a model, an agent and context actually are. No jargon. A clownfish swims alongside you as your companion through the guide.</p>
+        <p><b>How It Works.</b> The agent loop visualised as a hand-drawn diagram. The harness file structure (root, user, project layers). The context window filling up and compacting.</p>
+        <p><b>The Mindset.</b> Four rules for working with AI agents: prompt deliberately, build reusable context, keep it congruent, think first.</p>
+        <p><b>Watch It Happen.</b> A live reconstruction of how an agent built the Finding Memo presentation. Step by step, tool call by tool call, subagent by subagent. Play, pause, step through.</p>
+        <p>The guide itself was built by an AI agent, making it a live example of the concepts it teaches. Its knowledge base covers Claude Code, GitHub Copilot, Cursor and OpenCode.</p>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="dive" id="dive-aigen" aria-labelledby="dive-aigen-t">
+  <div class="dive-frame">
+    <div class="dive-head"><b>Lab 03</b><span>AIgen · Sep–Nov 2024</span><button class="dive-close" type="button" aria-label="Close">✕</button></div>
+    <div class="dive-body">
+      <h3 id="dive-aigen-t">A local RAG agent, before the harnesses</h3>
+      <div class="dive-grid">
+        <div class="prose">
+          <p>AIgen was the first contact with agent loops: a local LLM agent with retrieval-augmented generation, running entirely on own hardware. Documents are embedded into PostgreSQL with pgvector, LlamaIndex handles indexing and retrieval, and llama.cpp runs the model on CUDA.</p>
+          <p>Everything that came later (the ASML workflows, Finding Memo, the harnesses) builds on the same loop seen here: prompt, model, tool call, result, context.</p>
+        </div>
+        <div>
+          <dl class="kv">
+            <dt>When</dt><dd>Sep–Nov 2024</dd>
+            <dt>Inference</dt><dd>llama.cpp (CUDA)</dd>
+            <dt>Retrieval</dt><dd>LlamaIndex</dd>
+            <dt>Vector store</dt><dd>PostgreSQL pgvector</dd>
+          </dl>
+          <div class="chips agents-gap"><span class="chip">local LLM</span><span class="chip">RAG</span><span class="chip">llama.cpp</span><span class="chip">LlamaIndex</span><span class="chip">pgvector</span></div>
+          <div class="links agents-gap"><a href="https://github.com/lotape6/AIgen" target="_blank" rel="noopener">github.com/lotape6/AIgen</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<!-- 70-papers.html -->
+<section class="chapter" id="papers" data-atmo="papers" data-acc="cy" data-hud="CH 08 · PAPERS">
+  <div class="wrap">
+    <div class="chapter-head">
+      <p class="eyebrow"><span class="idx">08</span> Publications · 2020–2021</p>
+      <h2>Three peer-reviewed papers</h2>
+      <p class="lede">Research from the MBZIRC, GAVIOTA and ASSISTANCE projects at FADA-CATEC. All three are indexed and name me as an author; the SSRR paper is first-authored.</p>
+    </div>
+    <ol class="papers-list">
+      <li class="papers-item panel corner">
+        <div class="panel-head"><b>2021 · First author</b><span>IEEE SSRR · ASSISTANCE</span></div>
+        <div class="panel-body">
+          <h3>Vision-based UAV Detection for Air-to-Air Neutralization</h3>
+          <p class="papers-authors"><b>F. González</b>, R. Caballero, F. J. Pérez-Grau, A. Viguria</p>
+          <p class="papers-venue">2021 IEEE International Symposium on Safety, Security, and Rescue Robotics (SSRR), pp. 236–241</p>
+          <p class="papers-abs">How an interceptor drone finds another drone in the air and closes in on it: a deep-learning detector plus classic computer vision running on board, validated in flight.</p>
+          <div class="links"><a href="https://doi.org/10.1109/SSRR53300.2021.9597861" target="_blank" rel="noopener">DOI 10.1109/SSRR53300.2021.9597861</a><a href="https://zenodo.org/record/6519998" target="_blank" rel="noopener">Open-access version (Zenodo)</a><a href="#aero" data-dive="dive-assistance">Mission: ASSISTANCE</a></div>
+        </div>
+      </li>
+      <li class="papers-item panel corner">
+        <div class="panel-head"><b>2020 · Open access</b><span>Electronics 9(12) · GAVIOTA</span></div>
+        <div class="panel-body">
+          <h3>Audio-Based Aircraft Detection System for Safe RPAS BVLOS Operations</h3>
+          <p class="papers-authors">J. Mariscal-Harana, V. Alarcón, <b>F. González</b>, J. J. Calvente, F. J. Pérez-Grau, A. Viguria, A. Ollero</p>
+          <p class="papers-venue">Electronics, 9(12), 2076, MDPI, December 2020</p>
+          <p class="papers-abs">A ground station that hears light aircraft coming with directional microphones and AI, so drones flying beyond visual line of sight can get out of the way.</p>
+          <div class="links"><a href="https://doi.org/10.3390/electronics9122076" target="_blank" rel="noopener">DOI 10.3390/electronics9122076</a><a href="https://www.mdpi.com/2079-9292/9/12/2076" target="_blank" rel="noopener">Read on MDPI</a><a href="#aero" data-dive="dive-gaviota">Mission: GAVIOTA</a></div>
+        </div>
+      </li>
+      <li class="papers-item panel corner">
+        <div class="panel-head"><b>2020</b><span>ICUAS · MBZIRC 2020</span></div>
+        <div class="panel-body">
+          <h3>Autonomous drone with ability to track and capture an aerial target</h3>
+          <p class="papers-authors">M. A. Ruiz García, R. Caballero, <b>F. González</b>, A. Viguria, A. Ollero</p>
+          <p class="papers-venue">2020 International Conference on Unmanned Aircraft Systems (ICUAS), pp. 32–40</p>
+          <p class="papers-abs">The MBZIRC interceptor: perception, tracking and capture of a moving aerial target by a fully autonomous drone.</p>
+          <div class="links"><a href="https://doi.org/10.1109/ICUAS48674.2020.9213883" target="_blank" rel="noopener">DOI 10.1109/ICUAS48674.2020.9213883</a><a href="https://prisma.us.es/publicacion/168931" target="_blank" rel="noopener">University of Seville record</a><a href="#aero" data-dive="dive-mbzirc">Mission: MBZIRC</a></div>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- 80-contact.html -->
+<section class="chapter chapter-contact" id="contact" data-atmo="contact" data-acc="cy" data-hud="CH 09 · CONTACT">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="chapter-head">
+        <p class="eyebrow"><span class="idx">09</span> Contact</p>
+        <h2>Let’s build something that flies, drives or ships</h2>
+        <p class="lede">Open to senior software and robotics roles, remote or hybrid around Málaga and Seville.</p>
+        <div class="meta"><span><b>Base</b> Jerez de la Frontera, Spain</span><span><b>Languages</b> Spanish, English</span></div>
+      </div>
+      <ul class="contact-list">
+        <li class="panel"><span class="k">Email</span><a class="v" href="mailto:lotape6@gmail.com">lotape6@gmail.com</a><button class="btn ghost contact-copy" type="button" data-copy="lotape6@gmail.com">Copy</button></li>
+        <li class="panel"><span class="k">GitHub</span><a class="v" href="https://github.com/lotape6" target="_blank" rel="noopener">github.com/lotape6</a><span></span></li>
+        <li class="panel"><span class="k">LinkedIn</span><a class="v" href="https://www.linkedin.com/in/fidel-gonzalez-leiva/" target="_blank" rel="noopener">in/fidel-gonzalez-leiva</a><span></span></li>
+        <li class="panel"><span class="k">Finding Memo</span><a class="v" href="https://lotape6.github.io/FindingMemo/" target="_blank" rel="noopener">My interactive guide to AI agents</a><span></span></li>
+        <li class="panel"><span class="k">CV</span><a class="v" href="https://github.com/lotape6/cv/raw/master/assets/cv.pdf" target="_blank" rel="noopener">Latest PDF, built from LaTeX by CI</a><span></span></li>
+      </ul>
+    </div>
+    <dl class="contact-skills">
+      <div><dt>Languages</dt><dd>C++11/14/17, C, Python, Bash, SQL, Go, JavaScript / TypeScript</dd></div>
+      <div><dt>Robotics</dt><dd>ROS, OpenCV, PCL, Darknet/YOLO, Gazebo, UAV autonomy and perception</dd></div>
+      <div><dt>Automotive</dt><dd>AUTOSAR, requirement-driven development, CAN, LIN, SOME/IP, DLT</dd></div>
+      <div><dt>Daily tools</dt><dd>kitty, tmux, zsh + Oh My Zsh + Starship, fzf, fd, ripgrep, bat, delta, zoxide, VS Code with advanced config, git worktrees, Docker, Obsidian</dd></div>
+      <div><dt>Build &amp; tools</dt><dd>Bazel, Make, CMake, GCC, Clang/LLVM, Docker, GDB, Jenkins, Git, ClearCase, Wireshark</dd></div>
+      <div><dt>Systems</dt><dd>Multithreading, IPC, STL, GTest/GMock, GStreamer, SQLite, PostgreSQL</dd></div>
+      <div><dt>AI &amp; agents</dt><dd>Claude Code, OpenCode, LLM agents, RAG (LlamaIndex, pgvector), harness design</dd></div>
+      <div><dt>Hardware</dt><dd>NVIDIA Jetson TX2 and Xavier NX, Raspberry Pi, Intel NUC, Linux for Tegra</dd></div>
+      <div><dt>Practices</dt><dd>Agile / Scrum, CI/CD, TDD, code review, project management</dd></div>
+    </dl>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <span>© <span id="year">2026</span> Fidel González Leiva</span>
+    <span class="mono">Plain HTML, CSS and JS · no tracking · videos load only when you press play · <a href="https://lotape6.github.io/FindingMemo/" target="_blank" rel="noopener">Finding Memo</a>, my guide to AI agents</span>
+    <p class="footer-note">Everything on this site comes from public sources: my CV and repositories, published papers, project websites and press material. The diagrams and demos are original drawings built on open knowledge, not reproductions of any company's designs or data. See <a href="llms.txt">llms.txt</a> for a plain-text summary.</p>
+  </div>
+</footer>
+
+<script defer src="assets/js/core.js"></script>
+<script defer src="assets/js/chapters/hero.js"></script>
+<script defer src="assets/js/chapters/origins.js"></script>
+<script defer src="assets/js/chapters/aero.js"></script>
+<script defer src="assets/js/chapters/auto.js"></script>
+<script defer src="assets/js/chapters/break.js"></script>
+<script defer src="assets/js/chapters/semi.js"></script>
+<script defer src="assets/js/chapters/term.js"></script>
+<script defer src="assets/js/chapters/agents.js"></script>
+<script defer src="assets/js/chapters/misc.js"></script>
+</body>
+</html>

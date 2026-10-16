@@ -1,0 +1,135 @@
+<!-- css: chapters/break.css  js: chapters/break.js -->
+<section class="chapter" id="break" data-atmo="break" data-acc="lv" data-hud="CH 04 · HOLDING PATTERN">
+  <div class="wrap">
+    <div class="chapter-head">
+      <p class="eyebrow"><span class="idx">04</span> Holding pattern · May 2024 – Feb 2025</p>
+      <h2>Circling, not stalling</h2>
+      <p class="lede">Nine months away from employment for personal and family responsibilities. Family came first; in the hours around it I kept the engines warm with two study tracks, the way a pilot flies a holding pattern while waiting for clearance.</p>
+      <div class="meta"><span><b>Status</b> Career break</span><span><b>Tracks</b> Cybersecurity · LLMs / RAG</span><span><b>Cleared</b> Feb 2025 → semiconductors</span></div>
+    </div>
+
+    <div class="break-grid">
+      <div class="panel corner break-radar" data-reveal>
+        <div class="panel-head"><b>Study radar</b><span>one lap = Sep 2024 → Jan 2025</span></div>
+        <div class="panel-body break-radar-body">
+          <div class="break-track" id="break-track">
+            <svg class="break-svg" id="break-svg" viewBox="0 0 800 420" preserveAspectRatio="none" role="img" aria-label="A racetrack-shaped holding pattern with month marks from September 2024 to January 2025. Eight study topics sit on the track, sized by the months their track lasted."></svg>
+            <div class="break-nodes" id="break-nodes"></div>
+          </div>
+          <div class="break-readout" id="break-readout" aria-live="polite">
+            <p class="break-readout-k mono" id="break-readout-k">Hover or focus a node</p>
+            <p class="break-readout-t" id="break-readout-t">Each node is one thing I studied. Size follows how many months its track ran on the CV; a node sits inside the months its track covered, not on a date.</p>
+          </div>
+          <div class="break-legend" id="break-legend" role="group" aria-label="Topic groups">
+            <button class="break-leg" type="button" data-group="off" aria-pressed="false"><i class="break-sw break-sw-off"></i>Offensive</button>
+            <button class="break-leg" type="button" data-group="def" aria-pressed="false"><i class="break-sw break-sw-def"></i>Defensive</button>
+            <button class="break-leg" type="button" data-group="ai" aria-pressed="false"><i class="break-sw break-sw-ai"></i>AI</button>
+            <button class="break-leg" type="button" data-group="tool" aria-pressed="false"><i class="break-sw break-sw-tool"></i>Alongside</button>
+          </div>
+          <div class="break-actions">
+            <button class="btn" type="button" data-dive="dive-redblue">Red team / blue team</button>
+            <button class="btn ghost" type="button" data-dive="dive-aigen-break">The local RAG agent</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="break-side">
+        <div class="panel" data-reveal>
+          <div class="panel-head"><b>Why a break</b><span>May 2024 – Feb 2025</span></div>
+          <div class="panel-body">
+            <p class="break-why">Personal and family responsibilities needed my time, so I took it. There is no project to show for that part, and that is fine. The study below happened around it, in the gaps, with no deadline and no employer: a way of staying current and of finding out what I wanted next.</p>
+          </div>
+        </div>
+        <div class="panel" data-reveal>
+          <div class="panel-head"><b>What came out of it</b><span>repos and a direction</span></div>
+          <div class="panel-body">
+            <ul class="break-out">
+              <li><a href="https://github.com/lotape6/HackingNotebook" target="_blank" rel="noopener">HackingNotebook</a> <span class="mono">Obsidian vault</span><br>21 cheat sheets (nmap, SMB, LDAP, Active Directory, Hashcat, John, Hydra, web discovery…) plus write-ups for the HTB tracks, LetsDefend alerts and two malware samples.</li>
+              <li><a href="https://github.com/lotape6/AIgen" target="_blank" rel="noopener">AIgen</a> <span class="mono">Python · llama.cpp · pgvector</span><br>A local RAG agent: index documents into PostgreSQL, retrieve by cosine similarity, answer with a GPU-offloaded model, chat in Gradio.</li>
+              <li><a href="https://github.com/lotape6/ShellCheatsheet" target="_blank" rel="noopener">ShellCheatsheet</a> <span class="mono">LaTeX one-pager</span><br>The shell habits from the terminal chapter, condensed to a single printable page.</li>
+              <li><b>A direction.</b> The LLM track is what I carried into 2025: it became the <a href="#semi">AI Champion</a> part of the semiconductors role, evaluating tools and setting up AI-assisted workflows for developers.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<dialog class="dive" id="dive-redblue" aria-labelledby="dive-redblue-t">
+  <div class="dive-frame">
+    <div class="dive-head"><b>Dive 04-A</b><span>Red team / blue team · Sep 2024 – Jan 2025</span><button class="dive-close" type="button" aria-label="Close">✕</button></div>
+    <div class="dive-body">
+      <h3 id="dive-redblue-t">Both sides of the same lab</h3>
+      <div class="prose">
+        <p>Five months of hands-on security on lab platforms, kept as an Obsidian vault. The offensive half followed Hack The Box: enumeration, web exploitation, privilege escalation and Active Directory on Windows and Linux boxes. The defensive half followed LetsDefend and the HTB blue-team track: alert triage, phishing analysis, IOC validation, endpoint investigation and incident response, plus a couple of real malware samples pulled from <b>bazaar.abuse.ch</b> and taken apart by hand.</p>
+        <p>The notebook is a working vault, not a tutorial: every command that turned out useful ended up in a cheat sheet. Nothing from the labs is reproduced here beyond topic names.</p>
+      </div>
+      <div class="break-table-wrap">
+        <table class="break-table">
+          <thead><tr><th>Track</th><th>What it covered</th><th>Tools in the notes</th><th>State</th></tr></thead>
+          <tbody>
+            <tr><td><b>HTB · CREST CRT</b><br><span class="mono">14 boxes</span></td><td>Port and service enumeration, web discovery and injection, Linux and Windows privilege escalation, Active Directory enumeration and lateral movement, hash cracking</td><td>nmap, gobuster, ffuf, sqlmap, Burp Suite, impacket, BloodHound, evil-winrm, linPEAS / winPEAS, Hashcat, John the Ripper, Hydra</td><td>in progress</td></tr>
+            <tr><td><b>HTB · Intro to Blue Team</b><br><span class="mono">9 labs</span></td><td>Log analysis, persistence hunting, phishing lures, ransomware triage, data exfiltration, insider activity, memory forensics</td><td>Wireshark, Volatility, Windows .evtx event logs, Ghidra</td><td>finished</td></tr>
+            <tr><td><b>LetsDefend</b><br><span class="mono">SOC alerts</span></td><td>SIEM alert triage, phishing analysis, IOC validation, endpoint investigation, incident response; write-up of a Follina (CVE-2022-30190) detection</td><td>SIEM console, VirusTotal, Any.run and Hybrid Analysis sandboxes, PowerShell decoding</td><td>practised</td></tr>
+            <tr><td><b>Malware analysis</b><br><span class="mono">2 samples</span></td><td>Static analysis of droppers: de-obfuscating JavaScript and base64 PowerShell stagers with small Python scripts until the download URL falls out</td><td>Python, VirusTotal</td><td>2 write-ups</td></tr>
+            <tr><td><b>Ringzer0 CTF</b><br><span class="mono">1 challenge</span></td><td>A breach investigation from a web server log: spotting and URL-decoding blind SQL-injection payloads to reconstruct what the attacker read</td><td>Apache logs, URL decoding</td><td>solved</td></tr>
+            <tr><td><b>Cheat sheets</b><br><span class="mono">21 pages</span></td><td>nmap, SMB, NFS, FTP, LDAP, Active Directory, SQL, Tomcat, web discovery, injection search, reverse-shell sanitising, LXD/LXC escape, Windows CMD, Bash, Hashcat, John, Hydra, printers, client certificates</td><td>—</td><td>living</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="dive-grid">
+        <dl class="kv">
+          <dt>Period</dt><dd>September 2024 – January 2025</dd>
+          <dt>Platforms</dt><dd>Hack The Box, LetsDefend, Ringzer0 CTF, MalwareBazaar (abuse.ch)</dd>
+          <dt>Format</dt><dd>Self-directed; notes in Obsidian, published as a git repository</dd>
+          <dt>Why</dt><dd>Curiosity, and a software engineer's wish to know what the attacks on his code actually look like from both chairs</dd>
+        </dl>
+        <div>
+          <p class="break-note">The vault's own README calls its organisation poor and points visitors to the cheat sheets. That is an honest description, and the cheat sheets are the useful part.</p>
+          <div class="links">
+            <a href="https://github.com/lotape6/HackingNotebook" target="_blank" rel="noopener">github.com/lotape6/HackingNotebook</a>
+            <a href="https://github.com/lotape6/HackingNotebook/tree/master/Cheatsheets" target="_blank" rel="noopener">Cheat sheets</a>
+            <a href="https://github.com/lotape6/HackingNotebook/tree/master/Tracks" target="_blank" rel="noopener">Track write-ups</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="dive" id="dive-aigen-break" aria-labelledby="dive-aigen-break-t">
+  <div class="dive-frame">
+    <div class="dive-head"><b>Dive 04-B</b><span>AIgen · Sep – Nov 2024</span><button class="dive-close" type="button" aria-label="Close">✕</button></div>
+    <div class="dive-body">
+      <h3 id="dive-aigen-break-t">A RAG agent that never leaves the machine</h3>
+      <div class="prose">
+        <p>Three months on large language models, learned by building the plumbing rather than calling an API. AIgen indexes a folder of documents into PostgreSQL with the pgvector extension, retrieves the closest chunks for a question and hands them to a model running locally through llama.cpp on an NVIDIA GPU. A small Gradio page is the chat window. Everything runs on one Linux box with no external service.</p>
+      </div>
+      <ol class="break-pipe" aria-label="Pipeline">
+        <li><span class="mono">01</span><b>Documents</b><span>.docx and .pdf read with LlamaIndex readers (DocxReader, PyMuPDF)</span></li>
+        <li><span class="mono">02</span><b>Indexer</b><span>chunks embedded with a Hugging Face sentence model; table created with a VECTOR column</span></li>
+        <li><span class="mono">03</span><b>pgvector</b><span>PostgreSQL 15 + pgvector 0.8; HNSW index, cosine distance</span></li>
+        <li><span class="mono">04</span><b>Retriever</b><span>embeds the question, top-k nearest nodes with scores, wrapped as a LlamaIndex retriever</span></li>
+        <li><span class="mono">05</span><b>llama.cpp</b><span>llama-cpp-python built with GGML_CUDA; GGUF model, part of the layers offloaded to the GPU, 3.9k context window</span></li>
+        <li><span class="mono">06</span><b>Gradio</b><span>chat UI with history on a local port</span></li>
+      </ol>
+      <div class="dive-grid">
+        <dl class="kv">
+          <dt>Period</dt><dd>September – November 2024</dd>
+          <dt>Stack</dt><dd>Python 3.12, LlamaIndex, llama.cpp (CUDA 12.5), PostgreSQL + pgvector, Hugging Face embeddings, Gradio</dd>
+          <dt>Status</dt><dd>Work in progress, as the README says; a learning build, not a product</dd>
+          <dt>Led to</dt><dd>The AI Champion role at the semiconductors job in 2025</dd>
+        </dl>
+        <div>
+          <p class="break-note">What I took from it: embeddings and vector search are the easy part; chunking, context budgets and GPU memory are where the real decisions sit. That is also the part that transferred to evaluating tools for other developers a few months later.</p>
+          <div class="links">
+            <a href="https://github.com/lotape6/AIgen" target="_blank" rel="noopener">github.com/lotape6/AIgen</a>
+            <a href="https://github.com/pgvector/pgvector" target="_blank" rel="noopener">pgvector</a>
+            <a href="https://github.com/ggml-org/llama.cpp" target="_blank" rel="noopener">llama.cpp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</dialog>

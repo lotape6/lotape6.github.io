@@ -1,0 +1,201 @@
+<!-- css: chapters/term.css  js: chapters/term.js -->
+<section class="chapter" id="term" data-atmo="term" data-acc="lv" data-hud="CH 06 · TERMINAL">
+  <div class="wrap">
+    <div class="chapter-head">
+      <p class="eyebrow"><span class="idx">06</span> Terminal craft · dotfiles · tmux · fzf</p>
+      <h2>Daily toolkit</h2>
+      <p class="lede">A terminal tuned so that moving between projects, sessions and files costs one keystroke, and the whole setup reinstalls on a new machine with one command.</p>
+      <div class="meta"><span><b>Shell</b> zsh · Oh My Zsh · Starship</span><span><b>Mux</b> tmux · TPM · tmuxinator</span><span><b>Find</b> fzf · fd · bat · delta</span><span><b>Install</b> dotbot</span></div>
+    </div>
+
+    <div class="term-layout">
+      <div class="term-stage">
+        <div class="term-toolbar">
+          <div class="term-themes" role="group" aria-label="Terminal theme (DOTFILES_THEME)">
+            <span class="mono term-themes-label">DOTFILES_THEME=</span>
+            <button class="term-theme" type="button" data-theme="lavender" aria-pressed="true"><i></i>lavender</button>
+            <button class="term-theme" type="button" data-theme="rose" aria-pressed="false"><i></i>rose</button>
+            <button class="term-theme" type="button" data-theme="mint" aria-pressed="false"><i></i>mint</button>
+            <button class="term-theme" type="button" data-theme="peach" aria-pressed="false"><i></i>peach</button>
+            <button class="term-theme" type="button" data-theme="gentle" aria-pressed="false"><i></i>gentle</button>
+          </div>
+          <button class="btn term-altq" type="button" id="term-altq" aria-controls="term-popup" aria-expanded="false"><kbd>Alt</kbd>+<kbd>q</kbd> sessionizer</button>
+        </div>
+
+        <div class="term-win" id="term-win" tabindex="0" aria-label="Fake terminal: kitty running tmux. Press Alt+Q for the session picker, Alt+W for projects, Alt+1 to 3 for windows." data-theme="lavender">
+          <div class="term-titlebar mono" aria-hidden="true"><span class="term-dots"><i></i><i></i><i></i></span><span class="term-title">kitty · tmux · portfolio</span><span class="term-font">Ubuntu Sans Mono 13</span></div>
+          <div class="term-screen">
+            <pre class="term-pane mono" id="term-pane" aria-live="polite" aria-label="Active pane"></pre>
+            <div class="term-popup" id="term-popup" hidden role="dialog" aria-modal="false" aria-label="tmux sessions">
+              <div class="term-popup-frame">
+                <div class="term-popup-label mono" id="term-popup-label">✦ tmux sessions</div>
+                <div class="term-popup-cols">
+                  <div class="term-fzf">
+                    <div class="term-fzf-prompt mono" id="term-fzf-prompt"><span class="term-fzf-glyph">session ✦ </span><span class="term-fzf-query" id="term-fzf-query"></span><span class="term-fzf-caret" aria-hidden="true"></span></div>
+                    <div class="term-fzf-info mono" id="term-fzf-info">5/5</div>
+                    <div class="term-fzf-list" id="term-fzf-list" role="listbox" aria-label="Sessions" tabindex="0" aria-activedescendant=""></div>
+                    <div class="term-fzf-header mono" id="term-fzf-header">current: portfolio<br>Enter:go Esc:quit ?:preview<br>Alt+p:toggle Alt+w:cycle</div>
+                  </div>
+                  <pre class="term-preview mono" id="term-preview" aria-live="polite" aria-label="Preview"></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="term-status mono" id="term-status" aria-label="tmux status bar">
+            <span class="term-st-session" id="term-st-session">✦ portfolio</span>
+            <span class="term-st-windows" id="term-st-windows"></span>
+            <span class="term-st-right">
+              <span class="term-st-host" id="term-st-host">⬡ jerez</span><span class="term-st-time" id="term-st-time">◈ Oct 16  14:02</span><span class="term-st-cpu" id="term-st-cpu">◆ cpu:0.42 mem:31%</span><span class="term-st-net" id="term-st-net">◉ ↓12K ↑3K</span>
+            </span>
+          </div>
+        </div>
+
+        <dl class="term-legend mono" aria-label="Keystroke legend">
+          <div><dt><button type="button" class="term-key" data-key="q"><kbd>Alt</kbd>+<kbd>q</kbd></button></dt><dd>sessionizer: fzf over tmux sessions, live pane preview</dd></div>
+          <div><dt><button type="button" class="term-key" data-key="w"><kbd>Alt</kbd>+<kbd>w</kbd></button></dt><dd>projects: fzf over tmuxinator layouts, YAML preview</dd></div>
+          <div><dt><button type="button" class="term-key" data-key="1"><kbd>Alt</kbd>+<kbd>1</kbd></button>…<button type="button" class="term-key" data-key="3"><kbd>3</kbd></button></dt><dd>jump to window N (1..9), no prefix</dd></div>
+          <div><dt><kbd>Alt</kbd>+<kbd>←↑↓→</kbd></dt><dd>move between panes · <kbd>Shift</kbd> to resize by 5</dd></div>
+          <div><dt><kbd>Alt</kbd>+<kbd>v</kbd> / <kbd>Alt</kbd>+<kbd>o</kbd></dt><dd>split side by side / stacked, in the current path</dd></div>
+          <div><dt><kbd>prefix</kbd> <kbd>r</kbd></dt><dd>reload tmux.conf · <kbd>prefix</kbd> <kbd>Enter</kbd> vi copy mode to clipboard</dd></div>
+          <div><dt><kbd>Ctrl</kbd>+<kbd>t</kbd> / <kbd>Ctrl</kbd>+<kbd>r</kbd></dt><dd>fzf files (fd + bat preview) / history · <kbd>Ctrl</kbd>+<kbd>/</kbd> toggles preview</dd></div>
+        </dl>
+      </div>
+
+      <aside class="term-side">
+        <div class="panel corner">
+          <div class="panel-head"><b>The stack</b><span>as linked by dotbot</span></div>
+          <div class="panel-body term-stack">
+            <div><span class="term-stack-k mono">terminal</span><p><b>kitty</b> borderless, 90% opacity, 100k scrollback, theme by include</p></div>
+            <div><span class="term-stack-k mono">shell</span><p><b>zsh + Oh My Zsh</b> git, z, docker, kubectl, fzf, tmuxinator; autosuggestions + syntax highlighting; 100k shared history</p></div>
+            <div><span class="term-stack-k mono">prompt</span><p><b>Starship</b> dir, git, runtimes, k8s/docker context, duration</p></div>
+            <div><span class="term-stack-k mono">mux</span><p><b>tmux + TPM</b> prefix-free Alt bindings, vi copy mode; <b>tmuxinator</b> YAML layouts</p></div>
+            <div><span class="term-stack-k mono">find</span><p><b>fzf + fd + bat + delta</b> hidden files, no .git, previews, themed colours</p></div>
+            <div><span class="term-stack-k mono">status</span><p><b>tmux-metrics</b> load, mem %, GPU % · <b>tmux-net-stat</b> ↓↑ rate</p></div>
+          </div>
+        </div>
+        <div class="chips">
+          <span class="chip">5 themes as data</span><span class="chip">symlinks, nothing copied</span><span class="chip">rm cp mv interactive</span><span class="chip">worktrees ~/gt/&lt;repo&gt;/crew/&lt;branch&gt;</span>
+        </div>
+        <div class="term-ctas">
+          <button class="btn" type="button" data-dive="dive-dotfiles">Dotfiles: stack &amp; install</button>
+          <button class="btn ghost" type="button" data-dive="dive-sessionizer">Sessionizer &amp; flux-capacitor</button>
+        </div>
+        <div class="links">
+          <a href="https://github.com/laiadlotape/dotfiles" target="_blank" rel="noopener">dotfiles</a>
+          <a href="https://github.com/lotape6/flux-capacitor" target="_blank" rel="noopener">flux-capacitor</a>
+          <a href="https://github.com/lotape6/ShellCheatsheet" target="_blank" rel="noopener">ShellCheatsheet</a>
+        </div>
+      </aside>
+    </div>
+    <div class="panel corner term-tools" id="term-tools">
+      <div class="panel-head"><b>Daily tools</b><span>from the dotfiles · <i class="term-tag">typical</i> = not pinned down by the repo</span></div>
+      <div class="panel-body term-tools-grid">
+        <div><b>kitty</b><p>GPU terminal: borderless, 90% opacity, 100k scrollback, copy on select, theme by include</p></div>
+        <div><b>tmux + tmuxinator</b><p>Alt-only bindings, vi copy mode, <code>mux</code> layouts in YAML (<code>Town.yml</code>, <code>tslam.yml</code>)</p></div>
+        <div><b>zsh + Oh My Zsh + Starship</b><p>git/z/docker/kubectl/fzf plugins, autosuggestions, syntax highlighting; Starship prompt themed per palette</p></div>
+        <div><b>fzf</b><p>Ctrl+T files, Ctrl+R history, Alt+C cd, <code>**</code> completion; popup inside tmux</p></div>
+        <div><b>fd</b><p><code>FZF_DEFAULT_COMMAND</code>: hidden files, follows links, skips <code>.git</code></p></div>
+        <div><b>ripgrep <i class="term-tag">typical</i></b><p>daily driver for code search in big C++ trees; fd finds files, rg finds text</p></div>
+        <div><b>bat</b><p>syntax-highlighted previews in fzf (Ctrl+T) and in the project picker (YAML)</p></div>
+        <div><b>delta</b><p>git pager and interactive diff filter: side by side, line numbers, navigate</p></div>
+        <div><b>z</b><p>Oh My Zsh plugin: jump to a frequent directory by fragment</p></div>
+        <div><b>VS Code</b><p><code>EDITOR="code --wait"</code> and <code>editrc</code> from the zshrc; <i class="term-tag">typical</i> settings sync, tasks, keybindings, Remote/WSL, C++/Python/Bazel extensions</p></div>
+        <div><b>git</b><p>worktrees under <code>~/gt/&lt;repo&gt;/crew/&lt;branch&gt;</code>, global ignore, pull with rebase, <code>diff3</code> conflicts, gh as credential helper</p></div>
+        <div><b>Docker</b><p><code>dk</code>, <code>dkc</code>, <code>dkps</code> aliases and the docker plugin; GPU containers on Jetson in the aerospace years</p></div>
+        <div><b>Obsidian <i class="term-tag">typical</i></b><p>daily driver for notes: the HackingNotebook vault, markdown in git</p></div>
+        <div><b>xclip</b><p>tmux copy mode and mouse drags pipe to the system clipboard</p></div>
+        <div><b>nvidia-smi</b><p><code>tmux-metrics</code> appends GPU % to the status bar when a GPU is present</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<dialog class="dive" id="dive-dotfiles" aria-labelledby="dive-dotfiles-t">
+  <div class="dive-frame">
+    <div class="dive-head"><b>Toolkit 01</b><span>dotfiles · stack &amp; install</span><button class="dive-close" type="button" aria-label="Close">✕</button></div>
+    <div class="dive-body">
+      <h3 id="dive-dotfiles-t">One repo, one command, every machine</h3>
+      <div class="term-table-wrap">
+        <table class="term-table">
+          <thead><tr><th>Layer</th><th>Tool</th><th>How it is used</th></tr></thead>
+          <tbody>
+            <tr><td>Terminal</td><td>kitty</td><td>borderless, 90% opacity, Ubuntu Sans Mono 13, 100k scrollback, theme loaded by include</td></tr>
+            <tr><td>Shell</td><td>zsh + Oh My Zsh</td><td>plugins git, z, docker, kubectl, fzf, tmuxinator; zsh-autosuggestions and zsh-syntax-highlighting as submodules; 100k shared history with dedup and timestamps</td></tr>
+            <tr><td>Prompt</td><td>Starship</td><td>directory, git branch/status, language runtimes (python, node, rust, go, java), kubernetes and docker context, command duration</td></tr>
+            <tr><td>Multiplexer</td><td>tmux + TPM</td><td>vi copy mode to clipboard, Alt+arrows pane navigation, Alt+1..9 windows, Alt+v / Alt+o splits in the current path, <code>prefix r</code> reload</td></tr>
+            <tr><td>Session launcher</td><td>tmuxinator</td><td>project layouts in YAML (<code>mux</code>); the <code>Town.yml</code> layout opens the Git worktree tree <code>~/gt/&lt;repo&gt;/crew/&lt;branch&gt;</code></td></tr>
+            <tr><td>Fuzzy finder</td><td>fzf + fd + bat + delta</td><td>fd as default command (hidden files, no .git), Ctrl-T with bat preview, Ctrl-R history, Ctrl-/ toggles preview; colours and symbols come from the active theme</td></tr>
+            <tr><td>Editor</td><td>VS Code</td><td><code>EDITOR</code> and <code>VISUAL</code> are <code>code --wait</code> when available (nano otherwise), <code>editrc</code> opens the zshrc; settings sync, tasks, keybindings, Remote/WSL and C++/Python/Bazel extensions are the usual setup <i class="term-tag">typical</i></td></tr>
+            <tr><td>Version control</td><td>git + delta</td><td>worktrees under <code>~/gt/&lt;repo&gt;/crew/&lt;branch&gt;</code> (one tmux window each), <code>~/.gitignore_global</code>, delta as pager (side by side, line numbers), <code>pull.rebase</code>, <code>diff3</code> conflicts, <code>gh</code> as credential helper</td></tr>
+            <tr><td>Search</td><td>ripgrep</td><td>text search next to fd's file search in large C++ trees <i class="term-tag">typical</i></td></tr>
+            <tr><td>Containers</td><td>Docker</td><td><code>dk</code>, <code>dkc</code>, <code>dkps</code>, <code>dki</code> aliases and the Oh My Zsh docker plugin</td></tr>
+            <tr><td>Notes</td><td>Obsidian</td><td>the HackingNotebook vault, markdown notes kept in git <i class="term-tag">typical</i></td></tr>
+            <tr><td>Clipboard</td><td>xclip</td><td><code>y</code> in vi copy mode and mouse drags pipe through <code>xclip -selection clipboard</code>; kitty also copies on select</td></tr>
+            <tr><td>GPU</td><td>nvidia-smi</td><td><code>tmux-metrics</code> queries <code>utilization.gpu</code> and appends <code>G:NN%</code> to the status line when a GPU is present</td></tr>
+            <tr><td>Installer</td><td>dotbot</td><td><code>install.conf.yaml</code> links everything into <code>~</code>, pulls submodules and installs tmux plugins; <code>test/validate.sh</code> checks the result</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="dive-grid">
+        <div>
+          <h4 class="term-h4">Install flow</h4>
+          <ol class="term-flow mono">
+            <li><span>01</span><div><b>git clone … &amp;&amp; ./install.sh</b> idempotent bootstrap, detects macOS / Linux and the package manager</div></li>
+            <li><span>02</span><div><b>git submodule update --init --recursive</b> Oh My Zsh plugins and TPM arrive as submodules</div></li>
+            <li><span>03</span><div><b>dotbot link</b> <code>~/.zshrc</code>, <code>~/.tmux.conf</code>, <code>~/.fzf.zsh</code>, <code>~/.config/starship.toml</code>, <code>~/.config/kitty/kitty.conf</code>, <code>~/.config/tmuxinator</code>, the themes folder and the four scripts into <code>~/.local/bin</code></div></li>
+            <li><span>04</span><div><b>tpm/bin/install_plugins</b> tmux-sensible and tmux-yank</div></li>
+            <li><span>05</span><div><b>test/validate.sh</b> checks that every link resolves</div></li>
+          </ol>
+        </div>
+        <div>
+          <h4 class="term-h4">Themes as data</h4>
+          <dl class="kv">
+            <dt>Switch</dt><dd>one variable, <code>DOTFILES_THEME</code>, picks kitty colours, Starship, tmux status, fzf colours and the prompt glyphs (<code>❯</code>, <code>◈</code>, <code>✦</code>)</dd>
+            <dt>Palettes</dt><dd>lavender (Catppuccin Mocha), rose (Rosé Pine), mint (Everforest), peach (Kanagawa Wave), gentle (terminal defaults)</dd>
+            <dt>Contract</dt><dd>each theme exports <code>THEME_*</code> variables that every script reads: <code>THEME_FZF_COLORS</code>, <code>THEME_EMOJI_SESSION_POINTER</code>, …</dd>
+            <dt>Status</dt><dd><code>tmux-metrics</code> (load, memory %, GPU % from nvidia-smi) and <code>tmux-net-stat</code> (up/down rate) feed the status line every 5 s</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="prose">
+        <p>Everything is symlinked, nothing copied: <b>git pull updates the machine</b>. History holds 100,000 entries, shared across panes and written immediately. <code>rm</code>, <code>cp</code> and <code>mv</code> are interactive by default. Repos live under <code>~/gt/&lt;repo&gt;/crew/&lt;branch&gt;</code> as Git worktrees, one tmux window per worktree.</p>
+        <p><b>ShellCheatsheet</b> is the paper companion: a one-page LaTeX cheat sheet of the shell tools above, published as PNG and PDF.</p>
+      </div>
+      <div class="links">
+        <a href="https://github.com/laiadlotape/dotfiles" target="_blank" rel="noopener">dotfiles on GitHub</a>
+        <a href="https://github.com/lotape6/ShellCheatsheet" target="_blank" rel="noopener">ShellCheatsheet</a>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="dive" id="dive-sessionizer" aria-labelledby="dive-sessionizer-t">
+  <div class="dive-frame">
+    <div class="dive-head"><b>Toolkit 02</b><span>sessionizer · projects · flux-capacitor</span><button class="dive-close" type="button" aria-label="Close">✕</button></div>
+    <div class="dive-body">
+      <h3 id="dive-sessionizer-t">One keystroke between sessions</h3>
+      <div class="dive-grid">
+        <figure class="term-figure">
+          <img src="assets/img/flux.gif" alt="Animated demo of flux-capacitor: a fuzzy session picker in a terminal switching between tmux sessions" width="800" height="450" loading="lazy">
+          <figcaption class="mono">flux-capacitor demo GIF, the predecessor of today's sessionizer</figcaption>
+        </figure>
+        <div>
+          <dl class="kv">
+            <dt>Alt+q</dt><dd><b>tmux-sessionizer</b>: a tmux popup (87% wide, 73–80% tall depending on the window height) runs fzf over <code>tmux list-sessions</code>. Each row: name, window count, attached marker, age, current path.</dd>
+            <dt>Preview</dt><dd>right pane, 80% width: <code>tmux capture-pane -p -e -J -S -</code>, the full scrollback of the session's pane with colours, following the bottom. PgUp/PgDn scroll it, Home/End jump, <code>?</code> and Alt+p toggle it, Alt+w cycles its position.</dd>
+            <dt>Enter</dt><dd>inside tmux: <code>switch-client</code>; outside: <code>exec tmux attach-session</code>. Outside tmux it is a zsh widget so fzf gets a TTY.</dd>
+            <dt>Alt+w</dt><dd><b>tmux-projects</b>: fzf over tmuxinator YAMLs. Running projects show a live pane capture, the others their YAML through bat. Alt+o toggles preview mode, Alt+e edits the config and offers a restart.</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="prose">
+        <p><b>flux-capacitor</b> came first: a Back-to-the-Future flavoured tmux session manager, inspired by sesh. <code>flux connect &lt;dir&gt;</code> warps into a session rooted at a directory and re-attaches if one exists; <code>-p</code> runs a command in every new pane, <code>-P</code> after the session ends, <code>-e</code> auto-loads an env file, <code>-f</code> forces a fresh session. <code>flux launch</code> builds a workspace from a <code>.flux.yml</code>. It has GitHub Actions integration tests (basic and daily).</p>
+        <p>The sessionizer in the dotfiles is its successor: fewer features, one script, theme-aware symbols and colours, and the same promise that moving between projects costs one keystroke.</p>
+      </div>
+      <div class="links">
+        <a href="https://github.com/lotape6/flux-capacitor" target="_blank" rel="noopener">flux-capacitor on GitHub</a>
+        <a href="https://github.com/laiadlotape/dotfiles/blob/main/scripts/tmux-sessionizer" target="_blank" rel="noopener">tmux-sessionizer source</a>
+      </div>
+    </div>
+  </div>
+</dialog>

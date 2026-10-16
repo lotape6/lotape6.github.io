@@ -1,0 +1,8 @@
+.papers-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; max-width: 56rem; }
+.papers-item .panel-body { display: grid; gap: .5rem; }
+.papers-item h3 { font-size: var(--step-2); }
+.papers-authors { color: var(--fg-2); }
+.papers-authors b { color: var(--fg); font-weight: 600; }
+.papers-venue { color: var(--mute); font-style: italic; font-size: .92rem; }
+.papers-abs { color: var(--fg-2); max-width: 44rem; }
+.papers-item .links { margin-top: .3rem; font-size: .86rem; }

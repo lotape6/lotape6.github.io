@@ -1,0 +1,184 @@
+<!-- css: chapters/auto.css  js: chapters/auto.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<section class="chapter" id="auto" data-atmo="auto" data-acc="am" data-hud="CH 03 · AUTOMOTIVE">
+  <div class="wrap">
+    <div class="chapter-head">
+      <p class="eyebrow"><span class="idx">03</span> Automotive · Bertrandt Group for BMW · Seville · Jul 2022 – May 2024</p>
+      <h2>The first part you touch</h2>
+      <p class="lede">Owner of the software for the flush door handles that extend on their own as you walk up to a Neue Klasse BMW: the iX3 and i3 released in 2025–2026.</p>
+      <div class="meta"><span><b>Role</b> Software developer · door-handle software</span><span><b>Stack</b> AUTOSAR C++ · CAN · LIN · SOME/IP · DLT · GTest</span></div>
+      <p class="chapter-note">Built from BMW's public press material and my CV. The bench and the signal board are original drawings of the public behaviour; no BMW design, signal catalogue or data appears here.</p>
+    </div>
+
+    <div class="auto-lab" data-reveal>
+      <!-- 1. the door in 3D -->
+      <div class="panel corner auto-stage" aria-labelledby="auto-stage-t">
+        <div class="panel-head"><b id="auto-stage-t">Door handle · 3D bench</b><span class="auto-stage-state mono" id="auto-stage-state">RETRACTED</span></div>
+        <div class="panel-body auto-stage-body">
+          <div class="auto-3d" id="auto-3d" tabindex="0" role="img" aria-label="3D model of a car door with a flush handle, its actuator, latch and wiring. Drag or use the arrow keys to orbit.">
+            <canvas class="auto-3d-canvas" id="auto-3d-canvas" aria-hidden="true"></canvas>
+            <p class="auto-3d-fallback mono" id="auto-3d-fallback" hidden>3D view unavailable here (WebGL or the Three.js library did not load). The signal board below still runs the same state machine.</p>
+            <div class="auto-3d-hud mono" aria-hidden="true"><span>drag · orbit</span><span id="auto-3d-hint">handle flush</span></div>
+            <div class="auto-3d-tools">
+              <button class="btn ghost auto-xray" type="button" id="auto-xray" aria-pressed="true">X-ray</button>
+            </div>
+          </div>
+
+          <div class="auto-walk">
+            <label class="auto-walk-label mono" for="auto-dist">Walk towards the car <span id="auto-dist-out" aria-live="off">10.0 m</span></label>
+            <div class="auto-walk-row">
+              <button class="btn ghost auto-step" type="button" id="auto-step-back" aria-label="Step back one metre">−</button>
+              <input class="auto-range" type="range" id="auto-dist" min="0" max="10" step="0.5" value="10" aria-label="Distance to the car in metres" aria-describedby="auto-walk-help">
+              <button class="btn ghost auto-step" type="button" id="auto-step-fwd" aria-label="Step one metre closer">+</button>
+            </div>
+            <p class="auto-walk-help mono" id="auto-walk-help">Far → near. Close to the car the key is detected and the handle extends.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. the state machine that drives both views -->
+      <div class="panel auto-fsm" aria-labelledby="auto-fsm-t">
+        <div class="panel-head"><b id="auto-fsm-t">State machine</b><span>drive it</span></div>
+        <div class="panel-body auto-fsm-body">
+          <ol class="auto-rail" id="auto-rail" aria-label="Handle states">
+            <li class="auto-node is-on" data-node="retracted"><span class="auto-node-i mono">S0</span>Retracted</li>
+            <li class="auto-node" data-node="key"><span class="auto-node-i mono">S1</span>Key detected</li>
+            <li class="auto-node" data-node="extended"><span class="auto-node-i mono">S2</span>Extended · lit</li>
+            <li class="auto-node" data-node="grasped"><span class="auto-node-i mono">S3</span>Grasped</li>
+            <li class="auto-node" data-node="open"><span class="auto-node-i mono">S4</span>Unlocked · open</li>
+            <li class="auto-node auto-node-branch" data-node="hold"><span class="auto-node-i mono">B1</span>Exit-warning hold</li>
+            <li class="auto-node auto-node-branch" data-node="mech"><span class="auto-node-i mono">B2</span>Mechanical redundancy</li>
+            <li class="auto-node auto-node-branch" data-node="crash"><span class="auto-node-i mono">B3</span>Crash-safe state</li>
+          </ol>
+          <div class="auto-note" id="auto-note" role="status" aria-live="polite">
+            <p class="auto-note-bus mono" id="auto-note-bus">LIN · sleep</p>
+            <p id="auto-note-text">Handle flush with the door. The handle controller sleeps and waits for a wake-up from the vehicle access function.</p>
+          </div>
+          <div class="auto-actions" id="auto-actions" aria-label="Transitions">
+            <button class="btn" type="button" data-act="approach">Walk up with the key</button>
+            <button class="btn ghost" type="button" data-act="cut">Cut all electrics</button>
+          </div>
+          <p class="auto-fsm-help mono">Buttons move the machine; the slider feeds the “key detected” transition. Generic behaviour only, from BMW’s public descriptions.</p>
+        </div>
+      </div>
+
+      <!-- 3. signal-flow board -->
+      <div class="panel auto-board" aria-labelledby="auto-board-t">
+        <div class="panel-head"><b id="auto-board-t">Signal flow</b><span id="auto-board-state" class="mono">S0 · retracted</span></div>
+        <div class="panel-body auto-board-body">
+          <svg class="auto-board-svg" id="auto-board-svg" viewBox="0 0 640 380" role="img" aria-labelledby="auto-board-title auto-board-desc" preserveAspectRatio="xMidYMid meet">
+            <title id="auto-board-title">Signal-flow board of the door-handle function</title>
+            <desc id="auto-board-desc">Generic nodes (digital key, vehicle access function, door handle controller, handle actuator, touch sensing, latch, exterior lighting, exit-warning sensor, crash signal, power supply) connected by CAN, LIN, discrete and mechanical links. The links carrying signals in the current state animate.</desc>
+          </svg>
+          <p class="auto-board-legend mono"><span><i class="auto-lg auto-lg-can"></i>CAN</span><span><i class="auto-lg auto-lg-lin"></i>LIN</span><span><i class="auto-lg auto-lg-dsc"></i>discrete</span><span><i class="auto-lg auto-lg-mec"></i>mechanical</span><span><i class="auto-lg auto-lg-rf"></i>radio</span></p>
+        </div>
+      </div>
+
+      <!-- 4. signals in play -->
+      <div class="panel auto-signals" aria-labelledby="auto-signals-t">
+        <div class="panel-head"><b id="auto-signals-t">Signals in play</b><span id="auto-signals-count" class="mono">0</span></div>
+        <div class="panel-body auto-signals-body">
+          <ul class="auto-signal-list" id="auto-signal-list" aria-live="polite" aria-relevant="additions text"></ul>
+          <p class="auto-signals-note mono">Generic shape of the problem. The real signal catalogue, names, timings and thresholds are BMW’s and confidential; nothing here is from it.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-2 auto-facts" data-reveal>
+      <div>
+        <p class="eyebrow">What I did</p>
+        <ul class="auto-list">
+          <li>Designed the software architecture for the extendable door handles of next-generation BMW vehicles, keeping system states, events and requirements traceable: the state machine above is the public shape of that work.</li>
+          <li>Automotive-critical C++ on AUTOSAR; requirement-driven development across the whole lifecycle.</li>
+          <li>Diagnosed integration issues from CAN, LIN, SOME/IP and DLT traces across interdependent components: the links on the signal board are where those traces come from.</li>
+          <li>Git-based integration, GTest/GMock unit tests, Scrum.</li>
+        </ul>
+        <div class="chips auto-chips"><span class="chip">AUTOSAR</span><span class="chip">C++</span><span class="chip">CAN</span><span class="chip">LIN</span><span class="chip">SOME/IP</span><span class="chip">DLT</span><span class="chip">GTest / GMock</span><span class="chip">Scrum</span></div>
+      </div>
+      <div>
+        <p class="eyebrow">The product, in BMW’s words</p>
+        <ul class="auto-list auto-quotes">
+          <li>“The door handles are integrated flush into the doors and extend automatically when the standard BMW Digital Key approaches.” <a href="https://www.press.bmwgroup.com/usa/article/attachment/T0452316EN_US/637548" target="_blank" rel="noopener">BMW iX3 press kit, Sep 2025</a></li>
+          <li>“When the BMW Digital Key Plus is near, the flush-mounted door handles automatically extend.” <a href="https://www.press.bmwgroup.com/global/article/detail/T0456164EN/the-new-bmw-i3-second-model-of-the-neue-klasse" target="_blank" rel="noopener">BMW i3, Mar 2026</a></li>
+          <li>“The assessors confirmed that the electrically operated handles worked reliably after all the crash tests”, with “a mechanical redundancy” for exit “even in the event of all the electrical systems failing”. <a href="https://www.press.bmwgroup.com/global/article/detail/T0459155EN/" target="_blank" rel="noopener">Euro NCAP five stars, Jul 2026</a></li>
+        </ul>
+        <div class="auto-dives">
+          <button class="btn" type="button" data-dive="dive-handle">How the handle thinks</button>
+          <button class="btn ghost" type="button" data-dive="dive-neueklasse">Neue Klasse, by BMW</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<dialog class="dive" id="dive-handle" aria-labelledby="dive-handle-t">
+  <div class="dive-frame">
+    <div class="dive-head"><b>Dive 03.1</b><span>The handle state machine</span><button class="dive-close" type="button" aria-label="Close">✕</button></div>
+    <div class="dive-body">
+      <h3 id="dive-handle-t">A small part with a lot of states</h3>
+      <div class="dive-grid">
+        <div>
+          <dl class="kv">
+            <dt>Client</dt><dd>BMW Group, through Bertrandt Group (Seville)</dd>
+            <dt>Period</dt><dd>July 2022 – May 2024</dd>
+            <dt>Target</dt><dd>Neue Klasse cars with extendable door handles: BMW iX3 (2025), BMW i3 (2026)</dd>
+            <dt>My part</dt><dd>Software architecture and development of the extendable door-handle software</dd>
+            <dt>Toolbox</dt><dd>AUTOSAR C++, CAN / LIN / SOME/IP / DLT traces, GTest &amp; GMock, Git, Scrum</dd>
+          </dl>
+          <div class="links">
+            <a href="https://www.press.bmwgroup.com/global/article/detail/T0448372EN" target="_blank" rel="noopener">“Four Superbrains for the Neue Klasse” · BMW</a>
+            <a href="https://www.bmwusa.com/vehicles/x-series/ix3/bmw-ix3/ix3-2025-na5-bev-exterior.html" target="_blank" rel="noopener">iX3 exterior · BMW USA</a>
+          </div>
+        </div>
+        <div class="auto-dive-fsm">
+          <ol class="auto-dive-steps">
+            <li><b>S0 Retracted</b> Flush. Low power; the handle controller waits for a wake-up from the vehicle access function.</li>
+            <li><b>S1 Key detected</b> The vehicle access function authenticates the digital key and asks the handle to extend. Vehicle-level signalling: CAN.</li>
+            <li><b>S2 Extended · lit</b> The actuator drives the handle out while its position sensor is monitored; the light strip comes on in darkness; the handle reports its state back. Local sensing and actuation in the door: LIN.</li>
+            <li><b>S3 Grasped</b> Capacitive sensing in the handle registers the grab and the handle raises an unlock request.</li>
+            <li><b>S4 Unlocked · open</b> The latch is released and the door reports ajar; the handle retracts once the door is closed and locked again.</li>
+            <li><b>B1 Exit-warning hold</b> If a road user is approaching, the exit warning holds the latch: the handle moves, the door doesn’t.</li>
+            <li><b>B2 Mechanical redundancy</b> With all electrics off, the handle can still be operated and a mechanical path to the latch opens the door.</li>
+            <li><b>B3 Crash-safe state</b> On a crash signal the function goes to its safe state: doors unlocked, handles reachable, and no automatic retraction until reset.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="prose">
+        <p><b>Why a state machine.</b> A handle that moves by itself has to be safe in every situation a car gets into: a dead battery, ice over the slot, a crash, a child pulling it while someone cycles past. The way to make that tractable is to name every state and every event explicitly, trace each transition back to a requirement, and test every transition in isolation with GTest and GMock before anything reaches a vehicle. That traceability, from requirement to state to test, was the backbone of my work.</p>
+        <p><b>Where the buses come in.</b> In general terms: vehicle-level decisions such as “the key is here, extend” travel over CAN from the access and body functions; sensing and actuation local to the door talk over LIN; richer service-based communication uses SOME/IP; and every component writes DLT logs. Most integration problems live between those layers, so most of my debugging was reading traces from all four side by side and finding the one message that arrived late, twice, or not at all. The X-ray view of the 3D door shows that layering physically: a controller, an actuator with its position sensor, a latch, and the harness between them.</p>
+        <p><b>The three branches.</b> The exit-warning hold, the mechanical redundancy and the crash-safe state are what make the part trustworthy. BMW reports that Euro NCAP confirmed the electrically operated handles kept working after all the crash tests and that a mechanical redundancy allows exit even if all electrical systems fail. The demo on this page shows the behaviour at the level BMW describes publicly; the real signal names, timings and thresholds are BMW’s and stay with them.</p>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="dive" id="dive-neueklasse" aria-labelledby="dive-neueklasse-t">
+  <div class="dive-frame">
+    <div class="dive-head"><b>Dive 03.2</b><span>Neue Klasse · BMW Group videos</span><button class="dive-close" type="button" aria-label="Close">✕</button></div>
+    <div class="dive-body">
+      <h3 id="dive-neueklasse-t">The cars the handles went into</h3>
+      <p class="auto-dive-note">These are BMW Group’s own videos, embedded from their official channel. They show the Neue Klasse programme; nothing in them is mine, except the pride of having a part in the door.</p>
+      <div class="grid-3 auto-videos">
+        <div class="video" data-yt="fWOx09Lvwg4" data-title="Neue Klasse documentary, Ep. 1 · BMW Group"></div>
+        <div class="video" data-yt="8amA1rK_m-8" data-title="Neue Klasse documentary, Ep. 3: design language · BMW Group"></div>
+        <div class="video" data-yt="GnsghaXyaTE" data-title="Neue Klasse deep dive: design · BMW Group"></div>
+      </div>
+      <div class="dive-grid">
+        <div>
+          <dl class="kv">
+            <dt>iX3</dt><dd>First Neue Klasse model, launched September 2025. Flush handles that extend when the BMW Digital Key approaches.</dd>
+            <dt>i3</dt><dd>Second Neue Klasse model, March 2026. “Retractable flush door handles that extend automatically.”</dd>
+            <dt>Safety</dt><dd>Euro NCAP five stars (July 2026); handles confirmed working after all crash tests.</dd>
+          </dl>
+        </div>
+        <div class="links">
+          <a href="https://www.press.bmwgroup.com/usa/article/attachment/T0452316EN_US/637548" target="_blank" rel="noopener">iX3 press kit · BMW Group</a>
+          <a href="https://www.press.bmwgroup.com/global/article/detail/T0456164EN/the-new-bmw-i3-second-model-of-the-neue-klasse" target="_blank" rel="noopener">The new BMW i3 · BMW Group</a>
+          <a href="https://www.press.bmwgroup.com/global/article/detail/T0459155EN/" target="_blank" rel="noopener">Euro NCAP result · BMW Group</a>
+          <a href="https://www.press.bmwgroup.com/global/article/detail/T0452379EN/" target="_blank" rel="noopener">Neue Klasse video page · BMW Group</a>
+        </div>
+      </div>
+      <div class="prose"><p>Press photos of the cars are licensed for press use only, so none are reproduced here; the door on this page is a generic model built from primitives, not a BMW part.</p></div>
+    </div>
+  </div>
+</dialog>

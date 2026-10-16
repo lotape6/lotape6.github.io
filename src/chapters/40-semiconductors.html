@@ -1,0 +1,162 @@
+<!-- css: chapters/semi.css  js: chapters/semi.js -->
+<section class="chapter" id="semi" data-atmo="semi" data-acc="mg" data-hud="CH 05 · SEMICONDUCTORS">
+  <div class="wrap">
+    <div class="chapter-head">
+      <p class="eyebrow"><span class="idx">05</span> Semiconductors · Alten Delivery Center Spain for ASML · Feb 2025 – now</p>
+      <h2>The ground under every subsystem</h2>
+      <p class="lede">Not one subsystem of the machine, but the build that all of them stand on: moving lithography-machine software from Makefiles to Bazel and clearing years of dependency debt on the way.</p>
+      <div class="meta"><span><b>Role</b> Software developer (remote)</span><span><b>Stack</b> C/C++ · Bazel · Make · Python</span><span><b>Also</b> AI Champion</span></div>
+      <p class="chapter-note">Built from ASML's public statements and my CV. Nothing here describes ASML's actual software, infrastructure or data; the puzzle is a generic illustration.</p>
+    </div>
+
+    <div class="semi-grid">
+      <div class="panel corner semi-lab" data-reveal>
+        <div class="panel-head"><b>Untangle the graph</b><span id="semi-state-label">Make world · implicit dependencies</span></div>
+        <div class="panel-body semi-lab-body">
+          <div class="semi-canvas-wrap">
+            <canvas id="semi-graph" role="img" aria-label="Dependency graph of about forty build targets. Make world: tangled edges with cycles. Bazel world: a layered directed acyclic graph with explicit edges."></canvas>
+            <div class="semi-legend mono" aria-hidden="true"><span><i class="semi-sw semi-sw-ok"></i>explicit edge</span><span><i class="semi-sw semi-sw-bad"></i>cycle / hidden dep</span></div>
+          </div>
+          <div class="semi-counters" role="status" aria-live="polite">
+            <div class="semi-counter"><span class="mono semi-counter-k">Cycles found</span><b id="semi-c-cycles" class="semi-counter-v">7</b></div>
+            <div class="semi-counter"><span class="mono semi-counter-k">Duplicated symbols</span><b id="semi-c-dups" class="semi-counter-v">12</b></div>
+            <div class="semi-counter"><span class="mono semi-counter-k">Reproducible build</span><b id="semi-c-repro" class="semi-counter-v semi-no">✗</b></div>
+          </div>
+          <div class="semi-actions">
+            <button class="btn" type="button" id="semi-toggle" aria-pressed="false">Migrate to Bazel
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <button class="btn ghost" type="button" data-dive="dive-bazel">Show me the files</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="semi-side">
+        <div class="panel" data-reveal>
+          <div class="panel-head"><b>Work log</b><span>infrastructure, not a subsystem</span></div>
+          <div class="panel-body">
+            <ul class="semi-log">
+              <li><b>Technical-debt assessment</b> of a large C/C++ codebase and its production libraries: circular dependencies, duplicated symbols, inconsistent dependency declarations.</li>
+              <li><b>Makefiles → Bazel</b> for large lithography-machine components: explicit dependencies, reproducible builds.</li>
+              <li><b>AI Champion</b>: evaluated tools and set up practical AI-assisted engineering workflows for developers.</li>
+              <li><b>Automation and verification tooling</b> that removed manual steps; better code review and engineering practice.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="panel" data-reveal>
+          <div class="panel-head"><b>Scale, in ASML's words</b><span>©ASML</span></div>
+          <div class="panel-body">
+            <dl class="semi-facts">
+              <div><dt class="mono">Software engineers</dt><dd>over 4,000</dd></div>
+              <div><dt class="mono">Embedded software</dt><dd>“millions of lines of code”</dd></div>
+              <div><dt class="mono">Parts per machine</dt><dd>around 100,000</dd></div>
+              <div><dt class="mono">EUV light</dt><dd>13.5 nm, tin plasma</dd></div>
+            </dl>
+            <div class="semi-side-actions">
+              <button class="btn ghost" type="button" data-dive="dive-euv">What the machine does</button>
+              <a class="mono semi-ext" href="https://bazelcon2024.sched.com/event/1h6Sn/" target="_blank" rel="noopener">BazelCon 2024: ASML's Bazel migration ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<dialog class="dive" id="dive-bazel" aria-labelledby="dive-bazel-t">
+  <div class="dive-frame">
+    <div class="dive-head"><b>Dive 04-A</b><span>Makefiles → Bazel</span><button class="dive-close" type="button" aria-label="Close">✕</button></div>
+    <div class="dive-body">
+      <h3 id="dive-bazel-t">Why move a machine's software off Make</h3>
+      <div class="prose">
+        <p>A Makefile describes <b>how</b> to build: recipes, include paths, link lines. What it does not describe is <b>what depends on what</b>. Over years, a large C/C++ tree accumulates include paths that reach into other components, libraries that link because they always have, and two copies of the same symbol that only one linker order resolves. The build works, but nobody can prove why, and a full rebuild is the only safe one.</p>
+        <p>Bazel inverts that. Every target declares its sources and its dependencies, and nothing else is visible to it. Hidden includes fail to compile. Circular dependencies fail to analyse. Duplicated symbols stop hiding behind link order. Once the graph is explicit it is also a DAG, so the build becomes incremental, cacheable and reproducible: the same inputs give the same outputs, on a laptop or a build farm.</p>
+        <p>My part was the unglamorous half: assessing the debt first (cycles, duplicated symbols, declarations that disagreed with reality), then migrating large lithography-machine components target by target, and writing the automation and verification tooling that kept the migration honest. The toy below shows the shape of the change, not ASML's code.</p>
+      </div>
+      <div class="semi-code">
+        <div class="panel">
+          <div class="panel-head"><b>Before</b><span>Makefile</span></div>
+          <pre class="semi-pre"><code># implicit: where does stage_ctl.h come from?
+CXXFLAGS += -I../common -I../../metrology/include
+LDLIBS   += -lmetrology -lcommon -lstage
+
+all: stage_ctl
+
+stage_ctl: stage_ctl.o servo.o
+	$(CXX) $^ $(LDLIBS) -o $@
+
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $&lt; -o $@
+
+# metrology/Makefile links -lstage back → cycle</code></pre>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><b>After</b><span>BUILD.bazel</span></div>
+          <pre class="semi-pre"><code># explicit: every input is a label
+cc_library(
+    name = "servo",
+    srcs = ["servo.cpp"],
+    hdrs = ["servo.h"],
+    deps = ["//common:math"],
+)
+
+cc_binary(
+    name = "stage_ctl",
+    srcs = ["stage_ctl.cpp"],
+    deps = [
+        ":servo",
+        "//metrology:interface",  # not //metrology:all
+    ],
+)
+# a dep back from //metrology to :servo is a build error</code></pre>
+        </div>
+      </div>
+      <div class="dive-grid">
+        <dl class="kv">
+          <dt>Employer</dt><dd>Alten Delivery Center Spain, working for ASML (remote)</dd>
+          <dt>Period</dt><dd>February 2025 – present</dd>
+          <dt>Scope</dt><dd>Build infrastructure of lithography-machine software; large C/C++ components</dd>
+          <dt>Tools</dt><dd>Bazel, GNU Make, C/C++, Python tooling, AI-assisted workflows</dd>
+        </dl>
+        <div>
+          <p class="semi-note">Public evidence that ASML is migrating to Bazel: a BazelCon 2024 talk by an ASML contractor described as “leading a migration to the Bazel build system”. I did not give that talk; it is linked here as context.</p>
+          <div class="links">
+            <a href="https://bazelcon2024.sched.com/event/1h6Sn/" target="_blank" rel="noopener">BazelCon 2024 · rules_variant (ASML)</a>
+            <a href="https://bazel.build/" target="_blank" rel="noopener">bazel.build</a>
+            <a href="https://www.asml.com/en/news/stories/2024/byte-sized-software-engineering" target="_blank" rel="noopener">ASML · software engineering at ASML</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="dive" id="dive-euv" aria-labelledby="dive-euv-t">
+  <div class="dive-frame">
+    <div class="dive-head"><b>Dive 04-B</b><span>The machine, in ASML's words</span><button class="dive-close" type="button" aria-label="Close">✕</button></div>
+    <div class="dive-body">
+      <h3 id="dive-euv-t">What an EUV scanner does, as ASML describes it</h3>
+      <div class="prose">
+        <p>All figures below are ASML's own public statements, quoted from asml.com. They are here to explain why the software's build infrastructure matters, not as claims about my work.</p>
+      </div>
+      <div class="dive-grid">
+        <dl class="kv">
+          <dt>Light</dt><dd>13.5 nm extreme ultraviolet, made by hitting tin droplets with a laser to form a plasma at about 500,000 K; mirrors instead of lenses.</dd>
+          <dt>Source</dt><dd>Tin droplets travelling at 70 m/s, hit 50,000 times per second.</dd>
+          <dt>Wafer stage</dt><dd>Positioned to a quarter of a nanometre, corrected 20,000 times a second.</dd>
+          <dt>Parts</dt><dd>Around 100,000 per machine; shipping one takes 40 freight containers, three cargo planes and 20 trucks.</dd>
+          <dt>Software</dt><dd>Over 4,000 software engineers; embedded software of “millions of lines of code” steers and controls the machines.</dd>
+          <dt>Product</dt><dd>TWINSCAN NXE:3800E: high-volume manufacturing for 2 nm logic.</dd>
+        </dl>
+        <div>
+          <p class="semi-note">ASML does not publish an exact line count, and neither does this page.</p>
+          <div class="links">
+            <a href="https://www.asml.com/en/discover/hot-machines" target="_blank" rel="noopener">ASML · Hot machines (EUV facts)</a>
+            <a href="https://www.asml.com/news/stories/2022/busting-asml-myths" target="_blank" rel="noopener">ASML · Busting ASML myths (parts, shipping)</a>
+            <a href="https://www.asml.com/en/news/stories/2024/byte-sized-software-engineering" target="_blank" rel="noopener">ASML · Byte-sized software engineering</a>
+            <a href="https://asml.com/en/products/euv-lithography-systems/twinscan-nxe-3800e" target="_blank" rel="noopener">ASML · TWINSCAN NXE:3800E</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</dialog>

@@ -1,0 +1,287 @@
+<!-- css: chapters/aero.css  js: chapters/aero.js -->
+<section class="chapter" id="aero" data-atmo="aero" data-acc="cy" data-hud="CH 02 · AEROSPACE">
+  <div class="wrap">
+    <div class="chapter-head">
+      <p class="eyebrow"><span class="idx">02</span> Aerospace · FADA-CATEC · Jun 2019 – Jul 2022</p>
+      <h2>Teaching drones to see</h2>
+      <p class="lede">Three years turning research drones into machines that fly a mission on their own: see a target, decide, intercept, land. Six projects, three papers, one competition organised.</p>
+      <div class="meta"><span><b>Role</b> Robotics engineer · Software developer</span><span><b>Stack</b> C++ · Python · ROS · OpenCV · Jetson</span><span><b>Where</b> Seville, Spain</span></div>
+      <p class="chapter-note">Built from the projects' public pages, the published papers and the videos CATEC and partners released.</p>
+    </div>
+
+    <div class="aero-deck" data-reveal>
+      <figure class="aero-scope-wrap panel corner" aria-labelledby="aero-scope-cap">
+        <div class="panel-head"><b>Radar scope</b><span>Six contacts · Jun 2019 → Jul 2022</span></div>
+        <div class="aero-scope" id="aero-scope">
+          <svg class="aero-scope-svg" viewBox="0 0 400 400" aria-hidden="true" focusable="false">
+            <defs>
+              <linearGradient id="aero-sweep-g" gradientUnits="userSpaceOnUse" x1="200" y1="200" x2="200" y2="0">
+                <stop offset="0" stop-color="currentColor" stop-opacity=".0"/>
+                <stop offset="1" stop-color="currentColor" stop-opacity=".9"/>
+              </linearGradient>
+              <radialGradient id="aero-glow-g">
+                <stop offset="0" stop-color="currentColor" stop-opacity=".18"/>
+                <stop offset="1" stop-color="currentColor" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <circle cx="200" cy="200" r="190" fill="url(#aero-glow-g)"/>
+            <g class="aero-rings" fill="none" stroke="currentColor" stroke-width="1">
+              <circle cx="200" cy="200" r="190" opacity=".55"/>
+              <circle cx="200" cy="200" r="142" opacity=".28"/>
+              <circle cx="200" cy="200" r="95" opacity=".28"/>
+              <circle cx="200" cy="200" r="47" opacity=".28"/>
+              <path d="M200 10V390M10 200H390" opacity=".22"/>
+              <path d="M65.6 65.6L334.4 334.4M334.4 65.6L65.6 334.4" opacity=".12"/>
+            </g>
+            <g class="aero-ticks" fill="currentColor" font-size="9" font-family="JetBrains Mono, monospace" opacity=".7">
+              <text x="200" y="26" text-anchor="middle">2019</text>
+              <text x="378" y="203" text-anchor="end">2020</text>
+              <text x="200" y="384" text-anchor="middle">2021</text>
+              <text x="22" y="203" text-anchor="start">2022</text>
+            </g>
+            <g class="aero-sweep" id="aero-sweep">
+              <path d="M200 200 L200 10 A190 190 0 0 0 112.5 31.5 Z" fill="url(#aero-sweep-g)" opacity=".55"/>
+              <path d="M200 200 L200 10" stroke="currentColor" stroke-width="1.5" opacity=".95"/>
+            </g>
+          </svg>
+          <div class="aero-blips" id="aero-blips">
+            <button type="button" class="aero-blip" data-dive="dive-mbzirc" data-m="2019-06" data-r=".72" data-cs="MBZIRC 2020" data-role="Software developer · computer vision" data-when="Jun 2019 – Feb 2020" aria-label="MBZIRC 2020: software developer, computer vision. Open mission"><i></i><span>01</span></button>
+            <button type="button" class="aero-blip" data-dive="dive-gaviota" data-m="2020-02" data-r=".78" data-cs="GAVIOTA / VIGIA" data-role="Software developer · audio and vision detection" data-when="Feb 2020 – Apr 2021" aria-label="GAVIOTA / VIGIA: software developer. Open mission"><i></i><span>02</span></button>
+            <button type="button" class="aero-blip" data-dive="dive-metrics" data-m="2020-12" data-r=".62" data-cs="METRICS / RAMI" data-role="Organiser and evaluator" data-when="Dec 2020 – Jan 2022" aria-label="METRICS / RAMI: organiser and evaluator. Open mission"><i></i><span>03</span></button>
+            <button type="button" class="aero-blip" data-dive="dive-delorean" data-m="2021-04" data-r=".40" data-cs="DELOREAN" data-role="Software developer · EGNSS urban flights" data-when="Apr 2021 – Jun 2021" aria-label="DELOREAN: software developer. Open mission"><i></i><span>04</span></button>
+            <button type="button" class="aero-blip" data-dive="dive-assistance" data-m="2021-06" data-r=".84" data-cs="ASSISTANCE" data-role="Software developer → project manager" data-when="Jun 2021 – Jul 2022" aria-label="ASSISTANCE: software developer, then project manager. Open mission"><i></i><span>05</span></button>
+            <button type="button" class="aero-blip" data-dive="dive-5g" data-m="2021-08" data-r=".58" data-cs="PILOTO 5G ANDALUCÍA" data-role="Software developer · swarm streaming over 5G" data-when="Aug 2021 – Oct 2021" aria-label="Piloto 5G Andalucía: software developer. Open mission"><i></i><span>06</span></button>
+          </div>
+        </div>
+        <figcaption class="aero-readout mono" id="aero-readout" aria-live="polite">
+          <span class="aero-ro-k">CONTACT</span><span class="aero-ro-cs" id="aero-ro-cs">— hover or focus a blip —</span>
+          <span class="aero-ro-k">ROLE</span><span id="aero-ro-role">six missions, one blip per project start</span>
+          <span class="aero-ro-k">WINDOW</span><span id="aero-ro-when">Jun 2019 – Jul 2022</span>
+        </figcaption>
+        <p id="aero-scope-cap" class="sr-only">Radar scope with six mission contacts placed by start date. Select a contact to open its mission panel.</p>
+      </figure>
+
+      <div class="aero-side">
+        <div class="panel aero-log">
+          <div class="panel-head"><b>Mission log</b><span>select to dive in</span></div>
+          <ol class="aero-log-list">
+            <li><button type="button" data-dive="dive-mbzirc" data-blip="dive-mbzirc"><span class="mono aero-log-n">01</span><span class="aero-log-cs">MBZIRC 2020 <small>Abu Dhabi</small></span><span class="mono aero-log-when">Jun 19 – Feb 20</span></button></li>
+            <li><button type="button" data-dive="dive-gaviota" data-blip="dive-gaviota"><span class="mono aero-log-n">02</span><span class="aero-log-cs">GAVIOTA / VIGIA <small>ground-to-air safety</small></span><span class="mono aero-log-when">Feb 20 – Apr 21</span></button></li>
+            <li><button type="button" data-dive="dive-metrics" data-blip="dive-metrics"><span class="mono aero-log-n">03</span><span class="aero-log-cs">METRICS / RAMI <small>H2020 · IROS 2021</small></span><span class="mono aero-log-when">Dec 20 – Jan 22</span></button></li>
+            <li><button type="button" data-dive="dive-delorean" data-blip="dive-delorean"><span class="mono aero-log-n">04</span><span class="aero-log-cs">DELOREAN <small>H2020 · EGNSS</small></span><span class="mono aero-log-when">Apr 21 – Jun 21</span></button></li>
+            <li><button type="button" data-dive="dive-assistance" data-blip="dive-assistance"><span class="mono aero-log-n">05</span><span class="aero-log-cs">ASSISTANCE <small>H2020 · 19 partners</small></span><span class="mono aero-log-when">Jun 21 – Jul 22</span></button></li>
+            <li><button type="button" data-dive="dive-5g" data-blip="dive-5g"><span class="mono aero-log-n">06</span><span class="aero-log-cs">Piloto 5G Andalucía <small>Red.es · Vodafone</small></span><span class="mono aero-log-when">Aug 21 – Oct 21</span></button></li>
+          </ol>
+        </div>
+
+        <div class="panel aero-stack">
+          <div class="panel-head"><b>Hardware &amp; stack</b><span>on board</span></div>
+          <div class="panel-body">
+            <div class="chips">
+              <span class="chip">Jetson TX2</span><span class="chip">Xavier NX</span><span class="chip">Raspberry Pi</span><span class="chip">Intel NUC</span><span class="chip">Linux for Tegra</span>
+              <span class="chip">ROS</span><span class="chip">OpenCV · C++ / Python</span><span class="chip">PCL</span><span class="chip">Darknet / YOLO</span><span class="chip">Docker + GPU</span><span class="chip">GStreamer · RTSP / RTP / SRT</span>
+            </div>
+            <p class="aero-note">Three papers came out of this period (<a href="#dive-mbzirc" data-dive="dive-mbzirc">ICUAS 2020</a>, <a href="#dive-gaviota" data-dive="dive-gaviota">Electronics 2020</a>, <a href="#dive-assistance" data-dive="dive-assistance">SSRR 2021</a>). Most of the code lived on CATEC's private Git server, so GitHub shows little of it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<dialog class="dive" id="dive-mbzirc" aria-labelledby="dive-mbzirc-t">
+  <div class="dive-frame">
+    <div class="dive-head"><b>Mission 01</b><span>MBZIRC 2020 · Abu Dhabi</span><button class="dive-close" type="button" aria-label="Close">✕</button></div>
+    <div class="dive-body">
+      <h3 id="dive-mbzirc-t">Catching a drone with a drone</h3>
+      <div class="dive-grid">
+        <div class="aero-videos">
+          <div class="video" data-yt="zAnWRs0QPc4" data-title="MBZIRC 2020 competition · FADA-CATEC"></div>
+          <div class="video" data-yt="RYYms1P1BIg" data-title="MBZIRC 2020 team promo · ISR Lisboa"></div>
+        </div>
+        <div>
+          <dl class="kv">
+            <dt>Role</dt><dd>Software developer, computer vision</dd>
+            <dt>When</dt><dd>Jun 2019 – Feb 2020</dd>
+            <dt>Partners</dt><dd>FADA-CATEC team, with ISR Lisboa; Mohamed Bin Zayed International Robotics Challenge, Abu Dhabi</dd>
+            <dt>Paper</dt><dd>Ruiz García, Caballero, González, Viguria, Ollero. “Autonomous drone with ability to track and capture an aerial target”. ICUAS 2020, pp. 32–40.</dd>
+          </dl>
+          <div class="links">
+            <a href="https://doi.org/10.1109/ICUAS48674.2020.9213883" target="_blank" rel="noopener">DOI 10.1109/ICUAS48674.2020.9213883</a>
+            <a href="https://www.youtube.com/watch?v=zAnWRs0QPc4" target="_blank" rel="noopener">Video on YouTube</a>
+          </div>
+        </div>
+      </div>
+      <div class="prose">
+        <p>My first mission at FADA-CATEC was the vision stack for the competition: detect an aerial target from a moving drone, keep it in frame, feed its position to the guidance loop so the interceptor could track and capture it on its own. The work ran on NVIDIA Jetson boards under ROS with OpenCV and Darknet/YOLO.</p>
+        <p>The tracking-and-capture pipeline was written up afterwards for ICUAS 2020, the first of three papers from this period.</p>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="dive" id="dive-gaviota" aria-labelledby="dive-gaviota-t">
+  <div class="dive-frame">
+    <div class="dive-head"><b>Mission 02</b><span>GAVIOTA / VIGIA · ground-to-air safety</span><button class="dive-close" type="button" aria-label="Close">✕</button></div>
+    <div class="dive-body">
+      <h3 id="dive-gaviota-t">Hearing aircraft before you see them</h3>
+      <div class="dive-grid">
+        <div class="aero-videos">
+          <div class="video" data-yt="6M2dLYKjCXI" data-title="VIGIA · AERTEC's detect-and-avoid demo from the same programme"></div>
+          <p class="aero-vnote mono">VIGIA is AERTEC's sister project in the same family; the video is theirs, not CATEC's.</p>
+        </div>
+        <div>
+          <dl class="kv">
+            <dt>Role</dt><dd>Software developer</dd>
+            <dt>When</dt><dd>Feb 2020 – Apr 2021</dd>
+            <dt>Partners</dt><dd>GAVIOTA: FADA-CATEC with PildoLabs. VIGIA: AERTEC's detect-and-avoid system in the same family.</dd>
+            <dt>Paper</dt><dd>Mariscal-Harana, Alarcón, González, Calvente, Pérez-Grau, Viguria, Ollero. “Audio-Based Aircraft Detection System for Safe RPAS BVLOS Operations”. Electronics 9(12):2076, 2020. Open access.</dd>
+          </dl>
+          <div class="links">
+            <a href="https://www.mdpi.com/2079-9292/9/12/2076" target="_blank" rel="noopener">Read on MDPI (open access)</a>
+            <a href="https://doi.org/10.3390/electronics9122076" target="_blank" rel="noopener">DOI 10.3390/electronics9122076</a>
+          </div>
+        </div>
+      </div>
+      <div class="prose">
+        <p>GAVIOTA built ground-to-air solutions so that drones can fly low-altitude operations beyond visual line of sight without surprising manned aircraft. My part was software on the detection side: sensing approaching aircraft and turning that into something the drone's operation could act on.</p>
+        <p>The audio-based aircraft detection system from the project was published open access in <em>Electronics</em> in December 2020.</p>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="dive" id="dive-metrics" aria-labelledby="dive-metrics-t">
+  <div class="dive-frame">
+    <div class="dive-head"><b>Mission 03</b><span>METRICS / RAMI · H2020 871252</span><button class="dive-close" type="button" aria-label="Close">✕</button></div>
+    <div class="dive-body">
+      <h3 id="dive-metrics-t">Running the competition instead of flying it</h3>
+      <div class="dive-grid">
+        <div class="panel aero-facts">
+          <div class="panel-head"><b>No video</b><span>facts on file</span></div>
+          <div class="panel-body">
+            <dl class="kv">
+              <dt>Programme</dt><dd>METRICS, Horizon 2020 grant 871252</dd>
+              <dt>Campaign</dt><dd>RAMI: Robotics for Asset Maintenance and Inspection</dd>
+              <dt>Event</dt><dd>1st RAMI Cascade Campaign for aerial robots, run with IROS 2021</dd>
+              <dt>Sector</dt><dd>Aerial robots for inspection and maintenance</dd>
+            </dl>
+          </div>
+        </div>
+        <div>
+          <dl class="kv">
+            <dt>Role</dt><dd>Organiser and evaluator</dd>
+            <dt>When</dt><dd>Dec 2020 – Jan 2022</dd>
+            <dt>Funding</dt><dd>EU Horizon 2020, grant 871252</dd>
+            <dt>Paper</dt><dd>None</dd>
+          </dl>
+          <div class="links">
+            <a href="https://cordis.europa.eu/project/id/871252" target="_blank" rel="noopener">Project on CORDIS</a>
+          </div>
+        </div>
+      </div>
+      <div class="prose">
+        <p>METRICS is an EU project that organises robotics competitions as a way of benchmarking the state of the art. Within it, RAMI covers aerial robots for asset maintenance and inspection. I was on the organising side: helping set up and evaluate the first RAMI cascade campaign for aerial robots, run alongside IROS 2021.</p>
+        <p>After competing in MBZIRC, writing the rules and scoring other teams was a useful change of seat.</p>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="dive" id="dive-delorean" aria-labelledby="dive-delorean-t">
+  <div class="dive-frame">
+    <div class="dive-head"><b>Mission 04</b><span>DELOREAN · H2020 870251</span><button class="dive-close" type="button" aria-label="Close">✕</button></div>
+    <div class="dive-body">
+      <h3 id="dive-delorean-t">Drones and EGNSS in the city</h3>
+      <div class="dive-grid">
+        <div class="aero-videos">
+          <div class="video" data-yt="NxC_7h8xo_A" data-title="DELOREAN · Benidorm flight tests (infodron.es)" data-pending="confirm"></div>
+          <p class="aero-vnote mono">Third-party footage of the Benidorm tests; CATEC is not named in it.</p>
+        </div>
+        <div>
+          <dl class="kv">
+            <dt>Role</dt><dd>Software developer</dd>
+            <dt>When</dt><dd>Apr 2021 – Jun 2021</dd>
+            <dt>Funding</dt><dd>EU Horizon 2020, grant 870251</dd>
+            <dt>Paper</dt><dd>None</dd>
+          </dl>
+          <div class="links">
+            <a href="https://cordis.europa.eu/project/id/870251" target="_blank" rel="noopener">Project on CORDIS</a>
+          </div>
+        </div>
+      </div>
+      <div class="prose">
+        <p>DELOREAN looked at drones and European GNSS (Galileo and EGNOS) for low-airspace urban mobility: how a drone can navigate reliably between buildings where satellite positioning degrades. A short but dense stint of software work on the flight side.</p>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="dive" id="dive-assistance" aria-labelledby="dive-assistance-t">
+  <div class="dive-frame">
+    <div class="dive-head"><b>Mission 05</b><span>ASSISTANCE · H2020 832576</span><button class="dive-close" type="button" aria-label="Close">✕</button></div>
+    <div class="dive-body">
+      <h3 id="dive-assistance-t">Drones for first responders</h3>
+      <div class="dive-grid">
+        <div class="aero-videos aero-videos-2x2">
+          <div class="video" data-yt="_mxQwBx6l0c" data-title="ASSISTANCE · project video (2020)"></div>
+          <div class="video" data-yt="PQQH8Z-VyXQ" data-title="ASSISTANCE · UAV integration and gas/smoke sensing (Jun 2021)"></div>
+          <div class="video" data-yt="8JxTLiy9tN8" data-title="ASSISTANCE · Pilot 2, Rotterdam (2022)"></div>
+          <div class="video" data-yt="Ux7T0L8sqtI" data-title="ASSISTANCE · Pilot 3, Linares (Jun 2022)"></div>
+        </div>
+        <div>
+          <dl class="kv">
+            <dt>Role</dt><dd>Software developer, then project manager from Nov 2021</dd>
+            <dt>When</dt><dd>Jun 2021 – Jul 2022</dd>
+            <dt>Partners</dt><dd>19 partners in 8 countries, coordinated by UPV. CATEC organised the final pilot in Linares, 17 Jun 2022.</dd>
+            <dt>Funding</dt><dd>EU Horizon 2020, grant 832576</dd>
+            <dt>Paper</dt><dd>González, Caballero, Pérez-Grau, Viguria. “Vision-based UAV Detection for Air-to-Air Neutralization”. IEEE SSRR 2021. First author.</dd>
+          </dl>
+          <div class="links">
+            <a href="https://assistance-project.eu/" target="_blank" rel="noopener">assistance-project.eu</a>
+            <a href="https://doi.org/10.1109/SSRR53300.2021.9597861" target="_blank" rel="noopener">DOI 10.1109/SSRR53300.2021.9597861</a>
+            <a href="https://zenodo.org/record/6519998" target="_blank" rel="noopener">Open access on Zenodo</a>
+            <a href="https://assistance-project.eu/2022/06/30/succesful-final-pilot-demonstration-in-linares/index.html" target="_blank" rel="noopener">Final pilot, Linares (photos)</a>
+          </div>
+        </div>
+      </div>
+      <div class="prose">
+        <p>ASSISTANCE put drones and sensors in the hands of first responders: UAVs that fly into a disaster area, sense gas and smoke and stream what they see back to the command post. CATEC, the main Spanish research centre for civil RPAS/UAS in the consortium, brought the aerial side. I started as a software developer on the UAV integration and, from November 2021, managed CATEC's part of the project through to the final pilot in Linares in June 2022.</p>
+        <p>The vision-based UAV detection work for air-to-air neutralisation, my first-author paper, was presented at IEEE SSRR 2021 and is open access on Zenodo.</p>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="dive" id="dive-5g" aria-labelledby="dive-5g-t">
+  <div class="dive-frame">
+    <div class="dive-head"><b>Mission 06</b><span>Piloto 5G Andalucía · Red.es / Vodafone</span><button class="dive-close" type="button" aria-label="Close">✕</button></div>
+    <div class="dive-body">
+      <h3 id="dive-5g-t">A swarm on the 5G network</h3>
+      <div class="dive-grid">
+        <div class="panel aero-facts">
+          <div class="panel-head"><b>No video</b><span>facts on file</span></div>
+          <div class="panel-body">
+            <dl class="kv">
+              <dt>Programme</dt><dd>Piloto 5G Andalucía, a Red.es and Vodafone pilot</dd>
+              <dt>Use case</dt><dd>A swarm of drones streaming video over 5G</dd>
+              <dt>Streaming</dt><dd>GStreamer pipelines over RTSP, RTP and SRT</dd>
+              <dt>Compute</dt><dd>Jetson boards and Raspberry Pi on board</dd>
+            </dl>
+          </div>
+        </div>
+        <div>
+          <dl class="kv">
+            <dt>Role</dt><dd>Software developer</dd>
+            <dt>When</dt><dd>Aug 2021 – Oct 2021</dd>
+            <dt>Partners</dt><dd>Red.es, Vodafone</dd>
+            <dt>Paper</dt><dd>None</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="prose">
+        <p>A short pilot inside the Andalusian 5G programme: several drones flying together and streaming their cameras over the mobile network at once. My work was the on-board software and the video pipelines that kept the streams flowing from the swarm to the ground.</p>
+      </div>
+    </div>
+  </div>
+</dialog>

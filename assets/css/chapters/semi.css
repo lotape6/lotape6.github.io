@@ -1,0 +1,36 @@
+/* Semiconductors chapter: the "untangle the graph" lab and its side panels. */
+.semi-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 1.2rem; align-items: start; }
+@media (max-width: 900px) { .semi-grid { grid-template-columns: minmax(0, 1fr); } }
+.semi-side { display: grid; gap: 1.2rem; min-width: 0; }
+.semi-lab-body { display: grid; gap: 1rem; }
+.semi-canvas-wrap { position: relative; width: 100%; min-width: 0; border: 1px solid var(--line); border-radius: 6px; background: color-mix(in srgb, var(--bg) 70%, transparent); overflow: hidden; }
+#semi-graph { display: block; width: 100%; height: 360px; }
+@media (max-width: 640px) { #semi-graph { height: 300px; } }
+.semi-legend { position: absolute; left: .7rem; bottom: .5rem; display: flex; gap: 1rem; font-size: .64rem; letter-spacing: .08em; text-transform: uppercase; color: var(--mute); }
+.semi-legend span { display: inline-flex; align-items: center; gap: .4rem; }
+.semi-sw { width: 14px; height: 2px; display: inline-block; }
+.semi-sw-ok { background: var(--acc); }
+.semi-sw-bad { background: var(--fg-2); opacity: .5; }
+.semi-counters { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .6rem; }
+@media (max-width: 480px) { .semi-counters { grid-template-columns: minmax(0, 1fr); } }
+.semi-counter { border: 1px solid var(--line); border-radius: 6px; padding: .55rem .8rem; display: grid; gap: .15rem; min-width: 0; }
+.semi-counter-k { font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; color: var(--mute); }
+.semi-counter-v { font-family: var(--f-mono); font-size: var(--step-2); font-weight: 500; color: var(--fg); line-height: 1.1; font-variant-numeric: tabular-nums; transition: color .4s; }
+.semi-counter-v.semi-no { color: var(--fg-2); }
+.semi-counter-v.semi-ok { color: var(--acc); }
+.semi-actions { display: flex; flex-wrap: wrap; gap: .5rem; }
+.semi-log { margin: 0; padding: 0; list-style: none; display: grid; gap: .7rem; color: var(--fg-2); font-size: .92rem; line-height: 1.5; }
+.semi-log li { padding-left: 1rem; position: relative; }
+.semi-log li::before { content: ""; position: absolute; left: 0; top: .6em; width: 6px; height: 6px; background: var(--acc); rotate: 45deg; }
+.semi-log b { color: var(--fg); font-weight: 600; }
+.semi-facts { margin: 0; display: grid; gap: .5rem; }
+.semi-facts > div { display: flex; justify-content: space-between; gap: .8rem; align-items: baseline; border-bottom: 1px solid var(--line); padding-bottom: .4rem; min-width: 0; }
+.semi-facts dt { font-size: .64rem; letter-spacing: .12em; text-transform: uppercase; color: var(--mute); }
+.semi-facts dd { margin: 0; color: var(--fg); font-family: var(--f-display); font-size: var(--step-0); text-align: right; }
+.semi-side-actions { display: grid; gap: .6rem; margin-top: .9rem; justify-items: start; }
+.semi-ext { font-size: .7rem; letter-spacing: .06em; text-transform: uppercase; }
+.semi-code { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+@media (max-width: 760px) { .semi-code { grid-template-columns: minmax(0, 1fr); } }
+.semi-pre { margin: 0; padding: .9rem 1rem; overflow-x: auto; font-family: var(--f-mono); font-size: .76rem; line-height: 1.55; color: var(--fg-2); tab-size: 4; }
+.semi-pre code { font-family: inherit; }
+.semi-note { color: var(--fg-2); font-size: .9rem; margin-bottom: .8rem; }
